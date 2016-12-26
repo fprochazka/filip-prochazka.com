@@ -1,0 +1,73 @@
+==================================================================
+https://keybase.io/fprochazka
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of https://filip-prochazka.com
+  * I am fprochazka (https://keybase.io/fprochazka) on keybase.
+  * I have a public key with fingerprint 2D51 7E80 0F70 8C00 D9EE  1683 7EB2 C006 27B9 7BDA
+
+To do so, I am signing this object:
+
+{
+    "body": {
+        "key": {
+            "eldest_kid": "01018346f17a631dc54963c5fb4c5a927510dbf491e131d785384342c580586a14470a",
+            "fingerprint": "2d517e800f708c00d9ee16837eb2c00627b97bda",
+            "host": "keybase.io",
+            "key_id": "7eb2c00627b97bda",
+            "kid": "01018346f17a631dc54963c5fb4c5a927510dbf491e131d785384342c580586a14470a",
+            "uid": "be2cf682f03eb0e79e6273362f79cf19",
+            "username": "fprochazka"
+        },
+        "service": {
+            "hostname": "filip-prochazka.com",
+            "protocol": "https:"
+        },
+        "type": "web_service_binding",
+        "version": 1
+    },
+    "ctime": 1482176022,
+    "expire_in": 157680000,
+    "prev": "21354dd94d61f6444d38aa908a445406ddd619e912691351c5b62cd56b3a7a0d",
+    "seqno": 4,
+    "tag": "signature"
+}
+
+which yields the signature:
+
+-----BEGIN PGP MESSAGE-----
+Version: GnuPG v1
+
+owGtkm1QVGUUx5d18YVACNaYcMeZrjA4uov3/WUnQcgWlIqXKYbGarsvz4Xbwr3b
+3QVhN9IJlkLGCSQppDSbWgeGEaIAxXJJK5rF6W0USbOJCUcZh5UMUKYhu5fJPvWx
+T8+c8/zO//yf85yWuBUGY9Sr/SMr00/5L0eNTXOG0lIyxQ9xilAL2f2QCywfoEIA
+Hq/TJQmQHYIRGKExnBQRiiUxROAJnCExnhA5nCdYBqUIBBY4EWcQgGjXFE1gNI7h
+KE/QMEGTLILjFMxCVkiU5DKgulVJ9mqyqEAgFKBhWKRgmodhgQEAIWmMAhyqhSRK
+cQzFCXphueLRKzRzHOsBGZKi5bTAuWzvP/j/2XfVshwHUF4kaVSEMcDBgGKA1hLD
+SFSkGF5EGB30AFVmK4FGi25V4ctZn4uF6qyQlq+WeKCPVn/LfUaqkNy2f8EMXqnU
+RLTYq/BKhQaUe71uj10X8Na69Yo9gHP+o+XkJFnQBqpVVAPVIykyZEc0kvdKujiC
+0yhCkTCKWiFQ45ZU4JR0gqBIbeQwrPcB1RCr/QOCEbggMLhAIiKJ47iA0SzLwDSL
+4wQOk4KgXTCAQVCS0VCEJzgS5QWC5DCWYmEB0p/3sqxAdlzzyZZpNj1Smcx6q1QA
+1cU0GS0mQ5TRsDLaqK+aIWZNwv39a38gfslyZbc5UJDUco2/E6dcPNIonzmrxtSE
+/H/96Msym9tC0FJmTU5qVYk1khNbOuX4ejL6Rufv5yoKi9ekTJucNn+mLXHtweSp
+E/Omb/Lrf25doQxtg+Ye/mXqWPN220yuMao55WRbyt6yuWlQstbaWnC8eHTTB9si
+qu/t7PBxKqvKyezcZ0maeiy4OHu4ZvS7wdP3euf734nJwaalR662RSLZ7pGFF+KL
+TOjmF3vpYai/8uJirz06Ln7P9o17jRtuPzpNvPlSl9EQLICGt5Tf/CzjwNNHAq9j
+eWRfa19u2Y6EEfuq34YcbxW+kurbsc/ZPzjx6QSLWfdv2U8PzM3ebtp4a3Pt0FM9
+3cr5ulVL6bWNvocOrja9azx6N/HsjTz754HY0JMJwY6SxFjL9XnrsQvPp3UdCqu+
+TeualMeTubjJxUa6JOmJ5A/Dn/y00JmdcsBGnzgaMC3MXd0Zeb/lfER6Jq/r5MTc
+F+zgofHJLP61ngHTuMGV7tiV33l5ZDiUkVvdMP7tR92j6fdUP5LqmC/xWVzgwQvx
+DafMN59941JgvRxXZIz80KcG1aFf2898bGnuvtue/971olCDWWk4fWXG3Xt4dsqx
+a503Oi1T3Dq7Va6/FJr53lZ8bX3sOUxI+3N1fuEYF6g2z/aFx/J6NvCOjg7rree6
+6QFr8Mv6ut3hr+Q7f/wN
+=DhSl
+-----END PGP MESSAGE-----
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/fprochazka
+
+==================================================================
