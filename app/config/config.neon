@@ -1,17 +1,22 @@
 parameters:
 	varDir: %appDir%/../var
 	logDir: %varDir%/log
+	srcDir: %appDir%/../src
 
 
 application:
 	errorPresenter: Error
 	mapping:
-		*: App\*Module\Presenters\*Presenter
+		*: Fp\*Module\Presenters\*Presenter
+	scanDirs:
+		- %srcDir%/Presenters
 
 
 session:
 	expiration: 14 days
 
 
-services:
-	router: App\RouterFactory::createRouter
+decorator:
+	Fp\Presenters\BasePresenter:
+		setup:
+			- $appDir(%appDir%)
