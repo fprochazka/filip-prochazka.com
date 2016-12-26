@@ -1,4 +1,6 @@
 parameters:
+	varDir: %appDir%/../var
+	logDir: %varDir%/log
 
 
 application:
