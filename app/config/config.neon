@@ -24,3 +24,7 @@ decorator:
 	Fp\Presenters\BasePresenter:
 		setup:
 			- $appDir(%appDir%)
+
+
+includes:
+	- services.neon

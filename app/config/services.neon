@@ -1,0 +1,3 @@
+services:
+    - Fp\RouterFactory(%productionMode%)
+    router: @Fp\RouterFactory::createRouter()
