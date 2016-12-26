@@ -12,6 +12,10 @@ application:
 		- %srcDir%/Presenters
 
 
+di:
+	debugger: off
+
+
 session:
 	expiration: 14 days
 
