@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<title>{block titleOuter|stripHtml|trim}{capture $title}{block title}{/block}{/capture}{if $title}{$title} - {/if}Filip Procházka{/block}</title>
+
+	{block og}
+	{default
+		$type = 'website',
+		$locale = 'cs_CZ',
+		$image => "$baseUrl/img/selfi.jpg",
+		$description => "Jmenuji se Filip Procházka a jsem programátor. Programuji především weby a webové aplikace v PHP."
+	}
+	<meta property="og:site_name" content="Filip Procházka"/>
+	<meta property="og:title" content="{include titleOuter|stripHtml}"/>
+	<meta property="og:type" content="{$type}"/>
+	<meta property="og:url" content="{plink //this}"/>
+	<meta property="og:locale" content="{$locale}">
+	<meta property="fb:profile_id" content="1634280910">
+	<meta property="og:description" content="{$description}" n:ifset="$description">
+	<meta property="og:image" content="{$image}" n:ifset="$image">
+	{/block}
+
+	{block twitter}
+	{default
+		$type = 'summary',
+		$image => "$baseUrl/img/selfi.jpg",
+		$description => "Jmenuji se Filip Procházka a jsem programátor. Programuji především weby a webové aplikace v PHP."
+	}
+	<meta name="twitter:card" content="summary">
+	<meta name="twitter:url" content="{plink //this}">
+	<meta name="twitter:title" content="{include titleOuter|stripHtml}">
+	<meta name="twitter:image" content="{$image}" n:ifset="$image">
+	<meta name="twitter:description" content="{$description}" n:ifset="$description">
+	<meta name="twitter:creator" content="@prochazkafilip">
+	{/block}
+	<meta name=”twitter:site” content=”@prochazkafilip”>
+
+	<link rel="author" href="{$basePath}/humans.txt" type="text/plain"/>
+	<link rel="author" href="https://plus.google.com/103239456693574460264"/>
+	<meta name="description" content="{$description}" n:ifset="$description">
+
+	{foreach $faviconMetas as $meta}
+	{$meta}
+	{/foreach}
+
+	<link href="{$basePath}/dist/styles.css?{$wwwDir . '/dist/styles.css'|filectime}" rel="stylesheet">
+
+	{if $productionMode}
+	<script>
+		{syntax off}window.ga = window.ga || function (){(ga.q=ga.q||[]).push(arguments)};{/syntax}
+		ga.l = +new Date;
+		ga('create', {$googleAnalyticsAccount}, 'auto');
+		ga('send', 'pageview');
+	</script>
+	<script async defer src='https://www.google-analytics.com/analytics.js'></script>
+	{/if}
+	<script src="{$basePath}/dist/app.js?{$wwwDir . '/dist/app.js'|filectime}" async defer></script>
+</head>
+
+<body>
+
+<div class="container">
+
+	<div class="header clearfix">
+		<h3 class="text-muted name float-lg-left">
+			<a n:href="Static:profile" rel="author">Filip Procházka</a>
+		</h3>
+		<span class="hidden"><a href="https://plus.google.com/103239456693574460264" rel="publisher">Filip Procházka</a></span>
+		<span class="hidden"><a href="https://plus.google.com/103239456693574460264" rel="author">Filip Procházka</a></span>
+
+		<nav>
+			<ul class="nav nav-pills float-lg-right">
+				<li class="nav-item">
+					<a class="nav-link" href="{plink Static:profile}">O&nbsp;mně</a>
+					{*<a class="nav-link active" href="#">Home <span class="sr-only">(current)</span></a>*}
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="{plink Static:cv}">CV</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="{plink Static:job}">Pracovně</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="{plink Static:openSource}">Open&nbsp;source</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="{plink Static:talks}">Přednášky</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="{plink Blog:}">Blog</a>
+				</li>
+			</ul>
+		</nav>
+	</div>
+
+	<div class="alert alert-{$flash->type}" n:foreach="$flashes as $flash">
+		{$flash->message}
+	</div>
+
+	{include content}
+</div>
+</body>
+</html>

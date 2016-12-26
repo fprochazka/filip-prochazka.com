@@ -1,0 +1,35 @@
+{block og}
+{include parent,
+	type => 'video.other',
+	image => "https://img.youtube.com/vi/CzsyXM935GM/hqdefault.jpg",
+	description => "Kdyby/Redis je balíček, který poskytuje integraci PECLového rozšíření phpredis jako cachovací vrstvu pro Nette Framework"}
+	<meta property="og:video:url" content="https://www.youtube.com/watch?v=CzsyXM935GM"/>
+{/block}
+
+{block content}
+
+<div>
+	<div class="row">
+		<div class="col-sm-10 offset-sm-1 talks">
+			<h2 n:block="title">Kdyby/Redis #posobota</h2>
+
+			<p><a href="https://packagist.org/packages/kdyby/redis">Kdyby/Redis</a> je balíček,
+				který poskytuje integraci PECLového rozšíření <a href="https://github.com/nicolasff/phpredis">phpredis</a> jako cachovací vrstvu pro Nette Framework</p>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-sm-9 offset-sm-1 talks">
+			<div class="embed-responsive embed-responsive-16by9">
+				<iframe class="embed-responsive-item" src="//www.youtube.com/embed/CzsyXM935GM" frameborder="0" allowfullscreen></iframe>
+			</div>
+		</div>
+	</div>
+
+</div>
+
+<div class="row" n:if="$productionMode">
+	<div class="col-sm-10 offset-sm-1">
+		{control comments, filip-prochazka-blog}
+	</div>
+</div>

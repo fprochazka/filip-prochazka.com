@@ -1,0 +1,42 @@
+{block og}
+{include parent,
+	type => 'video.other',
+	image => "https://img.youtube.com/vi/y04Ky8ifk7U/hqdefault.jpg",
+	description => "Jak psát unit a integrační testy pomocí nástroje Nette\Tester, jak mockovat závislosti pomocí Mockery a jak psát selenium testy pomocí Codeception."}
+	<meta property="og:video:url" content="https://www.youtube.com/watch?v=y04Ky8ifk7U"/>
+{/block}
+
+{block content}
+
+<div>
+	<div class="row">
+		<div class="col-sm-10 offset-sm-1 talks">
+			<h2 n:block="title">Testování Prakticky #phpLive</h2>
+
+			<p>V Ostravě jsem povídal o tom, jak psát unit testy s nástrojem Nette\Tester.
+				Proč a jak mockovat pomocí nástroje Mockery.
+				Jak si rozšířit Nette\Tester pro snadné psaní integračních testů pro typické třídy v Nette Frameworku, například presentery a komponenty.
+				A o tom, jak pomocí codeception snadno psát Selenium testy.
+			</p>
+
+			<p>
+				Pokud by na slidy nebylo dobře vidět z videa, můžete si je prohlédnout <a href="http://www.slideshare.net/HosipLan/testovn-prakticky">na slideshare</a>.
+			</p>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-sm-9 offset-sm-1 talks">
+			<div class="embed-responsive embed-responsive-16by9">
+				<iframe class="embed-responsive-item" src="//www.youtube.com/embed/y04Ky8ifk7U" frameborder="0" allowfullscreen></iframe>
+			</div>
+		</div>
+	</div>
+
+</div>
+
+<div class="row" n:if="$productionMode">
+	<div class="col-sm-10 offset-sm-1">
+		{control comments, filip-prochazka-blog}
+	</div>
+</div>

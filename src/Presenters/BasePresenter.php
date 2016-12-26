@@ -13,12 +13,43 @@ abstract class BasePresenter extends Presenter
 	/** @var string */
 	public $appDir;
 
+	/** @var string */
+	public $wwwDir;
+
+	/** @var bool */
+	public $productionMode;
+
+	/** @var string */
+	public $googleAnalyticsAccount;
+
+	/** @var \Fp\FaviconsLoader @inject */
+	public $faviconsLoader;
+
 	protected function startup()
 	{
 		parent::startup();
 		if ($this->appDir === null) {
 			throw new \Exception('%appDir% was not provided');
 		}
+	}
+
+	protected function beforeRender()
+	{
+		parent::beforeRender();
+
+		$this->template->wwwDir = $this->wwwDir;
+		$this->template->productionMode = $this->productionMode;
+
+		$this->template->googleAnalyticsAccount = $this->googleAnalyticsAccount;
+		$this->template->faviconMetas = $this->faviconsLoader->getMetadata();
+	}
+
+	protected function createTemplate()
+	{
+		/** @var \Nette\Bridges\ApplicationLatte\Template $template */
+		$template = parent::createTemplate();
+		$template->getLatte()->addFilter('filectime', 'filectime');
+		return $template;
 	}
 
 	/**
