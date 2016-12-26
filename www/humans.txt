@@ -1,0 +1,11 @@
+/* TEAM */
+Programmer, Coder: Filip Procházka
+Contact: filip@prochazka.su
+Twitter: @ProchazkaFilip
+Location: Brno, Czech Republic.
+Google+: https://plus.google.com/103239456693574460264
+
+/* SITE */
+Standards: HTML5
+Languages: PHP, Javascript, Texy!
+Software: Nette Framework, Texy!, FSHL, Composer, jQuery, Twitter Bootstrap, PhpStorm
