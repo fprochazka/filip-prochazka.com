@@ -28,3 +28,4 @@ decorator:
 
 includes:
 	- services.neon
+	- config.local.neon
