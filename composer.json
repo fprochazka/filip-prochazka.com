@@ -23,5 +23,9 @@
 	"require-dev": {
 		"nette/tester": "^1.6"
 	},
-	"minimum-stability": "stable"
+	"autoload": {
+		"psr-4": {
+			"Fp\\": "src/"
+		}
+	}
 }
