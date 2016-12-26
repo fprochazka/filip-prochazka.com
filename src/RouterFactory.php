@@ -3,9 +3,11 @@
 namespace Fp;
 
 use Nette;
+use Nette\Application\Responses\RedirectResponse;
 use Nette\Application\Routers\RouteList;
 use Nette\Application\Routers\Route;
 use Nette\Http;
+use Nextras\Routing\StaticRouter;
 
 class RouterFactory
 {
@@ -22,7 +24,41 @@ class RouterFactory
 	{
 		$router = new RouteList();
 
-		$router[] = new Route('<presenter>[/<action>]', 'Homepage:default');
+		$router[] = new StaticRouter([
+			'Static:job' => 'job',
+			'Static:cv' => 'cv',
+			'Static:components' => 'components',
+			'Static:openSource' => 'open-source',
+			'Static:donation' => 'donation',
+			'Static:paidSupport' => 'paid-support',
+			'Static:talks' => 'talks',
+			'Blog:archive' => 'archive',
+			'Sitemap:default' => 'sitemap.xml',
+		]);
+		$router[] = new Route('talks/<talk>', 'Static:talk');
+
+		$router[] = new Route('tag/<tag>[.<rss rss>]', 'Blog:tag');
+		$router[] = new Route('blog/<slug>', 'Blog:article');
+		$router[] = new Route('blog[.<rss rss>]', 'Blog:default');
+		$router[] = new Route('/search/label/<tag>', ['presenter' => 'Blog', 'action' => 'tag'], Route::ONE_WAY);
+		$router[] = new Route('/feeds/posts/default', [
+			'presenter' => 'Blog',
+			'action' => 'default',
+			'rss' => 'rss'
+		], Route::ONE_WAY);
+
+		$router[] = new Route('/memes/<path .*>', function (string $path) {
+			return new RedirectResponse('http://hosiplan.com/memes/' . str_replace('%2F', '/', urlencode($path)));
+		});
+
+		$router[] = new Route('/content/adminer.tar.gz', function () {
+			return new RedirectResponse(
+				'https://github.com/fprochazka/adminer-colors/archive/master.tar.gz',
+				Http\IResponse::S301_MOVED_PERMANENTLY
+			);
+		});
+
+		$router[] = new Route('<presenter>[/<action>]', 'Static:profile');
 
 		return $router;
 	}
