@@ -2,6 +2,9 @@ services:
     - Fp\RouterFactory(%productionMode%)
     router: @Fp\RouterFactory::createRouter()
 
+    - Fp\Blog\Markdown\CustomMarkdown()
+    - Fp\Blog\BlogIndex(%blogDir%, "%tempDir%/content-cache")
+
     - Fp\FaviconsLoader(%wwwDir%)
 
     - Fp\Presenters\ErrorPresenter(%appDir%)

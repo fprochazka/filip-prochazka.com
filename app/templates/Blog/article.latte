@@ -1,0 +1,62 @@
+{block og}
+{include #parent, type => 'article', description => $article->description, image => ($article->images ? NULL : "$baseUrl/img/selfi.jpg")}
+	<meta property="article:published_time" content="{$article->publishedTime|date:'Y-m-d\TH:i'}">
+	<meta property="article:author" content="{plink //Static:profile}">
+	<meta property="article:tag" content="{$tag}" n:foreach="$article->tags as $tag">
+	<meta property="og:image" content="{$baseUrl}{$image[0]}" n:foreach="$article->images as $image">
+{/block}
+
+{block twitter}
+{include
+	#parent,
+	description => $article->description,
+	image => (($i = reset($article->images)) ? ($baseUrl . $i[0]) : "$baseUrl/img/selfi.jpg")
+}
+{/block}
+
+{block title}{$article->title}{/block}
+
+{block content}
+
+<div class="blog-article">
+
+	<article class="row article hentry" itemscope itemtype="http://schema.org/Article">
+		<div class="offset-xxl-2 col-xxl-8 offset-xl-1 col-xl-10 article-content">
+			<h1 itemprop="headline" class="entry-title display-2">
+				<a n:tag-if="$article->titleLink" href="{$article->titleLink}" itemprop="name">{$article->title}</a>
+			</h1>
+
+			<div class="article-info byline author vcard">
+				<a class="date" href="{plink Blog:article, $article->slug}" title="{$article->publishedTime|date:"j.m.Y"}">{$article->publishedTime|timeAgo}</a>
+				<span class="hidden" itemprop="dateCreated">{$article->publishedTime|date:DateTime::ISO8601}</span>
+				<span class="hidden" itemprop="datePublished">{$article->publishedTime|date:DateTime::ISO8601}</span>
+
+				{foreach $article->tags as $tag => $tagTitle}
+					<a class="article-tag" href="{plink Blog:tag, $tag}">{$tagTitle}</a>
+				{/foreach}
+			</div>
+
+			<div class="content entry-content" itemprop="articleBody">
+				{$articleContent}
+			</div>
+
+			<div class="pull-right social-share">
+				<span class="title">Please share</span>
+				<a href="{$tweetShareLink}" class="btn btn-social-icon btn-twitter"><span class="fa fa-twitter"></span></a>
+				<a href="{$facebookShareLink}" class="btn btn-social-icon btn-facebook"><span class="fa fa-facebook"></span></a>
+				<a href="{$gplusShareLink}" class="btn btn-social-icon btn-google"><span class="fa fa-google"></span></a>
+			</div>
+
+			<p>
+				<small>Autor: <a href="https://plus.google.com/{$gplusAccountId}?rel=author" itemprop="author"><span class="fn">Filip Procházka</span></a></small>
+			</p>
+		</div>
+	</article>
+
+	<div class="row">
+		<div class="offset-xxl-2 col-xxl-8 offset-xl-1 col-xl-10">
+			{include ../_disqus.latte, disqusShortname => $disqusShortname}
+		</div>
+	</div>
+
+</div>

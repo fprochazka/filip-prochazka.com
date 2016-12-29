@@ -10,6 +10,7 @@
     "babel-preset-es2015": "^6.18.0",
     "bootstrap": "4.0.0-alpha.5",
     "bootstrap-loader": "1.0.8",
+    "bootstrap-social": "^5.1.1",
     "css-loader": "^0.26.1",
     "exports-loader": "^0.6.3",
     "expose-loader": "^0.7.1",

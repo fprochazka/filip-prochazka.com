@@ -2,6 +2,7 @@
 
 namespace Fp;
 
+use Kdyby\StrictObjects\Scream;
 use Nette;
 use Nette\Application\Responses\RedirectResponse;
 use Nette\Application\Routers\RouteList;
@@ -11,6 +12,7 @@ use Nextras\Routing\StaticRouter;
 
 class RouterFactory
 {
+	use Scream;
 
 	/** @var bool */
 	private $productionMode;

@@ -18,7 +18,9 @@
 		"latte/latte": "^2.4",
 		"tracy/tracy": "^2.4",
 		"nextras/static-router": "^1.1",
-		"kdyby/strict-objects": "^1.0"
+		"kdyby/strict-objects": "^1.0",
+		"erusev/parsedown-extra": "^0.7.1",
+		"tovic/parsedown-extra-plugin": "@dev"
 	},
 	"require-dev": {
 		"nette/tester": "^1.6"
@@ -27,5 +29,26 @@
 		"psr-4": {
 			"Fp\\": "src/"
 		}
-	}
+	},
+	"repositories": [
+		{
+			"type": "package",
+			"package": {
+				"name": "tovic/parsedown-extra-plugin",
+				"version": "dev-master",
+				"dist": {
+					"type": "zip",
+					"url": "https://github.com/tovic/parsedown-extra-plugin/archive/master.zip"
+				},
+				"source": {
+					"type": "git",
+					"url": "https://github.com/tovic/parsedown-extra-plugin.git",
+					"reference": "master"
+				},
+				"autoload": {
+					"classmap": ["ParsedownExtraPlugin.php"]
+				}
+			}
+		}
+	]
 }

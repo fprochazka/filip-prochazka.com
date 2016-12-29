@@ -690,12 +690,23 @@ bootstrap-loader@1.0.8:
     semver "^5.0.3"
     strip-json-comments "^1.0.4"
 
+bootstrap-social@^5.1.1:
+  version "5.1.1"
+  resolved "https://registry.yarnpkg.com/bootstrap-social/-/bootstrap-social-5.1.1.tgz#7530c678adf56cf8fad3fa82c29d4d3e5d027501"
+  dependencies:
+    bootstrap "~3"
+    font-awesome "~4.7"
+
 bootstrap@4.0.0-alpha.5:
   version "4.0.0-alpha.5"
   resolved "https://registry.yarnpkg.com/bootstrap/-/bootstrap-4.0.0-alpha.5.tgz#a126b648c3bd2f52b8fad4bbc5e2d0ad2abf7064"
   dependencies:
     jquery "1.9.1 - 3"
     tether "^1.3.7"
+
+bootstrap@~3:
+  version "3.3.7"
+  resolved "https://registry.yarnpkg.com/bootstrap/-/bootstrap-3.3.7.tgz#5a389394549f23330875a3b150656574f8a9eb71"
 
 brace-expansion@^1.0.0:
   version "1.1.6"
@@ -1602,7 +1613,7 @@ font-awesome-loader@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/font-awesome-loader/-/font-awesome-loader-1.0.1.tgz#881a433fa5e7e82923791fac5c39411614a97bff"
 
-font-awesome@^4.7.0:
+font-awesome@^4.7.0, font-awesome@~4.7:
   version "4.7.0"
   resolved "https://registry.yarnpkg.com/font-awesome/-/font-awesome-4.7.0.tgz#8fa8cf0411a1a31afd07b06d2902bb9fc815a133"
 

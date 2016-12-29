@@ -1,0 +1,25 @@
+{block #head}<link rel="alternate" type="application/rss+xml" title="{include #title|stripTags} - Filip Procházka" href="{link //this, rss => rss}">{/block}
+
+{block #content}
+
+<div class="blog-articles">
+
+	<div class="row">
+		<h1 n:block="#title" class="motto col-xs-12 col-lg-11 offset-lg-1">
+			<a n:href="this, rss => rss" class="rss hidden-sm-down"><img src="{$basePath}/img/rss.png"></a>
+			Blog: Co se nevešlo na Twitter
+		</h1>
+	</div>
+
+	{foreach $articles as $article}
+		{include _articleInList.latte, article => $article}
+	{/foreach}
+
+
+	<div class="row more-articles">
+		<div class="col-lg-10 offset-lg-2">
+			<a n:href="Blog:archive">Všechny články...</a>
+		</div>
+	</div>
+
+</div>

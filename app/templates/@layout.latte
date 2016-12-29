@@ -19,7 +19,7 @@
 	<meta property="og:type" content="{$type}"/>
 	<meta property="og:url" content="{plink //this}"/>
 	<meta property="og:locale" content="{$locale}">
-	<meta property="fb:profile_id" content="1634280910">
+	<meta property="fb:profile_id" content="{$facebookProfileId}">
 	<meta property="og:description" content="{$description}" n:ifset="$description">
 	<meta property="og:image" content="{$image}" n:ifset="$image">
 	{/block}
@@ -35,12 +35,12 @@
 	<meta name="twitter:title" content="{include titleOuter|stripHtml}">
 	<meta name="twitter:image" content="{$image}" n:ifset="$image">
 	<meta name="twitter:description" content="{$description}" n:ifset="$description">
-	<meta name="twitter:creator" content="@prochazkafilip">
+	<meta name="twitter:creator" content="@{$twitterHandle}">
 	{/block}
-	<meta name=”twitter:site” content=”@prochazkafilip”>
+	<meta name=”twitter:site” content=”@{$twitterHandle}”>
 
 	<link rel="author" href="{$basePath}/humans.txt" type="text/plain"/>
-	<link rel="author" href="https://plus.google.com/103239456693574460264"/>
+	<link rel="author" href="https://plus.google.com/{$gplusAccountId}"/>
 	<meta name="description" content="{$description}" n:ifset="$description">
 
 	{foreach $faviconMetas as $meta}
@@ -59,6 +59,7 @@
 	<script async defer src='https://www.google-analytics.com/analytics.js'></script>
 	{/if}
 	<script src="{$basePath}/dist/app.js?{$wwwDir . '/dist/app.js'|filectime}" async defer></script>
+	<script src="//platform.twitter.com/widgets.js" charset="utf-8" async defer></script>
 </head>
 
 <body>
@@ -69,29 +70,28 @@
 		<h3 class="text-muted name float-lg-left">
 			<a n:href="Static:profile" rel="author">Filip Procházka</a>
 		</h3>
-		<span class="hidden"><a href="https://plus.google.com/103239456693574460264" rel="publisher">Filip Procházka</a></span>
-		<span class="hidden"><a href="https://plus.google.com/103239456693574460264" rel="author">Filip Procházka</a></span>
+		<span class="hidden"><a href="https://plus.google.com/{$gplusAccountId}" rel="publisher">Filip Procházka</a></span>
+		<span class="hidden"><a href="https://plus.google.com/{$gplusAccountId}" rel="author">Filip Procházka</a></span>
 
 		<nav>
 			<ul class="nav nav-pills float-lg-right">
 				<li class="nav-item">
-					<a class="nav-link" href="{plink Static:profile}">O&nbsp;mně</a>
-					{*<a class="nav-link active" href="#">Home <span class="sr-only">(current)</span></a>*}
+					<a n:class="nav-link, $presenter->isLinkCurrent('Static:profile')?active" href="{plink Static:profile}">O&nbsp;mně</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link" href="{plink Static:cv}">CV</a>
+					<a n:class="nav-link, $presenter->isLinkCurrent('Static:cv')?active" href="{plink Static:cv}">CV</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link" href="{plink Static:job}">Pracovně</a>
+					<a n:class="nav-link, $presenter->isLinkCurrent('Static:job')?active" href="{plink Static:job}">Pracovně</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link" href="{plink Static:openSource}">Open&nbsp;source</a>
+					<a n:class="nav-link, ($presenter->isLinkCurrent('Static:openSource') || $presenter->isLinkCurrent('Static:paidSupport') || $presenter->isLinkCurrent('Static:donation'))?active" href="{plink Static:openSource}">Open&nbsp;source</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link" href="{plink Static:talks}">Přednášky</a>
+					<a n:class="nav-link, ($presenter->isLinkCurrent('Static:talks') || $presenter->isLinkCurrent('Static:talk'))?active" href="{plink Static:talks}">Přednášky</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link" href="{plink Blog:}">Blog</a>
+					<a n:class="nav-link, $presenter->isLinkCurrent('Blog:*')?active" href="{plink Blog:}">Blog</a>
 				</li>
 			</ul>
 		</nav>

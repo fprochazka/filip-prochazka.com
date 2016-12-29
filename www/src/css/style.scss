@@ -1,9 +1,21 @@
-@import "./bootstrap.scss";
-@import "./font-awesone.scss";
+@import './bootstrap.scss';
+@import './font-awesone.scss';
+
+$green-light:  #126608 !default;
+$green-dark:   #0a3a05 !default;
+
+a, a:hover, a:link, a:focus, a:visited {
+  color: $green-light;
+}
+
+a:hover {
+  color: $green-dark;
+}
 
 .container {
   width: 94%;
   max-width: 94%;
+  padding-bottom: 4rem;
 }
 
 .header {
@@ -45,21 +57,24 @@
     width: 1354px;
     max-width: 100%;
   }
+
+  .offset-xxl-2 {
+    margin-left: percentage(2 / $grid-columns);
+  }
+  .col-xxl-8 {
+    flex: 0 0 percentage(8 / $grid-columns);
+    max-width: percentage(8 / $grid-columns);
+    padding-right: 15px;
+    padding-left: 15px;
+    position: relative;
+    min-height: 1px;
+    width: 100%;
+  }
 }
 
-// custom styles
-/* Space out content a bit */
 body {
   padding-top: 1.5rem;
   padding-bottom: 1.5rem;
-}
-
-a, a:hover, a:link, a:focus, a:visited {
-  color: #126608;
-}
-
-a:hover {
-  color: #0a3a05;
 }
 
 .header {
@@ -83,9 +98,23 @@ a:hover {
   }
 
   .nav-pills {
-    .nav-link {
+    a.nav-link {
       background-color: $gray-lightest;
+
+      &.active,
+      &:hover {
+        background-color: $green-dark;
+        color: $gray-lightest;
+      }
     }
+  }
+}
+
+@media screen and (min-width: map-get($grid-breakpoints, sm)) {
+  .header {
+    padding-right: 0;
+    padding-left: 0;
+    margin-bottom: 2rem;
   }
 }
 
@@ -108,6 +137,7 @@ a:hover {
 .talks {
   font-size: 1.4rem;
   line-height: 1.5;
+  text-align: justify;
 }
 
 .profile {
@@ -162,10 +192,183 @@ a:hover {
   }
 }
 
+a.rss {
+  float: right;
+  margin: 0 4% 0 0;
+}
+
+@media screen and (min-width: map-get($grid-breakpoints, md)) {
+  a.rss {
+    margin-right: 6%;
+    margin-top: -3px;
+  }
+}
+
 @media screen and (min-width: map-get($grid-breakpoints, sm)) {
-  .header {
-    padding-right: 0;
-    padding-left: 0;
-    margin-bottom: 2rem;
+  a.rss {
+    margin-right: 10px;
+    margin-top: 0;
+
+    img {
+      max-height: 36px;
+      max-width: 36px;
+    }
+  }
+}
+
+.article {
+  .article-tag:before {
+    content: '#';
+  }
+}
+
+.blog-articles {
+  .article {
+    position: relative;
+    margin-top: 20px;
+    margin-bottom: 20px;
+
+    .entry-title a {
+      color: $gray-dark;
+    }
+
+    .content {
+      text-align: justify;
+    }
+
+    .article-info {
+      text-align: right;
+
+      .date {
+        font-size: 1.3rem;
+      }
+
+      a.article-tag {
+        display: block;
+      }
+    }
+
+    .article-content {
+      padding-left: 20px;
+      padding-bottom: 10px;
+      min-height: 150px !important;
+
+    //  p,
+    //  li {
+    //    max-width: 870px;
+    //  }
+    //
+    //  img,
+    //  blockquote {
+    //    max-width: 700px;
+    //  }
+
+      .article-info {
+        display: block;
+        text-align: left;
+        margin-bottom: 15px;
+
+        .article-tag {
+          display: inline;
+        }
+      }
+
+    //  blockquote > p {
+    //    margin-bottom: 7px;
+    //  }
+    }
+
+    @media screen and (min-width: map-get($grid-breakpoints, lg)) {
+      .article-content {
+        border-left: 1px solid #a9a9a9;
+      }
+
+      .prettyprint {
+        width: 870px;
+      }
+    }
+
+    //.left-img {
+    //  float: left;
+    //  margin: 0 20px 10px 0;
+    //}
+    //
+    //.gist {
+    //  max-width: 888px;
+    //}
+  }
+}
+
+.blog-article {
+  .article {
+    position: relative;
+    margin-top: 20px;
+    margin-bottom: 40px;
+
+    .article-info {
+      margin-top: 0.5rem;
+    }
+
+    .content {
+      margin-top: 2rem;
+      text-align: justify;
+    }
+
+    h2, h3, h4 {
+      margin-top: 1.4rem;
+    }
+
+    @media screen and (min-width: map-get($grid-breakpoints, lg)) {
+      .content {
+        font-size: 120%;
+      }
+    }
+
+    code {
+      font-size: 1rem;
+    }
+
+    img {
+      max-width: 100%;
+    }
+  }
+}
+
+.archive {
+  h2 {
+    font-size: 1.4rem;
+    margin-top: 4px;
+    margin-bottom: 0;
+  }
+}
+
+blockquote.twitter-tweet {
+  background-color: rgb(255, 255, 255);
+  max-width: 520px;
+  overflow: hidden;
+  border: 1px solid rgb(225, 232, 237);
+  border-radius: 4px;
+  padding: 20px 20px 11.6px;
+  font: 16px/1.4 Helvetica, Roboto, "Segoe UI", Calibri, sans-serif;
+}
+
+.social-share {
+  margin-top: 10px;
+
+  .title {
+    display: inline-block;
+    padding-right: 5px;
+  }
+
+  @import './social.scss';
+
+  .btn-social-icon > :first-child {
+    font-size: 1.4em;
+  }
+}
+
+@media screen and (min-width: map-get($grid-breakpoints, md)) {
+  .social-share {
+    margin-top: 0;
   }
 }

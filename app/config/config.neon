@@ -2,6 +2,7 @@ parameters:
 	varDir: %appDir%/../var
 	logDir: %varDir%/log
 	srcDir: %appDir%/../src
+	blogDir: %appDir%/../blog
 
 	googleAnalytics:
 		account: UA-12182518-9
@@ -11,6 +12,16 @@ parameters:
 
 	paypal:
 		keyFile: %appDir%/config/paypal.key
+
+	twitter:
+		handle: ProchazkaFilip
+
+	gplus:
+		accountId: '103239456693574460264'
+
+	facebook:
+	    username: FilipProchazka
+	    profileId: '1634280910'
 
 
 application:
@@ -36,6 +47,11 @@ decorator:
 			- $wwwDir(%wwwDir%)
 			- $productionMode(%productionMode%)
 			- $googleAnalyticsAccount(%googleAnalytics.account%)
+			- $disqusShortname(%disqus.shortname%)
+			- $twitterHandle(%twitter.handle%)
+			- $gplusAccountId(%gplus.accountId%)
+			- $facebookUsername(%facebook.username%)
+			- $facebookProfileId(%facebook.profileId%)
 
 
 includes:
