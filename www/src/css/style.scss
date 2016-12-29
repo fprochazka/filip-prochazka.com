@@ -216,12 +216,6 @@ a.rss {
   }
 }
 
-.article {
-  .article-tag:before {
-    content: '#';
-  }
-}
-
 .blog-articles {
   .article {
     position: relative;
@@ -230,10 +224,6 @@ a.rss {
 
     .entry-title a {
       color: $gray-dark;
-    }
-
-    .content {
-      text-align: justify;
     }
 
     .article-info {
@@ -253,16 +243,6 @@ a.rss {
       padding-bottom: 10px;
       min-height: 150px !important;
 
-    //  p,
-    //  li {
-    //    max-width: 870px;
-    //  }
-    //
-    //  img,
-    //  blockquote {
-    //    max-width: 700px;
-    //  }
-
       .article-info {
         display: block;
         text-align: left;
@@ -272,30 +252,13 @@ a.rss {
           display: inline;
         }
       }
-
-    //  blockquote > p {
-    //    margin-bottom: 7px;
-    //  }
     }
 
     @media screen and (min-width: map-get($grid-breakpoints, lg)) {
       .article-content {
         border-left: 1px solid #a9a9a9;
       }
-
-      .prettyprint {
-        width: 870px;
-      }
     }
-
-    //.left-img {
-    //  float: left;
-    //  margin: 0 20px 10px 0;
-    //}
-    //
-    //.gist {
-    //  max-width: 888px;
-    //}
   }
 }
 
@@ -311,7 +274,6 @@ a.rss {
 
     .content {
       margin-top: 2rem;
-      text-align: justify;
     }
 
     h2, h3, h4 {
@@ -323,14 +285,51 @@ a.rss {
         font-size: 120%;
       }
     }
+  }
+}
 
-    code {
-      font-size: 1rem;
+.article {
+  .article-tag:before {
+    content: '#';
+  }
+
+  .content {
+    text-align: justify;
+  }
+
+  pre code {
+    display: block;
+    font-size: 1rem;
+    padding: 5px 8px;
+    background-color: #f7f7f9;
+    border: 1px solid #e1e1e8;
+    border-radius: 4px;
+    overflow: hidden;
+    max-width: 100%;
+
+    &:hover {
+      overflow-x: auto;
+      width: 100%;
+      max-width: none;
+    }
+  }
+
+  img {
+    max-width: 100%;
+
+    &.tiny-image {
+      max-width: 170px;
+      max-height: 210px;
     }
 
-    img {
-      max-width: 100%;
+    &.left-img {
+      float: left;
+      margin: 0 20px 10px 0;
     }
+  }
+
+  .gist {
+    max-width: 100%;
   }
 }
 

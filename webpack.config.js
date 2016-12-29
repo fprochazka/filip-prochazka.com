@@ -16,8 +16,9 @@ const publicPath = '/dist/';
 module.exports = {
 	entry: [
 		'tether',
+		'./www/src/js/app.js',
 		'./www/src/css/style.scss',
-		'./www/src/js/app.js'
+		'./node_modules/highlight.js/styles/github-gist.css'
 	],
 	output: {
 		path: path.resolve(__dirname, 'www/dist'),

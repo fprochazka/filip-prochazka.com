@@ -1,7 +1,8 @@
 {
   "private": true,
   "dependencies": {
-    "babel-core": "^6.21.0"
+    "babel-core": "^6.21.0",
+    "highlight.js": "^9.9.0"
   },
   "devDependencies": {
     "autoprefixer": "^6.5.0",
