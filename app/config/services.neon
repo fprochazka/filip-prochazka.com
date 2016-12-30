@@ -4,6 +4,7 @@ services:
 
     - Fp\Blog\Markdown\CustomMarkdown()
     - Fp\Blog\BlogIndex(%blogDir%, "%tempDir%/content-cache")
+    - Fp\Sitemap\SitemapIndex(%appDir%)
 
     - Fp\FaviconsLoader(%wwwDir%)
 

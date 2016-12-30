@@ -2,8 +2,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 {cache sitemap, expire => '+1 hour', tags => [sitemap]}
  <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-     <url n:foreach="$presenter->listPages() as $page">
-         {foreach $page as $property => $value}<{$property}>{$value}</{$property}>{/foreach}
+     <url n:foreach="$sitemapIndex->listPages() as $page">
+         <loc>{$page->loc}</loc>
+         <lastmod>{$page->lastmod|date:'Y-m-d'}</lastmod>
+         <changefreq>{$page->changefreq}</changefreq>
+         <priority>{$page->priority}</priority>
      </url>
  </urlset>
 {/cache}
