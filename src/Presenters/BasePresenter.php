@@ -7,6 +7,8 @@ namespace Fp\Presenters;
 use Fp\Template\TemplateHelpers;
 use Nette\Application\UI\Presenter;
 use Nette\Application\Helpers;
+use Nette\Http\Url;
+use Nette\Utils\Strings;
 
 abstract class BasePresenter extends Presenter
 {
@@ -65,6 +67,14 @@ abstract class BasePresenter extends Presenter
 		$this->template->facebookProfileId = $this->facebookProfileId;
 
 		$this->template->now = new \DateTimeImmutable();
+
+		$canonicalUrlQuery = $this->getHttpRequest()->getUrl()->getQueryParameters();
+		foreach ($canonicalUrlQuery as $queryParameter => $_) {
+			if (Strings::startsWith($queryParameter, 'utm_')) {
+				unset($canonicalUrlQuery[$queryParameter]);
+			}
+		}
+		$this->template->canonicalUrl = (new Url($this->getHttpRequest()->getUrl()))->setQuery($canonicalUrlQuery);
 	}
 
 	protected function createTemplate()
