@@ -29,7 +29,6 @@ class RouterFactory
 		$router[] = new StaticRouter([
 			'Static:job' => 'job',
 			'Static:cv' => 'cv',
-			'Static:components' => 'components',
 			'Static:openSource' => 'open-source',
 			'Static:donation' => 'donation',
 			'Static:paidSupport' => 'paid-support',
@@ -63,6 +62,7 @@ class RouterFactory
 
 		$router[] = new Route('tag/<tag>.rss', 'Blog:tagRss', Route::ONE_WAY);
 		$router[] = new Route('/search/label/<tag>', ['presenter' => 'Blog', 'action' => 'tag'], Route::ONE_WAY);
+		$router[] = new Route('/components', 'Static:openSource', Route::ONE_WAY);
 
 		$router[] = new Route('<presenter>[/<action>]', 'Static:profile');
 
