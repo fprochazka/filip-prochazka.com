@@ -5,7 +5,7 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-	<title>{block titleOuter|stripHtml|trim}{capture $title}{block title}{/block}{/capture}{if $title}{$title} - {/if}Filip Procházka{/block}</title>
+	<title>{block titleOuter}{capture $title}{block title}{/block}{/capture}{if $title}{$title|stripHtml|trim} - {/if}Filip Procházka{/block}</title>
 
 	{block og}
 	{default
@@ -60,6 +60,8 @@
 	{/if}
 	<script src="{$basePath}/dist/app.js?{$wwwDir . '/dist/app.js'|filectime}" async defer></script>
 	<script src="//platform.twitter.com/widgets.js" charset="utf-8" async defer></script>
+
+	{block #head}{/block}
 </head>
 
 <body>

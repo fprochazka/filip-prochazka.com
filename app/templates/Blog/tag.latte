@@ -1,4 +1,4 @@
-{block head}<link rel="alternate" type="application/rss+xml" title="Tag {$tagName} - Filip Procházka" href="{link //this, rss => rss}">{/block}
+{block head}<link rel="alternate" type="application/rss+xml" title="Blog: Co se nevešlo na Twitter - {$tagTitle} - Filip Procházka" href="{link //tagRss, tag => $tagSlug}">{/block}
 
 {block content}
 
@@ -6,7 +6,7 @@
 
 	<div class="row">
 		<h1 n:block="#title" class="motto col-xs-12 col-lg-11 offset-lg-1">
-			<a n:href="this, rss => rss" class="rss hidden-sm-down"><img src="{$basePath}/img/rss.png"></a>
+			<a n:href="tagRss, tag => $tagSlug" class="rss hidden-sm-down"><img src="{$basePath}/img/rss.png"></a>
 			Blog: Co se nevešlo na Twitter - {$tagTitle}
 		</h1>
 	</div>

@@ -63,6 +63,8 @@ abstract class BasePresenter extends Presenter
 		$this->template->gplusAccountId = $this->gplusAccountId;
 		$this->template->facebookUsername = $this->facebookUsername;
 		$this->template->facebookProfileId = $this->facebookProfileId;
+
+		$this->template->now = new \DateTimeImmutable();
 	}
 
 	protected function createTemplate()

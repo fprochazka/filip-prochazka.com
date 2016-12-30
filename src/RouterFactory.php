@@ -36,13 +36,14 @@ class RouterFactory
 			'Static:talks' => 'talks',
 			'Blog:archive' => 'archive',
 			'Sitemap:default' => 'sitemap.xml',
+			'Blog:rss' => 'blog.rss',
+			'Blog:default' => 'blog',
 		]);
-		$router[] = new Route('talks/<talk>', 'Static:talk');
 
-		$router[] = new Route('tag/<tag>[.<rss rss>]', 'Blog:tag');
+		$router[] = new Route('talks/<talk>', 'Static:talk');
+		$router[] = new Route('blog/tag/<tag>.rss', 'Blog:tagRss');
+		$router[] = new Route('blog/tag/<tag>', 'Blog:tag');
 		$router[] = new Route('blog/<slug>', 'Blog:article');
-		$router[] = new Route('blog[.<rss rss>]', 'Blog:default');
-		$router[] = new Route('/search/label/<tag>', ['presenter' => 'Blog', 'action' => 'tag'], Route::ONE_WAY);
 		$router[] = new Route('/feeds/posts/default', [
 			'presenter' => 'Blog',
 			'action' => 'default',
@@ -59,6 +60,9 @@ class RouterFactory
 				Http\IResponse::S301_MOVED_PERMANENTLY
 			);
 		});
+
+		$router[] = new Route('tag/<tag>.rss', 'Blog:tagRss', Route::ONE_WAY);
+		$router[] = new Route('/search/label/<tag>', ['presenter' => 'Blog', 'action' => 'tag'], Route::ONE_WAY);
 
 		$router[] = new Route('<presenter>[/<action>]', 'Static:profile');
 
