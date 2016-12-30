@@ -7,6 +7,7 @@ namespace Fp\Blog\Markdown;
 use Kdyby\StrictObjects\Scream;
 use Latte\Runtime\FilterInfo;
 use Latte\Runtime\Filters;
+use Nette\Http;
 use Nette\Utils\Strings;
 
 class CustomMarkdown
@@ -16,9 +17,18 @@ class CustomMarkdown
 
 	const HEADINGS_REGEXP = '~(\\<(h\\d)[^>]*\\>.*?\\<\\/\\2\\>)~is';
 
+	/** @var \Nette\Http\IRequest */
+	private $httpRequest;
+
+	public function __construct(Http\IRequest $httpRequest)
+	{
+		$this->httpRequest = $httpRequest;
+	}
+
 	public function parse(string $content): CustomMarkdownResult
 	{
 		$processor = new CustomMarkdownProcessor();
+		$processor->absoluteUrlPrefix = $this->httpRequest->getUrl()->getHostUrl();
 
 		$completeHtml = $processor->text($content);
 		$htmlIntro = self::contentBetweenFirstTwoHeadings($completeHtml);

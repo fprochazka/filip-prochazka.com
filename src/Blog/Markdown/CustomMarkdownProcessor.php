@@ -5,6 +5,7 @@ declare(strict_types = 1);
 namespace Fp\Blog\Markdown;
 
 use Kdyby\StrictObjects\Scream;
+use Nette\Http\Url;
 use Nette\Utils\Strings;
 use ParsedownExtraPlugin;
 
@@ -12,6 +13,9 @@ class CustomMarkdownProcessor extends ParsedownExtraPlugin
 {
 
 	use Scream;
+
+	/** @var string */
+	public $absoluteUrlPrefix;
 
 	/** @var string[] */
 	private $headingSlugs = [];
@@ -56,6 +60,11 @@ class CustomMarkdownProcessor extends ParsedownExtraPlugin
 	{
 		$image = parent::inlineImage($excerpt);
 		if (is_array($image)) {
+			$src = $image['element']['attributes']['src'];
+			if (empty((new Url($src))->scheme)) {
+				$image['element']['attributes']['src'] = $this->absoluteUrlPrefix . $src;
+			}
+
 			$this->images[] = [
 				$image['element']['attributes']['src'],
 				$image['element']['attributes']['alt'],
