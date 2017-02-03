@@ -1,3 +1,4 @@
 /app/config/config.local.neon
 /vendor
 /node_modules
+/www/dist
