@@ -1,0 +1,42 @@
+language: php
+
+sudo: false
+
+services:
+  - docker
+
+cache:
+    yarn: true
+    directories:
+        - $HOME/.composer/cache/files
+        - $HOME/.npm
+        - node_modules
+
+env:
+  DOCKER_COMPOSE_VERSION: 1.12.0
+
+php:
+  - 7.1
+
+before_install:
+  - sudo apt-get update
+  - sudo apt-get install docker-engine
+  - docker version
+  - mkdir ~/bin && export PATH=$PATH:$HOME/bin
+  - travis_retry curl -L https://github.com/docker/compose/releases/download/$DOCKER_COMPOSE_VERSION/run.sh > ~/bin/docker-compose
+  - chmod +x ~/bin/docker-compose
+  - docker-compose version
+  - travis_retry composer self-update
+  - travis_retry composer create-project --no-interaction jakub-onderka/php-parallel-lint /tmp/php-parallel-lint
+  - bash .docker/build-env.sh
+  - cp app/config/config.local.neon.template app/config/config.local.neon
+
+install:
+  - docker-compose build node
+  - travis_retry composer install --no-interaction --prefer-dist
+
+script:
+  - php /tmp/php-parallel-lint/parallel-lint.php -e php,phpt --exclude vendor .
+  - docker-compose run --rm node yarn install
+  - docker-compose run --rm node yarn build
+  - docker-compose build app
