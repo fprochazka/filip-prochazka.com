@@ -20,8 +20,8 @@ parameters:
 		accountId: '103239456693574460264'
 
 	facebook:
-	    username: FilipProchazka
-	    profileId: '1634280910'
+		username: FilipProchazka
+		profileId: '1634280910'
 
 
 application:
