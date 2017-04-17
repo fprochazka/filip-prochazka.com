@@ -5,7 +5,7 @@ Tags: Nette Framework, Přednáška
 
 V [Developer Hubu](http://www.developerhub.cz/) nedávno [přednášel Roman Vykuka](https://plus.google.com/events/ccpdssb1cl85tpcgrbn9rmpfk0o) na téma konfigurace Nette Frameworku. Na záznam se můžete podívat na [YouTube](http://youtu.be/thr-pLDuOOU)
 
-> <iframe width="560" height="315" src="http://www.youtube.com/embed/thr-pLDuOOU" frameborder="0" allowfullscreen></iframe>
+> <iframe width="560" height="315" src="https://www.youtube.com/embed/thr-pLDuOOU" frameborder="0" allowfullscreen></iframe>
 
 "Čistý vývoj"-nazi ve mně ovšem **potřebuje** opravit pár drobných nepřesností, kterých se Roman, ve své přednášce, dopustil. Slovíčkařit nebudeme, nervozita dělá svoje.
 

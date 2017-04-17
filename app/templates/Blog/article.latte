@@ -3,7 +3,7 @@
 	<meta property="article:published_time" content="{$article->publishedTime|date:'Y-m-d\TH:i'}">
 	<meta property="article:author" content="{plink //Static:profile}">
 	<meta property="article:tag" content="{$tag}" n:foreach="$article->tags as $tag">
-	<meta property="og:image" content="{$baseUrl}{$image[0]}" n:foreach="$article->images as $image">
+	<meta property="og:image" content="{$image[0]}" n:foreach="$article->images as $image">
 {/block}
 
 {block twitter}
