@@ -19,6 +19,7 @@ php:
   - 7.1
 
 before_install:
+  - bash .docker/build-env.sh
   - sudo apt-get update
   - sudo apt-get install docker-engine
   - docker version
@@ -26,9 +27,7 @@ before_install:
   - travis_retry curl -L https://github.com/docker/compose/releases/download/$DOCKER_COMPOSE_VERSION/run.sh > ~/bin/docker-compose
   - chmod +x ~/bin/docker-compose
   - docker-compose version
-  - travis_retry composer self-update
   - travis_retry composer create-project --no-interaction jakub-onderka/php-parallel-lint /tmp/php-parallel-lint
-  - bash .docker/build-env.sh
   - cp app/config/config.local.neon.template app/config/config.local.neon
 
 install:

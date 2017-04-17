@@ -37,3 +37,14 @@ services:
              && useradd --uid ${USER_UID} --gid ${USER_GID} --create-home ${USER_NAME}
              && APACHE_RUN_USER=${USER_NAME} apache2-foreground
              '
+
+  composer:
+    image: fprochazka/composer:latest
+    volumes:
+      - ./:/app
+      - /home/${USER_NAME}:/home/${USER_NAME}
+    environment:
+      - COMPOSER_HOME=/home/${USER_NAME}/.composer
+      - COMPOSER_USER_NAME=${USER_NAME}
+      - COMPOSER_USER_UID=${USER_UID}
+      - COMPOSER_USER_GID=${USER_GID}

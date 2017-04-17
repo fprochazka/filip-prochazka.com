@@ -11,7 +11,6 @@ Before you start anything, run the following command to setup environment
 
 ```bash
 bash .docker/build-env.sh
-docker-compose build node
 ```
 
 And also compile javascript
@@ -19,6 +18,7 @@ And also compile javascript
 ```bash
 docker-compose run --rm node yarn install
 docker-compose run --rm node yarn build
+docker-compose run --rm composer install
 ```
 
 ## Running
