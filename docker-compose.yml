@@ -1,0 +1,39 @@
+version: "3"
+
+services:
+  node:
+    build:
+        context: ./.docker/node
+        args:
+            - USER_UID
+    tty: true
+    stdin_open: true
+    env_file: .env
+    volumes:
+      - ./:/var/www/html
+      - ${HOME}/.yarn:/home/node/.yarn
+    working_dir: /var/www/html
+
+  app:
+    image: filip-prochazka.com/web:latest
+    build:
+      context: .
+    container_name: filip-prochazka.com
+    env_file: .env
+    ports:
+      - "127.0.0.1:${HTTP_PORT}:80"
+    volumes:
+      - ./:/var/www/html
+      - ./.docker/apache/web-prod.conf:/etc/apache2/sites-available/000-default.conf:ro
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost"]
+      interval: 1m30s
+      timeout: 10s
+      retries: 3
+    restart: always
+    command: >
+             sh -c '
+             groupadd --gid ${USER_GID} ${USER_NAME}
+             && useradd --uid ${USER_UID} --gid ${USER_GID} --create-home ${USER_NAME}
+             && APACHE_RUN_USER=${USER_NAME} apache2-foreground
+             '
