@@ -19,6 +19,7 @@
 		"tracy/tracy": "^2.4",
 		"nextras/static-router": "^1.1",
 		"kdyby/strict-objects": "^1.0",
+		"kdyby/monolog": "^1.2",
 		"erusev/parsedown-extra": "^0.7.1",
 		"tovic/parsedown-extra-plugin": "@dev"
 	},

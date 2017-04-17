@@ -24,6 +24,10 @@ parameters:
 		profileId: '1634280910'
 
 
+extensions:
+	monolog: Kdyby\Monolog\DI\MonologExtension
+
+
 application:
 	errorPresenter: Error
 	mapping:
@@ -36,8 +40,14 @@ di:
 	debugger: off
 
 
+monolog:
+	handlers:
+		main: Monolog\Handler\StreamHandler("php://stderr")
+
+
 session:
 	expiration: 14 days
+	autoStart: false
 
 
 decorator:
