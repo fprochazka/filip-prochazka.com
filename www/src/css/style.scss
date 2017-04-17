@@ -28,6 +28,12 @@ a:hover {
   }
 }
 
+.forkme {
+  img {
+    position: absolute; top: 0; right: 0; border: 0;
+  }
+}
+
 @media screen and (min-width: map-get($grid-breakpoints, lg)) {
   .container {
     width: map-get($grid-breakpoints, lg) - 46;

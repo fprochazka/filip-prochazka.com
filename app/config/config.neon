@@ -23,6 +23,9 @@ parameters:
 		username: FilipProchazka
 		profileId: '1634280910'
 
+	github:
+	    repository: fprochazka/filip-prochazka.com
+
 
 extensions:
 	monolog: Kdyby\Monolog\DI\MonologExtension
@@ -62,6 +65,7 @@ decorator:
 			- $gplusAccountId(%gplus.accountId%)
 			- $facebookUsername(%facebook.username%)
 			- $facebookProfileId(%facebook.profileId%)
+			- $githubRepository(%github.repository%)
 
 
 includes:

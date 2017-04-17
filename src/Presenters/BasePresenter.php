@@ -40,6 +40,9 @@ abstract class BasePresenter extends Presenter
 	/** @var string */
 	public $facebookProfileId;
 
+	/** @var string */
+	public $githubRepository;
+
 	/** @var \Fp\FaviconsLoader @inject */
 	public $faviconsLoader;
 
@@ -66,6 +69,7 @@ abstract class BasePresenter extends Presenter
 		$this->template->gplusAccountId = $this->gplusAccountId;
 		$this->template->facebookUsername = $this->facebookUsername;
 		$this->template->facebookProfileId = $this->facebookProfileId;
+		$this->template->githubRepository = $this->githubRepository;
 
 		$this->template->now = new \DateTimeImmutable();
 
