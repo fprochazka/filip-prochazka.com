@@ -36,6 +36,7 @@ install:
 
 script:
   - php /tmp/php-parallel-lint/parallel-lint.php -e php,phpt --exclude vendor .
+  - php vendor/bin/phpstan analyse -l 5 -c phpstan.neon app src
   - docker-compose run --rm node yarn install
   - docker-compose run --rm node yarn build
   - docker-compose build app
