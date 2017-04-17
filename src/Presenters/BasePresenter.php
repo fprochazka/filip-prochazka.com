@@ -60,6 +60,7 @@ abstract class BasePresenter extends Presenter
 
 		$this->template->faviconMetas = $this->faviconsLoader->getMetadata();
 
+		$this->template->googleAnalyticsAccount = $this->googleAnalyticsAccount;
 		$this->template->disqusShortname = $this->disqusShortname;
 		$this->template->twitterHandle = $this->twitterHandle;
 		$this->template->gplusAccountId = $this->gplusAccountId;

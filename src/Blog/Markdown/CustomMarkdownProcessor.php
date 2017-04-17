@@ -17,7 +17,7 @@ class CustomMarkdownProcessor extends ParsedownExtraPlugin
 	/** @var string */
 	public $absoluteUrlPrefix;
 
-	/** @var string[] */
+	/** @var integer[] */
 	private $headingSlugs = [];
 
 	/** @var mixed[] list of [int level, string title] */

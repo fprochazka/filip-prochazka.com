@@ -17,6 +17,7 @@ final class BlogPresenter extends BasePresenter
 
 	public function __construct(BlogIndex $blogIndex)
 	{
+		parent::__construct();
 		$this->blogIndex = $blogIndex;
 	}
 

@@ -17,7 +17,7 @@ class RouterFactory
 	/** @var bool */
 	private $productionMode;
 
-	public function __construct($productionMode, Http\IRequest $httpRequest)
+	public function __construct($productionMode)
 	{
 		$this->productionMode = (bool) $productionMode;
 	}
