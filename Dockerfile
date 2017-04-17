@@ -14,6 +14,7 @@ RUN a2enmod rewrite
 
 ENV PRODUCTION=true
 
+COPY ./.docker/apache/docker-php-entrypoint /usr/local/bin/
 COPY ./.docker/apache/web-prod.conf /etc/apache2/sites-available/000-default.conf
 COPY ./.docker/apache/php-prod.ini /usr/local/etc/php/php.ini
 COPY . /var/www/html
