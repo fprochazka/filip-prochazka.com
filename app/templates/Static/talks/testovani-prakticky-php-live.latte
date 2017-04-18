@@ -37,6 +37,6 @@
 
 <div class="row" n:if="$productionMode">
 	<div class="col-sm-10 offset-sm-1">
-		{control comments, filip-prochazka-blog}
+		{include ../../_disqus.latte, disqusShortname => $disqusShortname}
 	</div>
 </div>
