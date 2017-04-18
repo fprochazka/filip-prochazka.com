@@ -7,4 +7,6 @@ docker-compose run --rm node yarn install
 docker-compose run --rm node yarn build
 docker-compose build app
 docker-compose down
+rm -rf ./var/temp/cache/
+rm -rf ./var/temp/content-cache/
 docker-compose up -d app
