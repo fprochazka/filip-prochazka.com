@@ -286,6 +286,43 @@ a.rss {
       }
     }
   }
+
+  .fix-me {
+    padding-left: 30px;
+
+    .title {
+      display: inline-block;
+      padding-right: 5px;
+    }
+
+    a {
+      color: #ccc;
+      &:hover, &:active, &:link {
+        color: #fff;
+      }
+    }
+  }
+
+  .social-share {
+    margin-top: 10px;
+
+    .title {
+      display: inline-block;
+      padding-right: 5px;
+    }
+
+    @import './social.scss';
+
+    .btn-social-icon > :first-child {
+      font-size: 1.4em;
+    }
+  }
+
+  @media screen and (min-width: map-get($grid-breakpoints, md)) {
+    .social-share {
+      margin-top: 0;
+    }
+  }
 }
 
 .article {
@@ -349,25 +386,4 @@ blockquote.twitter-tweet {
   border-radius: 4px;
   padding: 20px 20px 11.6px;
   font: 16px/1.4 Helvetica, Roboto, "Segoe UI", Calibri, sans-serif;
-}
-
-.social-share {
-  margin-top: 10px;
-
-  .title {
-    display: inline-block;
-    padding-right: 5px;
-  }
-
-  @import './social.scss';
-
-  .btn-social-icon > :first-child {
-    font-size: 1.4em;
-  }
-}
-
-@media screen and (min-width: map-get($grid-breakpoints, md)) {
-  .social-share {
-    margin-top: 0;
-  }
 }

@@ -51,6 +51,10 @@ final class BlogPresenter extends BasePresenter
 				$this->twitterHandle
 			),
 		]);
+		$this->template->githubEditLink = new Url(sprintf('https://github.com/%s/edit/master/blog/%s',
+			$this->githubRepository,
+			$article->file
+		));
 	}
 
 	public function actionTag(string $tag)
