@@ -3,6 +3,8 @@
 		<a class="date" href="{plink Blog:article, $article->slug}" title="{$article->publishedTime|date:"j.m.Y"}">
 			<time class="published" datetime="{$article->publishedTime|date:'Y-m-d H:i:sO'}">{$article->publishedTime|timeAgo}</time>
 		</a>
+		<span class="hidden" itemprop="dateCreated">{$article->publishedTime|date:DateTime::ISO8601}</span>
+		<span class="hidden" itemprop="datePublished">{$article->publishedTime|date:DateTime::ISO8601}</span>
 		{foreach $article->tags as $tag => $tagName}
 			<a class="article-tag" href="{plink Blog:tag, $tag}">{$tagName}</a>
 		{/foreach}
@@ -11,16 +13,6 @@
 		<h2 itemprop="headline" class="entry-title">
 			<a href="{if $article->titleLink}{$article->titleLink}{else}{plink Blog:article, $article->slug}{/if}" itemprop="name">{$article->title}</a>
 		</h2>
-
-		<div class="article-info hidden-lg-up">
-			<a class="date" href="{plink Blog:article, $article->slug}" title="{$article->publishedTime|date:"j.m.Y"}">{$article->publishedTime|timeAgo}</a>
-			<span class="hidden" itemprop="dateCreated">{$article->publishedTime|date:DateTime::ISO8601}</span>
-			<span class="hidden" itemprop="datePublished">{$article->publishedTime|date:DateTime::ISO8601}</span>
-
-			{foreach $article->tags as $tag => $tagName}
-				<a class="article-tag" href="{plink Blog:tag, $tag}">{$tagName}</a>
-			{/foreach}
-		</div>
 
 		<div class="content entry-content" itemprop="articleBody">
 			{$article->getContentSneakPeak()}
