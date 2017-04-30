@@ -10,9 +10,6 @@ parameters:
 	disqus:
 		shortname: filip-prochazka-blog
 
-	paypal:
-		keyFile: %appDir%/config/paypal.key
-
 	twitter:
 		handle: ProchazkaFilip
 

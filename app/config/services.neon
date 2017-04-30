@@ -9,4 +9,4 @@ services:
     - Fp\FaviconsLoader(%wwwDir%)
 
     - Fp\Presenters\ErrorPresenter(%appDir%)
-    - Fp\Presenters\StaticPresenter(%paypal.keyFile%)
+    - Fp\Presenters\StaticPresenter()
