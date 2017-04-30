@@ -311,8 +311,13 @@ a.rss {
     }
 
     a {
-      color: #ccc;
-      &:hover, &:active, &:link {
+      &,
+      &:active,
+      &:link {
+        color: #ccc;
+      }
+
+      &:hover {
         color: #fff;
       }
     }
