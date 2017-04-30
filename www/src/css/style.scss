@@ -135,9 +135,17 @@ body {
 .donation,
 .paid-support,
 .talks {
-  font-size: 1.4rem;
-  line-height: 1.5;
-  text-align: justify;
+  font-size: 1.125em;
+  line-height: 1.4;
+
+  p {
+    text-align: justify;
+  }
+
+  @include media-breakpoint-up(md) {
+    font-size: 1.25em; // this is 20px
+    line-height: 1.45 // this is 29px
+  }
 }
 
 .profile {
@@ -267,6 +275,13 @@ a.rss {
     position: relative;
     margin-top: 20px;
     margin-bottom: 40px;
+
+    .entry-title {
+      @include media-breakpoint-up(lg) {
+        font-size: 5.5rem;
+        font-weight: 300;
+      }
+    }
 
     .article-info {
       margin-top: 0.5rem;
