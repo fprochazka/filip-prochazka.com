@@ -2,6 +2,7 @@ version: "3"
 
 services:
   node:
+    image: filip-prochazka.com/node:latest
     build:
         context: ./.docker/node
         args:
@@ -44,3 +45,25 @@ services:
       - COMPOSER_USER_NAME=${USER_NAME}
       - COMPOSER_USER_UID=${USER_UID}
       - COMPOSER_USER_GID=${USER_GID}
+
+  yarn-install:
+    image: filip-prochazka.com/node:latest
+    tty: true
+    stdin_open: true
+    env_file: .env
+    volumes:
+      - ./:/var/www/html
+      - ${HOME}/.yarn:/home/node/.yarn
+    working_dir: /var/www/html
+    command: sh -c 'yarn install && npm rebuild node-sass'
+
+  yarn-build:
+    image: filip-prochazka.com/node:latest
+    tty: true
+    stdin_open: true
+    env_file: .env
+    volumes:
+      - ./:/var/www/html
+      - ${HOME}/.yarn:/home/node/.yarn
+    working_dir: /var/www/html
+    command: yarn build

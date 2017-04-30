@@ -3,8 +3,8 @@
 set -e
 
 docker-compose run --rm composer install --no-interaction --prefer-dist
-docker-compose run --rm node yarn install
-docker-compose run --rm node yarn build
+docker-compose run --rm yarn-install
+docker-compose run --rm yarn-build
 docker-compose build app
 docker-compose down
 rm -rf ./var/temp/cache/
