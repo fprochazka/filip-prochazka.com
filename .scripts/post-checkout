@@ -1,0 +1,25 @@
+#!/usr/bin/env bash
+
+if [ "$3" == "0" ]; then
+	# this is a file checkout – do nothing
+	exit 0;
+fi
+
+export PATH=$PATH:/usr/local/bin
+
+changed_files="$(git diff-tree -r --name-only --no-commit-id $1 $2)"
+
+check_run() {
+  echo "checking $1 for changes..."
+  echo "$changed_files" | grep -E --quiet "$1" && eval "$2"
+}
+
+check_run "composer.lock" "$(which docker-compose) run --rm composer install --no-interaction --prefer-dist"
+check_run "yarn.lock" "$(which docker-compose) run --rm yarn-install"
+check_run ".scss|.js" "$(which docker-compose) run --rm yarn-build"
+
+docker-compose build app
+docker-compose down
+rm -rf ./var/temp/cache/
+rm -rf ./var/temp/content-cache/
+docker-compose up -d app
