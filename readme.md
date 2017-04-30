@@ -3,7 +3,7 @@
 ## Requirements
 
 * [Docker Compose](https://github.com/docker/compose/releases) >= `1.12.0`
-* [Docker Engine](https://www.docker.com/products/docker-engine) >= 1.13.0
+* [Docker Engine](https://www.docker.com/products/docker-engine) >= `1.13.0`
 
 ## Setup
 
