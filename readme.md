@@ -5,21 +5,26 @@
 * [Docker Compose](https://github.com/docker/compose/releases) >= `1.12.0`
 * [Docker Engine](https://www.docker.com/products/docker-engine) >= `1.13.0`
 
-## Setup
+## Installation
 
-Before you start anything, run the following command to setup environment
+Before you start anything, run the following command to setup the environment:
 
 ```bash
 bash .docker/build-env.sh
+docker-compose build node
 ```
 
-And also compile javascript
+## Before running
+
+Install dependencies and compile javascript:
 
 ```bash
-docker-compose run --rm node yarn install
-docker-compose run --rm node yarn build
 docker-compose run --rm composer install
+docker-compose run --rm yarn-install
+docker-compose run --rm yarn-build
 ```
+
+This has to be done every time relevant files change.
 
 ## Running
 
