@@ -41,8 +41,7 @@ Meet the [Git Cola](https://git-cola.github.io/)! It has many features, but what
 
 ![git-cola](/content/git-cola.png)
 
-A bit weird is that you have to actually select at least one symbol to make the "Stage Selected Lines" action work.
-If you don't select anything, it will stage the whole file.
+When you select at least one symbol (or multiple lines) it stages the lines involved and if you don't select anything, it stages the hunk you have the cursor on.
 
 I also have to admit, that I find it a bit confusing, so you might notice, that mine looks a bit different from the default setup after installation. I've disabled all panels, except the diff panel and panel of changed and untracked files. I do not commit from it, but hey, it might work for you - I'm not gonna stop you :)
 
