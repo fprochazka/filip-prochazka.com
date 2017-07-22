@@ -10,7 +10,7 @@ I'm aware of two ways to do it and I'm gonna share them with you in here.
 ## git add -p
 
 In order to commit the changes, we have to first stage the changes which is done using the [`git-add` command](https://git-scm.com/docs/git-add).
-And if you want to commit only parts a file, you can use the interactive mode, which is turned on by the `-p` option.
+And if you want to commit only parts of a file, you can use the interactive mode, which is turned on by the `-p` option.
 It continuously shows small portions of the changed files and asks you what to do.
 In each step, you can mark hunks, which is a nearby set of changes, for staging or to be ignored for now.
 
