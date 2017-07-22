@@ -20,12 +20,11 @@ php:
 
 before_install:
   - bash .docker/build-env.sh
-  - sudo apt-get update
-  - sudo apt-get install docker-engine
+  - sudo rm /usr/local/bin/docker-compose
+  - curl -L https://github.com/docker/compose/releases/download/${DOCKER_COMPOSE_VERSION}/docker-compose-`uname -s`-`uname -m` > docker-compose
+  - chmod +x docker-compose
+  - sudo mv docker-compose /usr/local/bin
   - docker version
-  - mkdir ~/bin && export PATH=$PATH:$HOME/bin
-  - travis_retry curl -L https://github.com/docker/compose/releases/download/$DOCKER_COMPOSE_VERSION/run.sh > ~/bin/docker-compose
-  - chmod +x ~/bin/docker-compose
   - docker-compose version
   - travis_retry composer create-project --no-interaction jakub-onderka/php-parallel-lint /tmp/php-parallel-lint
   - cp app/config/config.local.neon.template app/config/config.local.neon
