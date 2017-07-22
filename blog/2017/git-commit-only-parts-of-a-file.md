@@ -1,4 +1,4 @@
-Date: 2017-07-21 23:28
+Date: 2017-07-22 14:00
 Tags: Git
 
 # Git: commit only parts of a file
