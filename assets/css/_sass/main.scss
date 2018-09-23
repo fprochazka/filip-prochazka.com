@@ -389,6 +389,8 @@ a.rss {
   .gist {
     max-width: 100%;
   }
+
+  @import "./pygments-css/trac.scss";
 }
 
 .archive {
