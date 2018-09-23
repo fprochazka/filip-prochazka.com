@@ -1,0 +1,29 @@
+---
+layout: default
+title: "Přednášky - Filip Procházka"
+permalink: /talks
+meta:
+  description: "Rád se poslouchám a tak se občas objevím na nějaké Poslední Sobotě, nebo jiné akci, stoupnu si před mikrofón a začnu něco povídat."
+  og:
+    type: website
+---
+
+<div class="talks">
+	<div class="row">
+		<div class="col-lg-10 offset-lg-1">
+
+			<h2>Přednášky</h2>
+
+			<p>Rád se poslouchám a tak se občas objevím na nějaké <a href="http://srazy.info/posledni-sobota/">Poslední Sobotě</a>,
+				nebo jiné akci, stoupnu si před mikrofón a začnu něco povídat.</p>
+
+			<p>Někoho to občas i zajímá a tak z toho vznikají záznamy. Ty nejméně trapné najdete na této stránce :)</p>
+
+			<ul class="talks-list">
+                {% assign talks = site.talks | sort: 'date' | reverse %}
+                {% for item in talks %}
+                <li><a href="{{ item.url }}">{{ item.talk.title }}</a></li>{% endfor %}
+			</ul>
+		</div>
+	</div>
+</div>

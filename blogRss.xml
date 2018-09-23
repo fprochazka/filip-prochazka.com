@@ -1,0 +1,25 @@
+---
+layout: null
+permalink: /blog.rss
+---
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom">
+	<channel>
+        <lastBuildDate>{% for post in site.posts limit:1 %}{{ post.date | date_to_rfc822 }}{% endfor %}</lastBuildDate>
+        <link>{{ site.url }}</link>
+        <title>Filip Procházka</title>
+        <language>cs</language>
+        <description>Co se nevešlo na Twitter</description>
+        <atom:link href="{{ site.url }}/{{ page.path }}" rel="self" type="application/rss+xml" />{% for post in site.posts %}
+        <item>
+            <title>{{ post.title | xml_escape }}</title>
+            <pubDate>{{ post.date | date_to_rfc822 }}</pubDate>
+            <link>{{ site.url }}{{ post.url }}?utm_source=rss&amp;utm_medium=feed&amp;utm_campaign={{ post.title | url_encode }}</link>
+            <description><![CDATA[
+                {{ post.content | cdata_escape }}
+            ]]></description>
+            <dc:creator>Filip Procházka</dc:creator>
+            <guid isPermaLink="true">{{ site.url }}{{ post.url }}</guid>
+        </item>{% endfor %}
+	</channel>
+</rss>

@@ -1,0 +1,24 @@
+items:
+  -   title: O mně
+      url: /
+      active: []
+
+  -   title: CV
+      url: /cv
+      active: []
+
+  -   title: Pracovně
+      url: /job
+      active: []
+
+  -   title: Open source
+      url: /open-source
+      active: ["/paid-support", "/donation"]
+
+  -   title: Přednášky
+      url: /talks
+      active: []
+
+  -   title: Blog
+      url: /blog
+      active: []

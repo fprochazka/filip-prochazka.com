@@ -1,0 +1,29 @@
+---
+layout: default
+title: "Blog: Co se nevešlo na Twitter - Tagy - Filip Procházka"
+permalink: /blog/tags
+---
+
+<div class="blog-tags">
+
+	<div class="row">
+		<h1 class="motto col-xs-12 col-lg-11 offset-lg-1">
+			Blog: Co se nevešlo na Twitter - Tagy
+		</h1>
+	</div>
+
+    <div class="row tag-cloud">
+        <div class="col-md-9 offset-md-1">
+            {% assign sorted_tags = site.tags | sort_tags_by_posts_count %}
+            {% for tag in sorted_tags %}
+            <span class="article-tag">
+                <a href="/{{ site.tag_page_dir }}/{{ tag[0] | slugify: 'latin' }}/">
+                    {{ tag[0] }}
+                    <span class="tag-articles-count">({{ tag[1] }})</span>
+                </a>
+            </span>
+            {% endfor %}
+        </div>
+    </div>
+
+</div>

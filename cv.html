@@ -1,0 +1,162 @@
+---
+layout: default
+title: "Curriculum Vitae - Filip Procházka"
+permalink: /cv
+meta:
+  description: "Jmenuji se Filip Procházka a jsem programátor. Programuji především weby a webové aplikace v PHP, ale rychle se učím a rád přijímám nové výzvy!"
+  og:
+    type: profile
+    other:
+      - property: "profile:first_name"
+        value: Filip
+      - property: "profile:first_name"
+        value: Procházka
+      - property: "profile:gender"
+        value: male
+---
+
+<div class="cv" xmlns:n="http://www.w3.org/1999/xhtml">
+	<div class="row">
+		<div class="col-lg-10 offset-lg-1">
+			<a class="pdf-download hidden-print" href="{% link /cv-pdf/prochazka-filip-cs.pdf %}"><img src="{% link /assets/img/pdf.jpg %}"></a>
+
+			<div class="pull-right cv-pic">
+				<img src="{% link /assets/img/selfi.jpg %}" itemprop="image" alt="Filip Procházka" width="300">
+			</div>
+
+			<h2>
+				<span class="visible-print-inline">Filip Procházka - </span>Curriculum Vitae
+			</h2>
+
+            {% assign thisYear = site.time | date: "%Y" | plus: 0 %}
+			<ul>
+				<li><strong>Primární jazyky</strong>: PHP (Nette Framework, Symfony), JavaScript, SQL</li>
+				<li><strong>Zkušenosti s</strong>: Python, Bash, C/C++, Java, Haskell a další</li>
+				<li><strong>Praxe</strong>: programování >{{ thisYear | minus: 2006 }} let, profesionálně >{{ thisYear | minus: 2009 }} let</li>
+			</ul>
+
+			<h2 id="work-and-projects">Práce a projekty</h2>
+
+			<h3>TajnyProjekt™ <small>Cogvio s.r.o.</small> <span class="light">- březen 2017 až současnost</span></h3>
+
+			<p>
+				S <a href="https://twitter.com/petrbartos">Petrem Bartošem</a> vedu vývoj aplikace v Javě na přelévání a čištění dat z různých zdrojů,
+				které zobrazuje analytický nástroj v JavaScriptu, pomocí RESTful API psaného ve Spring MVC.
+			</p>
+
+			<h3>Lavito.cz <span class="light">- únor 2016 až leden 2017</span></h3>
+
+			<p>
+				Učil jsem se Symfony pod vedením <a href="http://vasekpurchart.cz/">Vaška Purcharta</a> lépe psát skvěle navrhnuté, čistě napsané a výborně otestované aplikace.
+			</p>
+
+			<h3>Rohlik.cz <small>Velká Pecka s.r.o.</small> <span class="light">- červenec 2014 až listopad 2015</span></h3>
+
+			<p>
+				V Rohlíku jsem měl velice podobnou pozici jako v Damejidlo, ale kvůli rychlosti vývoje jsem dělal více minimalizaci škod (a technického dluhu), než nějaké systematické navrhování.
+			</p>
+
+			<p>
+				Nejvíce mě bavilo doladit nastavení HTTPS a nasazení <strong>ElasticSearch</strong>e, který nám nesmírně pomohl s výkonem.
+				Přepisoval jsem také custom geocodery na <a href="https://github.com/Kdyby/Geocoder">opensource variantu</a>
+				a jako úplně poslední věc jsme s <a href="https://jiripudil.cz/">Jirkou Pudilem</a>
+				psali <a href="https://github.com/Kdyby/CsobPaymentGateway">vlastního klienta pro ČSOB <strong>platební bránu</strong></a>.
+			</p>
+
+			<h3>Damejidlo.cz <small>Pizza Time s.r.o.</small> <span class="light">- leden 2013 až červenec 2014</span></h3>
+
+			<p>
+				Moje pozice byla něco jako <strong>architekt systému</strong>,
+				protože z velké části jsem <strong>konzultoval</strong> s týmem většinu <strong>technických rozhodnutí</strong>,
+				ale především jsem <strong>programoval</strong>.
+			</p>
+
+			<p>
+				Po nástupu jsem vedl postupný přepis aplikace na <strong>Doctrine 2</strong>,
+				což jsme dělali průběžně, protože jsme si nemohli dovolit zastavit vývoj na několik měsíců.
+				A jako jednu z úplně prvních věcí jsem do projektu vnutil <strong>Composer</strong> a <strong>Nette/Tester</strong> a začaly se psát testy.
+			</p>
+
+			<p>
+				Nasazoval jsem <strong>Redis</strong> na sessions a cache, <strong>HTTPS</strong> na celý web,
+				<a href="{% post_url 2014-06-26-kdyby-rabbitmq-aneb-asynchronni-kdyby-events %}"><strong>RabbitMQ</strong></a>,
+				<a href="{% post_url 2014-09-08-monolog-syslog-a-papertrail %}"><strong>Monolog</strong> a Papertrail</a> a pár dalších technologií.
+			</p>
+
+			<h3>Fulltime opensource <span class="light">- září 2011 až leden 2013</span></h3>
+
+			<p>
+				Víc jak rok jsem byl z vlastního rozhodnutí nezaměstnaný a žil jsem z úspor a drobných projektů,
+				abych si mohl programovat pro radost a pořádně se zlepšit. A věřím, že se to vyplatilo :)
+			</p>
+
+			<h3>D3 Network <span class="light">- září 2010 až září 2011</span></h3>
+
+			<p>
+				Moje úplně první <i>"opravdová práce"</i> na HPP a první zkušenost s prací v kolektivu.
+				Nastoupil jsem do této firmy hned po škole, když jsem si s Nette hrál teprve chvilku.
+				<strong>Programoval jsem</strong> zde systém na <strong>sjednávání smluv pro pojišťovnu</strong> Triglav.
+				V současnosti už firma neexistuje.
+			</p>
+
+			<h3>Začátky</h3>
+
+			<p>
+				Web jsem objevil někdy v roce 2004 a hned jsem věděl, že je to něco, co mě bude v budoucnu živit.
+				Nejprve jsem si hrál s <strong>HTML</strong> a <strong>CSS</strong> a později s <strong>JavaScript</strong>em,
+				ve kterém jsem tehdy ještě neprogramoval, ale jen lepil dohromady kusy kódu z internetu.
+				Koupil jsem si knihu <a href="http://knihy.cpress.cz/css-kaskadove-styly.html">CSS Kaskádové styly od Petra Staníčka</a> a naučil se kodeřině.
+				Ta mě omrzela na střední škole, když jsem objevil <strong>PHP</strong> a začal se učit <strong>programovat</strong>.
+				Bylo to v době, kdy první hostingy teprve nasazovaly PHP 5.2 a scripty se musely psát s koncovkou <code>.php5</code>.
+			</p>
+
+			<div class="page-break"></div>
+			<h2 id="open-source">Open-source</h2>
+
+			<h3>Kdyby (CMS)</h3>
+
+			<p>
+				Na střední škole jsem se rozhodl, že napíšu to nejlepší CMS a vydělám na něm balík.
+				Na první verzi jsem udělal několik webů, ale brzy jsem začal zjišťovat kolik toho ještě neumím
+				a CMS umřelo na moje odhodlání udělat ho nejlépe jak umím, což znamenalo,
+				že jsem ho během několika let desetkrát přepsal od nuly (a nikdy to nedokončil).
+			</p>
+
+			<p>
+				Následně jsem objevil <strong>Nette Framework</strong> a s ním začalo další kolo přepisování, které do dnes neskončilo.
+				Dostal jsem ale rozum a <a href="https://github.com/Kdyby">začal projekt sekat na menší užitečné části</a>, které se dají používat v různých aplikacích.
+			</p>
+
+			<h3>Nette Framework</h3>
+
+			<p>
+				Framework aktivně používám >{=date('Y')-2009} let.
+				Snažím se radit na fóru, a když mi to čas dovolí tak do něj přispěju nějakým pullrequestem.
+			</p>
+
+			<h3>Ostatní</h3>
+
+			<p>
+				Můj <a href="https://github.com/fprochazka?tab=repositories">osobní github profil</a> je plný různých projektů, se kterými jsem si hrál nebo jsem je forkl, abych do nich přispěl.
+				Nejzajímavější z nich, byť maličko starší, je <a href="https://github.com/fprochazka/project-archivist">rozpracované fórum</a>, které je postavené na Nette, Doctrine 2 a Kdyby balíčcích.
+			</p>
+
+			<h2 id="education">Vzdělání</h2>
+
+			<p>Nejvyšší dosažené vzdělání: středoškolské s maturitou</p>
+
+			<ul>
+				<li><strong>Masarykova univerzita</strong> - <a href="http://www.fi.muni.cz/katalog/obory_html/bc-ap.xhtml.cs">Aplikovaná informatika</a> - 2014 až současnost</li>
+				<li><strong>SPŠ Jedovnice</strong> - 2006 až 2010, zakončeno maturitou</li>
+				<li><strong>Gymnázium Velké Pavlovice</strong> - 2002 až 2006</li>
+			</ul>
+
+			<h2 id="other">Ostatní informace</h2>
+
+			<dl class="row other">
+				<dt class="col-sm-3 text-xs-right">Jazyky</dt><dd class="col-sm-8">Čeština (rodilý), Angličtina (B2)</dd>
+				<dt class="col-sm-3 text-xs-right">Řidičský průkaz</dt><dd class="col-sm-8">B</dd>
+			</dl>
+		</div>
+	</div>
+</div>

@@ -1,5 +1,5 @@
 @import './bootstrap.scss';
-@import './font-awesone.scss';
+@import "./font-awesone.scss";
 
 $green-light:  #126608 !default;
 $green-dark:   #0a3a05 !default;
@@ -396,6 +396,39 @@ a.rss {
     font-size: 1.4rem;
     margin-top: 4px;
     margin-bottom: 0;
+  }
+  time {
+    font-size: smaller;
+    margin-left: 10px;
+  }
+}
+
+.blog-tags {
+  .tag-cloud {
+    margin-top: 10px;
+  }
+
+  .article-tag {
+    float: left;
+    box-sizing: inherit;
+    margin-bottom: 0.2em;
+    margin-right: 0.2rem;
+
+    a {
+      white-space: nowrap;
+      background-color: $gray-lightest;
+      text-decoration: none;
+
+      display: block;
+      padding: 0.5em 1em;
+      @include border-radius($nav-pills-border-radius);
+
+      &.active,
+      &:hover {
+        color: $gray-lightest;
+        background-color: $green-dark;
+      }
+    }
   }
 }
 

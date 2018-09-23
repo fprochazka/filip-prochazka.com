@@ -1,5 +1,5 @@
-/app/config/config.local.neon
-/vendor
-/node_modules
-/www/dist
-/.env
+/.git
+/.idea
+/.sass-cache
+/_site
+.jekyll-metadata

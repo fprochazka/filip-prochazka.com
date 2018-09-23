@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+{% include head.html %}
+</head>
+<body>
+<div class="container">
+    {% include header.html %}
+
+    <div class="blog-articles">
+
+        <div class="row">
+            <h1 class="motto col-xs-12 col-lg-11 offset-lg-1">
+                Blog: Co se nevešlo na Twitter - {{ page.title }}
+            </h1>
+        </div>
+
+        {% for post in page.posts %}
+        {% include blogpostPreview.html post=post %}
+        {% endfor %}
+
+        {{ content }}
+
+    </div>
+
+</div>
+{% include footer.html %}
+</body>
+</html>
