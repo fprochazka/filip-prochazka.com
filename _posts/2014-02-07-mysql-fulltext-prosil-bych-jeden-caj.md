@@ -49,29 +49,29 @@ DELIMITER ;;
 
 CREATE PROCEDURE `food_fulltext_update` (IN `updated_id` int(11))
 BEGIN
-	DECLARE `name` TEXT ;
-	DECLARE `description` TEXT ;
+    DECLARE `name` TEXT ;
+    DECLARE `description` TEXT ;
 
-	SELECT food.`name`, food.`description` INTO `name`, `description`
-	FROM food WHERE `id` = `updated_id`;
+    SELECT food.`name`, food.`description` INTO `name`, `description`
+    FROM food WHERE `id` = `updated_id`;
 
-	INSERT INTO `food_fulltext` (`food_id`, `name`, `description`) VALUES (`updated_id`, `name`, `description`)
-	ON DUPLICATE KEY UPDATE `name` = VALUES(`name`), `description` = VALUES(`description`);
+    INSERT INTO `food_fulltext` (`food_id`, `name`, `description`) VALUES (`updated_id`, `name`, `description`)
+    ON DUPLICATE KEY UPDATE `name` = VALUES(`name`), `description` = VALUES(`description`);
 END;;
 
 CREATE TRIGGER `food_ai` AFTER INSERT ON `food` FOR EACH ROW
 IF @disable_triggers IS NULL THEN
-	CALL food_fulltext_update(NEW.`id`);
+    CALL food_fulltext_update(NEW.`id`);
 END IF;;
 
 CREATE TRIGGER `food_au` AFTER UPDATE ON `food` FOR EACH ROW
 IF @disable_triggers IS NULL THEN
-	CALL food_fulltext_update(NEW.`id`);
+    CALL food_fulltext_update(NEW.`id`);
 END IF;;
 
 CREATE TRIGGER `food_ad` AFTER DELETE ON `food` FOR EACH ROW
 IF @disable_triggers IS NULL THEN
-	DELETE FROM food_fulltext WHERE `food_id` = OLD.`id`;
+    DELETE FROM food_fulltext WHERE `food_id` = OLD.`id`;
 END IF;;
 
 DELIMITER ;
@@ -103,9 +103,9 @@ a když ji pak proženeme přes `Nette\Database\Context`
 function search($string)
 {
 
-	$sql = "...";
+    $sql = "...";
 
-	return $this->db->query($sql, $string, $string, $string)->fetchAll();
+    return $this->db->query($sql, $string, $string, $string)->fetchAll();
 }
 ~~~
 
@@ -165,33 +165,33 @@ DELIMITER ;;
 --
 CREATE FUNCTION `strtr`(`str` TEXT, `dict_from` VARCHAR(1024), `dict_to` VARCHAR(1024)) RETURNS text LANGUAGE SQL DETERMINISTIC NO SQL SQL SECURITY INVOKER COMMENT ''
 BEGIN
-	DECLARE len INTEGER;
-	DECLARE i INTEGER;
+    DECLARE len INTEGER;
+    DECLARE i INTEGER;
 
-	IF dict_to IS NOT NULL AND (CHAR_LENGTH(dict_from) != CHAR_LENGTH(dict_to)) THEN
-		SET @error = CONCAT('Length of dicts does not match.');
-		SIGNAL SQLSTATE '49999'
-			SET MESSAGE_TEXT = @error;
-	END IF;
+    IF dict_to IS NOT NULL AND (CHAR_LENGTH(dict_from) != CHAR_LENGTH(dict_to)) THEN
+        SET @error = CONCAT('Length of dicts does not match.');
+        SIGNAL SQLSTATE '49999'
+            SET MESSAGE_TEXT = @error;
+    END IF;
 
-	SET len = CHAR_LENGTH(dict_from);
-	SET i = 1;
+    SET len = CHAR_LENGTH(dict_from);
+    SET i = 1;
 
-	WHILE len >= i  DO
-		SET @f = SUBSTR(dict_from, i, 1);
-		SET @t = IF(dict_to IS NULL, '', SUBSTR(dict_to, i, 1));
+    WHILE len >= i  DO
+        SET @f = SUBSTR(dict_from, i, 1);
+        SET @t = IF(dict_to IS NULL, '', SUBSTR(dict_to, i, 1));
 
-		SET str = REPLACE(str, @f, @t);
-		SET i = i + 1;
+        SET str = REPLACE(str, @f, @t);
+        SET i = i + 1;
 
-	END WHILE;
+    END WHILE;
 
-	RETURN str;
+    RETURN str;
 END;;
 
 CREATE FUNCTION `to_ascii`(`str` TEXT) RETURNS text LANGUAGE SQL DETERMINISTIC NO SQL SQL SECURITY INVOKER COMMENT ''
 BEGIN
-	RETURN strtr(LOWER(str), 'áäčďéěëíµňôóöŕřšťúůüýžÁÄČĎÉĚËÍĄŇÓÖÔŘŔŠŤÚŮÜÝŽ', 'aacdeeeilnooorrstuuuyzaacdeeelinooorrstuuuyz');
+    RETURN strtr(LOWER(str), 'áäčďéěëíµňôóöŕřšťúůüýžÁÄČĎÉĚËÍĄŇÓÖÔŘŔŠŤÚŮÜÝŽ', 'aacdeeeilnooorrstuuuyzaacdeeelinooorrstuuuyz');
 END;;
 ~~~
 
@@ -203,14 +203,14 @@ DELIMITER ;;
 DROP PROCEDURE `food_fulltext_update`;;
 CREATE PROCEDURE `food_fulltext_update` (IN `updated_id` int(11))
 BEGIN
-	DECLARE `name` TEXT ;
-	DECLARE `description` TEXT ;
+    DECLARE `name` TEXT ;
+    DECLARE `description` TEXT ;
 
-	SELECT to_ascii(food.`name`), to_ascii(food.`description`) INTO `name`, `description`
-	FROM food WHERE `id` = `updated_id`;
+    SELECT to_ascii(food.`name`), to_ascii(food.`description`) INTO `name`, `description`
+    FROM food WHERE `id` = `updated_id`;
 
-	INSERT INTO `food_fulltext` (`food_id`, `name`, `description`) VALUES (`updated_id`, `name`, `description`)
-	ON DUPLICATE KEY UPDATE `name` = VALUES(`name`), `description` = VALUES(`description`);
+    INSERT INTO `food_fulltext` (`food_id`, `name`, `description`) VALUES (`updated_id`, `name`, `description`)
+    ON DUPLICATE KEY UPDATE `name` = VALUES(`name`), `description` = VALUES(`description`);
 END;; -- 0.001 s
 ~~~
 
@@ -222,22 +222,22 @@ use Nette\Utils\Strings
 
 function search($string)
 {
-	$string = Strings::lower(Strings::normalize($string);
-	$string = Strings::replace($string, '/[^\d\w]/u', ' ');
+    $string = Strings::lower(Strings::normalize($string);
+    $string = Strings::replace($string, '/[^\d\w]/u', ' ');
 
-	$words = Strings::split(Strings::trim($string), '/\s+/u');
-	$words = array_unique(array_filter($words, function ($word) {
-		return Strings::length($word) > 1;
-	}));
-	$words = array_map(function ($word) {
-		return Strings::toAscii($word) . '*';
-	}, $words);
+    $words = Strings::split(Strings::trim($string), '/\s+/u');
+    $words = array_unique(array_filter($words, function ($word) {
+        return Strings::length($word) > 1;
+    }));
+    $words = array_map(function ($word) {
+        return Strings::toAscii($word) . '*';
+    }, $words);
 
-	$string = implode(' ', $words);
+    $string = implode(' ', $words);
 
-	$sql = "...";
+    $sql = "...";
 
-	return $this->db->query($sql, $string, $string, $string)->fetchAll();
+    return $this->db->query($sql, $string, $string, $string)->fetchAll();
 }
 ~~~
 
@@ -248,10 +248,10 @@ Už jenom otestovat
 
 ~~~ php
 dump([
-	$fulltext->search("Čaj"),
-	$fulltext->search("Caj"),
-	$fulltext->search("čaj"),
-	$fulltext->search("caj"),
+    $fulltext->search("Čaj"),
+    $fulltext->search("Caj"),
+    $fulltext->search("čaj"),
+    $fulltext->search("caj"),
 ]); //  [['food_id' => 2]], [['food_id' => 2]], [['food_id' => 2]], [['food_id' => 2]]
 ~~~
 

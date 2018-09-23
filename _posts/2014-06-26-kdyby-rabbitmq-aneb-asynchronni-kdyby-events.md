@@ -42,7 +42,7 @@ V třídách s bussines logikou pak samozřejmě použijeme constructor injectio
 
 ~~~ neon
 services:
-	- App\FacebookNotifications(@rabbitmq.producer.facebookNotifications)
+    - App\FacebookNotifications(@rabbitmq.producer.facebookNotifications)
 ~~~
 
 Jenže odkud se tyto producery vezmou? To je jednoduché, nakonfigurujeme si je. Hned na začátek si ale vytvoříme nový configurační soubor, protože nastavení rabbita se může pěkně protáhnout.
@@ -51,22 +51,22 @@ Jenže odkud se tyto producery vezmou? To je jednoduché, nakonfigurujeme si je.
 # app/config/config.neon
 
 includes:
-	- rabbitmq.neon
+    - rabbitmq.neon
 ~~~
 
 ~~~ neon
 # app/config/rabbitmq.neon
 
 rabbitmq:
-	connection:
-		user: guest
-		password: guest
+    connection:
+        user: guest
+        password: guest
 
-	producers:
-		facebookNotifications:
-			exchange: {name: 'facebook-notifications', type: direct}
-			queue: {name: 'facebook-notifications'}
-			contentType: application/json
+    producers:
+        facebookNotifications:
+            exchange: {name: 'facebook-notifications', type: direct}
+            queue: {name: 'facebook-notifications'}
+            contentType: application/json
 ~~~
 
 Tak a máme nakonfigurované připojení k RabbitMQ serveru a první producer pro facebook notifikace, co je to exchange a queue už jistě víte z Jakubova článku.
@@ -104,13 +104,13 @@ Pro začátek si nakonfigurujme consumer do páru k našemu předchozímu produc
 # app/config/rabbitmq.neon
 
 rabbitmq:
-	...
+    ...
 
-	consumers:
-		facebookNotifications:
-			exchange: {name: 'facebook-notifications', type: direct}
-			queue: {name: 'facebook-notifications'}
-			callback: @App\Facebook\NotificationSender::process
+    consumers:
+        facebookNotifications:
+            exchange: {name: 'facebook-notifications', type: direct}
+            queue: {name: 'facebook-notifications'}
+            callback: @App\Facebook\NotificationSender::process
 ~~~
 
 Exchange a queue by ideálně měly být stejné, pokud tedy nepraktikujete pokročilé routování. Ovšem přibyla nám tu nová volba a to `callback`.
@@ -136,11 +136,11 @@ Pro začátek data jenom vypíšeme.
 class NotificationSender
 {
 
-	public function process(AMQPMessage $message)
-	{
-		$data = json_decode($message->body);
-		var_dump($data);
-	}
+    public function process(AMQPMessage $message)
+    {
+        $data = json_decode($message->body);
+        var_dump($data);
+    }
 
 }
 ~~~
@@ -167,16 +167,16 @@ Vezmeme si třeba `OrderMailerListener` z [předchozího článku](http://filip-
 
 ~~~ neon
 rabbitmq:
-	producers:
-		orderEmails:
-			exchange: {name: 'order-emails', type: direct}
-			queue: {name: 'order-emails'}
-			contentType: application/json
+    producers:
+        orderEmails:
+            exchange: {name: 'order-emails', type: direct}
+            queue: {name: 'order-emails'}
+            contentType: application/json
 ~~~
 
 ~~~ neon
 services:
-	- {class: OrderMailerListener(@rabbitmq.producer.orderEmails), tag: [kdyby.subscriber]}
+    - {class: OrderMailerListener(@rabbitmq.producer.orderEmails), tag: [kdyby.subscriber]}
 ~~~
 
 ~~~ php
@@ -199,9 +199,9 @@ class OrderMailerListener extends Nette\Object implements Kdyby\Events\Subscribe
     public function onSuccess(OrderProcess $process, Order $order)
     {
         $this->producer->publish(json_encode([
-        	'order' => $order->id,
-        	'user' => $order->user->id
-    	]));
+            'order' => $order->id,
+            'user' => $order->user->id
+        ]));
     }
 }
 ~~~

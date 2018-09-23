@@ -32,13 +32,13 @@ Vymyslel jsem si také, že chci aby se to pěkně používalo.
 ~~~ php
 public function testConsistency()
 {
-	$sessionDir = TEMP_DIR;
-	$this->threadStress(function () use ($sessionDir) {
-		session_save_path($sessionDir);
-		session_start();
-		$_SESSION['counter'] += 1;
-	}, 100);
-	$this->assertEquals(100, $_SESSION['counter']);
+    $sessionDir = TEMP_DIR;
+    $this->threadStress(function () use ($sessionDir) {
+        session_save_path($sessionDir);
+        session_start();
+        $_SESSION['counter'] += 1;
+    }, 100);
+    $this->assertEquals(100, $_SESSION['counter']);
 }
 ~~~
 

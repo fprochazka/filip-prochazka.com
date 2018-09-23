@@ -50,8 +50,8 @@ Kompilovat nginx samozřejmě **nemusíte**, já to dělám proto, že je to zá
 
 ~~~ shell
 $ ./configure --with-ipv6 --with-http_ssl_module --with-http_spdy_module \
-	--with-http_realip_module --with-http_gunzip_module \
-	--with-http_gzip_static_module --with-google_perftools_module
+    --with-http_realip_module --with-http_gunzip_module \
+    --with-http_gzip_static_module --with-google_perftools_module
 $ make
 $ sudo make install
 ~~~

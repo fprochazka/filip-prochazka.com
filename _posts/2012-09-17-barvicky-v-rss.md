@@ -20,7 +20,7 @@ Jenže lenost testovat, jestli to funguje, zvítězila a raději třídy nahrazu
 ~~~ php
 /** @var array */
 private static $languages = array(
-	'php', 'neon', 'config', 'sh', 'texy', 'js', 'css', 'sql', 'html'
+    'php', 'neon', 'config', 'sh', 'texy', 'js', 'css', 'sql', 'html'
 );
 
 /**
@@ -29,29 +29,29 @@ private static $languages = array(
  */
 public function getRssContent($cssFile = NULL)
 {
-	if (!$cssFile) {
-		return $this->htmlContent;
-	}
+    if (!$cssFile) {
+        return $this->htmlContent;
+    }
 
-	$cssDefs = file_get_contents($cssFile);
-	$langs = self::$languages;
-	return Strings::replace($this->htmlContent, '~class=(?:"|\')?([^"\'>]+)(?:"|\')?~i', function ($class) use ($cssDefs, $langs) {
-		$style = NULL;
-		foreach (Strings::split($class[1], '~\s+~') as $class) { // jednotlivé třídy
-			if (count($parts = explode('-', $class, 2)) !== 2 || !in_array($parts[0], $langs)) {
-				// pokud třída není ve tvaru "<jazyk>-<klíčové slovo>", tak přeskoč
-				// pokud jazyk není ve slovníku, tak přeskoč
-				continue;
-			}
+    $cssDefs = file_get_contents($cssFile);
+    $langs = self::$languages;
+    return Strings::replace($this->htmlContent, '~class=(?:"|\')?([^"\'>]+)(?:"|\')?~i', function ($class) use ($cssDefs, $langs) {
+        $style = NULL;
+        foreach (Strings::split($class[1], '~\s+~') as $class) { // jednotlivé třídy
+            if (count($parts = explode('-', $class, 2)) !== 2 || !in_array($parts[0], $langs)) {
+                // pokud třída není ve tvaru "<jazyk>-<klíčové slovo>", tak přeskoč
+                // pokud jazyk není ve slovníku, tak přeskoč
+                continue;
+            }
 
-			if ($css = Strings::match($cssDefs, '~.' . preg_quote($class) . '\s*\{([^}]*?)\}~')) {
-				// nahrazení stylem ze souboru
-				$style .= Strings::replace($css[1], array('~[\n\r]+~' => '')) . ';';
-			}
-		}
+            if ($css = Strings::match($cssDefs, '~.' . preg_quote($class) . '\s*\{([^}]*?)\}~')) {
+                // nahrazení stylem ze souboru
+                $style .= Strings::replace($css[1], array('~[\n\r]+~' => '')) . ';';
+            }
+        }
 
-		return $style ? 'style="' . htmlspecialchars($style, ENT_QUOTES) . '"' : NULL;
-	});
+        return $style ? 'style="' . htmlspecialchars($style, ENT_QUOTES) . '"' : NULL;
+    });
 }
 ~~~
 

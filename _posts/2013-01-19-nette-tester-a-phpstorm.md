@@ -14,9 +14,9 @@ Rozhodl jsem se přepsat všechny svoje testy z PHPUnitu na [Nette\Tester](https
 Abychom mohli testy spouštět, potřebujeme do projektu nainstalovat Nette\Tester a nakopírovat pár kraťoučkých scriptů. Instalovat doporučuji pomocí [Composeru](http://doc.nette.org/cs/composer)
 
 ~~~ js
-	"require-dev": {
-		"nette/tester": "@dev"
-	},
+    "require-dev": {
+        "nette/tester": "@dev"
+    },
 ~~~
 
 Pomocí příznaku `--dev` nainstalujeme i "vývojové" závislosti (tedy `nette/tester`)
@@ -79,15 +79,15 @@ require_once __DIR__ . '/../bootstrap.php';
 class ${NAME}Test extends Tester\TestCase
 {
 
-	public function setUp()
-	{
+    public function setUp()
+    {
 
-	}
+    }
 
-	public function test()
-	{
+    public function test()
+    {
 
-	}
+    }
 
 }
 

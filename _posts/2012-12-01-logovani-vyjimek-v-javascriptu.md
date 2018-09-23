@@ -20,69 +20,69 @@ Co takhle kdybych si obalil všechny funkce do `try {} catch {}`? To by řešilo
 ~~~ php
 class JsDebugger extends Nette\Object
 {
-	const TOK_STRING = 'string';
-	const TOK_SYMBOL = 'symbol';
-	const TOK_WHITESPACE = 'whitespace';
-	const TOK_KEYWORD = 'keyword';
-	const TOK_NUMBER = 'number';
-	const TOK_WORD = 'word';
+    const TOK_STRING = 'string';
+    const TOK_SYMBOL = 'symbol';
+    const TOK_WHITESPACE = 'whitespace';
+    const TOK_KEYWORD = 'keyword';
+    const TOK_NUMBER = 'number';
+    const TOK_WORD = 'word';
 
-	/** @var Nette\Utils\Tokenizer */
-	private $tokens;
+    /** @var Nette\Utils\Tokenizer */
+    private $tokens;
 
-	public function __construct()
-	{
-		$this->tokens = new \Nette\Utils\Tokenizer(array(
-			'lineComment' => '(?:\/\/|\#)[^\n]\n',
-			'blockComment' => '\/\*(?:.*?)\*\/',
-			self::TOK_STRING => \Nette\Latte\Parser::RE_STRING,
-			self::TOK_SYMBOL => '[' . preg_quote('-+.,;:?!%&*|=~<>[]{}()^$#/\\', '~') . ']',
-			self::TOK_WHITESPACE => '\s+',
-			self::TOK_KEYWORD => '(?:do|if|in|for|let|new|try|var|case|else|enum|eval|false|null|this|true|void|with|break|catch|class|const|super|throw|while|yield|delete|export|import|public|return|static|switch|typeof|default|extends|finally|package|private|continue|debugger|function|arguments|interface|protected|implements|instanceof)',
-			self::TOK_NUMBER => '\d+(?:\.\d+)?',
-			self::TOK_WORD => '\w+',
-			'other' => '.' // should never match
-		), 'is');
-	}
+    public function __construct()
+    {
+        $this->tokens = new \Nette\Utils\Tokenizer(array(
+            'lineComment' => '(?:\/\/|\#)[^\n]\n',
+            'blockComment' => '\/\*(?:.*?)\*\/',
+            self::TOK_STRING => \Nette\Latte\Parser::RE_STRING,
+            self::TOK_SYMBOL => '[' . preg_quote('-+.,;:?!%&*|=~<>[]{}()^$#/\\', '~') . ']',
+            self::TOK_WHITESPACE => '\s+',
+            self::TOK_KEYWORD => '(?:do|if|in|for|let|new|try|var|case|else|enum|eval|false|null|this|true|void|with|break|catch|class|const|super|throw|while|yield|delete|export|import|public|return|static|switch|typeof|default|extends|finally|package|private|continue|debugger|function|arguments|interface|protected|implements|instanceof)',
+            self::TOK_NUMBER => '\d+(?:\.\d+)?',
+            self::TOK_WORD => '\w+',
+            'other' => '.' // should never match
+        ), 'is');
+    }
 
-	/**
-	 * @param string $js
-	 * @return string
-	 */
-	public function process($js)
-	{
-		$this->tokens->tokenize($js);
+    /**
+     * @param string $js
+     * @return string
+     */
+    public function process($js)
+    {
+        $this->tokens->tokenize($js);
 
-		$js = '';
-		$level = 0;
-		$functionScopes = array();
-		while ($token = $this->tokens->fetchToken()) {
-			if ($token['type'] === self::TOK_SYMBOL) {
-				if (in_array($token['value'], array('{', '}'))) {
-					if ($token['value'] === '{') {
-						$js .= $token['value'];
-						$level += 1;
-						if ($level === end($functionScopes)) {
-							$js .= 'try{';
-						}
-					} else {
-						if ($level === end($functionScopes)) {
-							$js .= '}catch(e){e.context=this;console.log(e);throw e;}';
-							array_pop($functionScopes);
-						}
-						$level -= 1;
-						$js .= $token['value'];
-					}
-					continue;
-				}
-			}
-			if ($token['type'] === self::TOK_KEYWORD && $token['value'] === 'function') {
-				$functionScopes[] = $level + 1;
-			}
-			$js .= $token['value'];
-		}
-		return $js;
-	}
+        $js = '';
+        $level = 0;
+        $functionScopes = array();
+        while ($token = $this->tokens->fetchToken()) {
+            if ($token['type'] === self::TOK_SYMBOL) {
+                if (in_array($token['value'], array('{', '}'))) {
+                    if ($token['value'] === '{') {
+                        $js .= $token['value'];
+                        $level += 1;
+                        if ($level === end($functionScopes)) {
+                            $js .= 'try{';
+                        }
+                    } else {
+                        if ($level === end($functionScopes)) {
+                            $js .= '}catch(e){e.context=this;console.log(e);throw e;}';
+                            array_pop($functionScopes);
+                        }
+                        $level -= 1;
+                        $js .= $token['value'];
+                    }
+                    continue;
+                }
+            }
+            if ($token['type'] === self::TOK_KEYWORD && $token['value'] === 'function') {
+                $functionScopes[] = $level + 1;
+            }
+            $js .= $token['value'];
+        }
+        return $js;
+    }
 }
 ~~~
 
@@ -92,11 +92,11 @@ Tohle je nejjednodušší způsob jak přiložit preprocessor do aplikace. Lepš
 
 ~~~ php
 $container->application->onRequest[] = function () {
-	if (!file_exists(__DIR__ . '/../www/js/main-preprocessed.js') || !\Nette\Diagnostics\Debugger::$productionMode) {
-		$js = file_get_contents(__DIR__ . '/../www/js/main.js');
-		$debugger = new JsDebugger;
-		file_put_contents(__DIR__ . '/../www/js/main-preprocessed.js', $debugger->process($js));
-	}
+    if (!file_exists(__DIR__ . '/../www/js/main-preprocessed.js') || !\Nette\Diagnostics\Debugger::$productionMode) {
+        $js = file_get_contents(__DIR__ . '/../www/js/main.js');
+        $debugger = new JsDebugger;
+        file_put_contents(__DIR__ . '/../www/js/main-preprocessed.js', $debugger->process($js));
+    }
 };
 ~~~
 
@@ -104,15 +104,15 @@ Z tohoto
 
 ~~~ js
 $(window).load(function () {
-	function Foo(name) {
-		this.name = name;
-	}
-	Foo.prototype.bar = function (lipsum) {
-		lipsum.little.error += 1;
-	};
+    function Foo(name) {
+        this.name = name;
+    }
+    Foo.prototype.bar = function (lipsum) {
+        lipsum.little.error += 1;
+    };
 
-	var fu = new Foo("jmeno");
-	fu.bar("lorem");
+    var fu = new Foo("jmeno");
+    fu.bar("lorem");
 });
 ~~~
 
@@ -120,15 +120,15 @@ nyní dostanu toto
 
 ~~~ js
 $(window).load(function () {try{
-	function Foo(name) {try{
-		this.name = name;
-	}catch(e){e.context=this;console.log(e);throw e;}}
-	Foo.prototype.bar = function (lipsum) {try{
-		lipsum.little.error += 1;
-	}catch(e){e.context=this;console.log(e);throw e;}};
+    function Foo(name) {try{
+        this.name = name;
+    }catch(e){e.context=this;console.log(e);throw e;}}
+    Foo.prototype.bar = function (lipsum) {try{
+        lipsum.little.error += 1;
+    }catch(e){e.context=this;console.log(e);throw e;}};
 
-	var fu = new Foo("jmeno");
-	fu.bar("lorem");
+    var fu = new Foo("jmeno");
+    fu.bar("lorem");
 }catch(e){e.context=this;console.log(e);throw e;}});
 ~~~
 
@@ -142,30 +142,30 @@ Už zbývá jen v produkčním módu vyměnit `console.log` za moji funkci, kter
 ~~~ js
 if (typeof console !== 'object') { console = {}; }
 console.dumpTrace = function (e) {
-	try {
-		var i, calls, call, m,
-			exception = {type: e.name, message: e.message, trace: []};
-		for (i = 0, calls = e.stack.split(/\n/).slice(1); i < calls.length; i++) {
-			m = calls[i].match(/^\s+at\s+(?:(.*)\s+)?\(?(.*?):(\d+):(\d+)\)?$/);
-			if (!m) { continue; }
-			m = m.concat([null, null, null, null, null]); // prevence chybějících indexů
-			call = {call: m[1] ? m[1] : '(anonymous function)', file: m[2], line: parseInt(m[3]), column: parseInt(m[4])};
-			if (call.file.indexOf('chrome-extension') !== -1) {continue;}
-			exception.trace.push(call);
-		}
+    try {
+        var i, calls, call, m,
+            exception = {type: e.name, message: e.message, trace: []};
+        for (i = 0, calls = e.stack.split(/\n/).slice(1); i < calls.length; i++) {
+            m = calls[i].match(/^\s+at\s+(?:(.*)\s+)?\(?(.*?):(\d+):(\d+)\)?$/);
+            if (!m) { continue; }
+            m = m.concat([null, null, null, null, null]); // prevence chybějících indexů
+            call = {call: m[1] ? m[1] : '(anonymous function)', file: m[2], line: parseInt(m[3]), column: parseInt(m[4])};
+            if (call.file.indexOf('chrome-extension') !== -1) {continue;}
+            exception.trace.push(call);
+        }
 
-		console.originalLog(exception);
-		// todo: ukládat ajaxem JSON.stringify(exception)
-		// kvůli kompatibilitě prohlížečů je možné přilinkovat https://github.com/douglascrockford/JSON-js
-	} catch (e) {
-		console.originalLog(e);
-	}
-	return false;
+        console.originalLog(exception);
+        // todo: ukládat ajaxem JSON.stringify(exception)
+        // kvůli kompatibilitě prohlížečů je možné přilinkovat https://github.com/douglascrockford/JSON-js
+    } catch (e) {
+        console.originalLog(e);
+    }
+    return false;
 };
 console.originalLog = $.proxy(console.log, console);
 console.log = function (e) {
-	for (var i = 0; i < arguments.length; i++) { console.dumpTrace(e); }
-	console.originalLog.apply(arguments);
+    for (var i = 0; i < arguments.length; i++) { console.dumpTrace(e); }
+    console.originalLog.apply(arguments);
 };
 ~~~
 
@@ -179,47 +179,47 @@ Co Javascript neumí vůbec, tak říct mi, na jakém objektu byla funkce zavol�
 ~~~ js
 // získání předchozího volajícího ze stack trace
 function argsCaller(args) {
-	try {
-		if (typeof args.callee !== 'undefined' && typeof args.callee.caller !== 'undefined') {
-			return args.callee.caller;
-		} else {
-			return args.caller;
-		}
-	} catch (undef) {
-		return null;
-	}
+    try {
+        if (typeof args.callee !== 'undefined' && typeof args.callee.caller !== 'undefined') {
+            return args.callee.caller;
+        } else {
+            return args.caller;
+        }
+    } catch (undef) {
+        return null;
+    }
 }
 
 // kopie datové struktury objektu
 function simplifyObj(obj, depth) {
-	if (typeof obj === 'string' || typeof obj === 'number' || typeof obj === 'boolean') { return obj; }
-	if (obj instanceof Date) { return obj.toString(); }
-	if (depth === 0) { return null; }
-	var newObj = obj instanceof Array ? [] : {};
-	depth -= 1;
-	for (var prop in obj) {
-		if (newObj[prop] instanceof Function) {continue;}
-		if (!obj.hasOwnProperty(prop)) {continue;}
-		newObj[prop] = simplifyObj(obj[prop], depth);
-	}
-	return newObj;
+    if (typeof obj === 'string' || typeof obj === 'number' || typeof obj === 'boolean') { return obj; }
+    if (obj instanceof Date) { return obj.toString(); }
+    if (depth === 0) { return null; }
+    var newObj = obj instanceof Array ? [] : {};
+    depth -= 1;
+    for (var prop in obj) {
+        if (newObj[prop] instanceof Function) {continue;}
+        if (!obj.hasOwnProperty(prop)) {continue;}
+        newObj[prop] = simplifyObj(obj[prop], depth);
+    }
+    return newObj;
 }
 
 var i, l, calls, call, m,
-	exception = {type: e.name, message: e.message, arguments: e.arguments, trace: []};
-	caller = argsCaller(argsCaller(arguments).arguments);
+    exception = {type: e.name, message: e.message, arguments: e.arguments, trace: []};
+    caller = argsCaller(argsCaller(arguments).arguments);
 for (i = 0, calls = e.stack.split(/\n/).slice(1); i < calls.length; i++) {
-	m = calls[i].match(/^\s+at\s+(?:(.*)\s+)?\(?(.*?):(\d+):(\d+)\)?$/);
-	if (!m) { continue; }
-	m = m.concat([null, null, null, null, null]);
-	call = {call: m[1] ? m[1] : '(anonymous function)', file: m[2], line: parseInt(m[3]), column: parseInt(m[4]), args: []};
-	if (call.file.indexOf('chrome-extension') !== -1) {continue;}
+    m = calls[i].match(/^\s+at\s+(?:(.*)\s+)?\(?(.*?):(\d+):(\d+)\)?$/);
+    if (!m) { continue; }
+    m = m.concat([null, null, null, null, null]);
+    call = {call: m[1] ? m[1] : '(anonymous function)', file: m[2], line: parseInt(m[3]), column: parseInt(m[4]), args: []};
+    if (call.file.indexOf('chrome-extension') !== -1) {continue;}
 
-	if (caller) {
-		for (l = 0; l < caller.arguments.length ;l++) { call.args.push(caller.arguments[l]); }
-		caller = argsCaller(caller.arguments);
-	}
-	exception.trace.push(call);
+    if (caller) {
+        for (l = 0; l < caller.arguments.length ;l++) { call.args.push(caller.arguments[l]); }
+        caller = argsCaller(caller.arguments);
+    }
+    exception.trace.push(call);
 }
 
 console.originalLog(JSON.stringify(simplifyObj(exception, 5)));

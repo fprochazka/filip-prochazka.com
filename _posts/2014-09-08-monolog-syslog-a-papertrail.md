@@ -34,24 +34,24 @@ use Monolog\Logger;
 
 class EmailQueue extends Nette\Object
 {
-	/** @var Logger */
-	private $logger;
+    /** @var Logger */
+    private $logger;
 
-	public function __construct(Logger $logger)
-	{
-		$this->logger = $logger;
-	}
+    public function __construct(Logger $logger)
+    {
+        $this->logger = $logger;
+    }
 
-	public function operation()
-	{
-		try {
-			// some logic
-			$this->logger->addDebug('povedlose');
+    public function operation()
+    {
+        try {
+            // some logic
+            $this->logger->addDebug('povedlose');
 
-		} catch (SendingFailed $e) {
-			$this->logger->addWarning('fail: ' . $e->getMessage());
-		}
-	}
+        } catch (SendingFailed $e) {
+            $this->logger->addWarning('fail: ' . $e->getMessage());
+        }
+    }
 
 }
 ~~~
@@ -77,18 +77,18 @@ Nainstalujeme [kdyby/monolog pomocí composeru](https://github.com/kdyby/monolog
 
 ~~~ neon
 extensions:
-	monolog: Kdyby\Monolog\DI\MonologExtension
+    monolog: Kdyby\Monolog\DI\MonologExtension
 
 monolog:
-	name: damejidlo
+    name: damejidlo
 ~~~
 
 Přidáme handler, který bude všechno posílat do syslogu
 
 ~~~ neon
 monolog:
-	handlers:
-		- Monolog\Handler\SyslogHandler('damejidlo', 'local4')
+    handlers:
+        - Monolog\Handler\SyslogHandler('damejidlo', 'local4')
 ~~~
 
 Proč `local4`? Nemám ponětí, byl to první volný kanál na VPS kde nám běží projekty, tak ho prostě používám všude :)
@@ -97,11 +97,11 @@ Uživatelé NewRelicu, stejně jednoduše přidají handler na NewRelic
 
 ~~~ neon
 monolog:
-	handlers:
-		- Kdyby\Monolog\Handler\NewRelicHandler(Monolog\Logger::NOTICE)
+    handlers:
+        - Kdyby\Monolog\Handler\NewRelicHandler(Monolog\Logger::NOTICE)
 
-		# v Nette 2.1 možná budete muset použít trik:
-		# Kdyby\Monolog\Handler\NewRelicHandler(::constant('Monolog\Logger::NOTICE'))
+        # v Nette 2.1 možná budete muset použít trik:
+        # Kdyby\Monolog\Handler\NewRelicHandler(::constant('Monolog\Logger::NOTICE'))
 ~~~
 
 A pokud používáte nějaký jiný tool na integraci NewRelicu do Nette, tak v něm doporučuji zpracování chyb vypnout, ať se to nemlátí.
@@ -126,7 +126,7 @@ tak se fallback co zapisuje do `log/` sám nezapne. Pokud tedy chcete stále zap
 
 ~~~ neon
 monolog:
-	registerFallback: yes
+    registerFallback: yes
 ~~~
 
 Což se hodí zejména na locahostu, jinak toho moc neodladíte :)

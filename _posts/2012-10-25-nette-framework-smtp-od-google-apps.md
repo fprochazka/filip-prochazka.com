@@ -25,13 +25,13 @@ Následujících pár řadků nám nastaví [SMTP mailer](http://api.nette.org/2
 
 ~~~ neon
 production:
-	nette:
-		mailer:
-			smtp: true
-			host: smtp.gmail.com
-			secure: ssl
-			username: no-reply@kdyby.org
-			password: ****
+    nette:
+        mailer:
+            smtp: true
+            host: smtp.gmail.com
+            secure: ssl
+            username: no-reply@kdyby.org
+            password: ****
 ~~~
 
 a můžeme začít emaily odesílat
@@ -44,19 +44,19 @@ private $mailer;
 
 public function injectMailer(Nette\Mail\IMailer $mailer)
 {
-	$this->mailer = $mailer;
+    $this->mailer = $mailer;
 }
 
 public function registrationFormSubmitted($form)
 {
-	// ...
+    // ...
 
-	$message = new \Nette\Mail\Message();
-	$message->setSubject('Registrace')
-		->setFrom('bot@kdyby.org')
-		->addTo($registrationEmail)
-		->setHtmlBody($registrationEmailTemplate);
+    $message = new \Nette\Mail\Message();
+    $message->setSubject('Registrace')
+        ->setFrom('bot@kdyby.org')
+        ->addTo($registrationEmail)
+        ->setHtmlBody($registrationEmailTemplate);
 
-	$this->mailer->send($message);
+    $this->mailer->send($message);
 }
 ~~~

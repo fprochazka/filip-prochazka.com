@@ -24,20 +24,20 @@ Mějme jednoduchou třídu
 ~~~ php
 class OrderProcess extends Nette\Object
 {
-	public $onSuccess = array();
-	private $orders;
+    public $onSuccess = array();
+    private $orders;
 
-	public function __construct(Orders $orders)
-	{
-		$this->orders = $orders;
-	}
+    public function __construct(Orders $orders)
+    {
+        $this->orders = $orders;
+    }
 
-	public function process($values)
-	{
-		if ($order = $this->orders->create($values)) {
-			$this->onSuccess($this, $order);
-		}
-	}
+    public function process($values)
+    {
+        if ($order = $this->orders->create($values)) {
+            $this->onSuccess($this, $order);
+        }
+    }
 }
 ~~~
 
@@ -46,7 +46,7 @@ Protože používám `Nette\Object`, mohu si navázat libovolné callbacky, na u
 ~~~ php
 $process = new OrderProcess($orders);
 $process->onSuccess[] = function ($process, $order) {
-	echo "Utratil jsi ", $order->sum, " Kč";
+    echo "Utratil jsi ", $order->sum, " Kč";
 };
 ~~~
 
@@ -56,17 +56,17 @@ Další věc je, že zapisování listenerů pro Nette eventy v DIC je velice ne
 
 ~~~ neon
 services:
-	orderProcess:
-		class: OrderProcess()
-		setup:
-			- "$service->onSuccess[] = ?"([@listenerService, method])
+    orderProcess:
+        class: OrderProcess()
+        setup:
+            - "$service->onSuccess[] = ?"([@listenerService, method])
 ~~~
 
 Oba systémy se dají propojit, když navážu jeden listener, který by argumenty automaticky předal do `EventManager`.
 
 ~~~ php
 $process->onSuccess[] = function () use ($eventManager) {
-	$eventManager->dispatch('OrderProcess::onSuccess', new SuccessEventArgs(func_get_args()));
+    $eventManager->dispatch('OrderProcess::onSuccess', new SuccessEventArgs(func_get_args()));
 }
 ~~~
 
@@ -86,15 +86,15 @@ Díky tomu mohu napsat například listener, který bude naslouchat na `Applicat
 ~~~ php
 class FooListener extends Nette\Object implements Kdyby\Events\Subscriber
 {
-	public function getSubscribedEvents()
-	{
-		return array('Nette\Application\Application::onStartup');
-	}
+    public function getSubscribedEvents()
+    {
+        return array('Nette\Application\Application::onStartup');
+    }
 
-	public function onStartup(Application $app)
-	{
-		// tohle se zavolá při každém startu aplikace
-	}
+    public function onStartup(Application $app)
+    {
+        // tohle se zavolá při každém startu aplikace
+    }
 }
 ~~~
 
@@ -102,9 +102,9 @@ Listener zaregistruji a dám mu tag. Díky tomu se automaticky připojí do `Eve
 
 ~~~ neon
 services:
-	foo:
-		class: FooListener
-		tag: [kdyby.subscriber]
+    foo:
+        class: FooListener
+        tag: [kdyby.subscriber]
 ~~~
 
 
@@ -125,22 +125,22 @@ Co kdybych ale posílání emailů vyřešil pomocí události?
 ~~~ php
 class OrderMailerListener extends Nette\Object implements Kdyby\Events\Subscriber
 {
-	private $mailer;
+    private $mailer;
 
-	public function __construct(IMailer $mailer)
-	{
-		$this->mailer = $mailer;
-	}
+    public function __construct(IMailer $mailer)
+    {
+        $this->mailer = $mailer;
+    }
 
-	public function onSuccess(OrderProcess $process, Order $order)
-	{
-		$this->mailer->send(new Message());
-	}
+    public function onSuccess(OrderProcess $process, Order $order)
+    {
+        $this->mailer->send(new Message());
+    }
 
-	public function getSubscribedEvents()
-	{
-		return array('OrderProcess::onSuccess');
-	}
+    public function getSubscribedEvents()
+    {
+        return array('OrderProcess::onSuccess');
+    }
 }
 ~~~
 

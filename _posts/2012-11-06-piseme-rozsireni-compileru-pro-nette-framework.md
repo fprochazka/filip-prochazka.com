@@ -15,14 +15,14 @@ Třídy `RedisStorage`, `RedisJournal` a `RedisSessionHandler` vyžadují ke sv�
 
 ~~~ neon
 common:
-	services:
-		redisClient: RedisClient()
-		nette.cacheJournal: RedisJournal(@redisClient)
-		cacheStorage: RedisStorage(@redisClient, @nette.cacheJournal)
+    services:
+        redisClient: RedisClient()
+        nette.cacheJournal: RedisJournal(@redisClient)
+        cacheStorage: RedisStorage(@redisClient, @nette.cacheJournal)
 
-		session:
-			setup:
-				- setStorage(RedisSessionHandler(@redisClient))
+        session:
+            setup:
+                - setStorage(RedisSessionHandler(@redisClient))
 ~~~
 
 
@@ -36,28 +36,28 @@ Asi by ale nebylo ideální, kdyby si kvůli použití rozšíření musel progr
 ~~~ php
 class RedisExtension extends Nette\DI\CompilerExtension
 {
-	public function loadConfiguration()
-	{
-		$builder = $this->getContainerBuilder();
+    public function loadConfiguration()
+    {
+        $builder = $this->getContainerBuilder();
 
-		// metoda prefix dá před název služby název rozsíření
-		// v tomto případě tak vznikne služba s názvem `redis.client`
-		$builder->addDefinition($this->prefix('client'))
-			->setClass('RedisClient');
+        // metoda prefix dá před název služby název rozsíření
+        // v tomto případě tak vznikne služba s názvem `redis.client`
+        $builder->addDefinition($this->prefix('client'))
+            ->setClass('RedisClient');
 
-		$builder->removeDefinition('nette.cacheJournal');
-		$builder->addDefinition('nette.cacheJournal')
-			->setClass('RedisJournal');
+        $builder->removeDefinition('nette.cacheJournal');
+        $builder->addDefinition('nette.cacheJournal')
+            ->setClass('RedisJournal');
 
-		$builder->removeDefinition('cacheStorage');
-		$builder->addDefinition('cacheStorage')
-			->setClass('RedisStorage');
+        $builder->removeDefinition('cacheStorage');
+        $builder->addDefinition('cacheStorage')
+            ->setClass('RedisStorage');
 
-		$builder->getDefinition('session')
-			->addSetup('setStorage', array(
-				new Nette\DI\Statement('RedisSessionHandler')
-			));
-	}
+        $builder->getDefinition('session')
+            ->addSetup('setStorage', array(
+                new Nette\DI\Statement('RedisSessionHandler')
+            ));
+    }
 }
 ~~~
 
@@ -67,7 +67,7 @@ Takové rozšíření se pak zaregistruje v `app/bootstrap.php`
 
 ~~~ php
 $configurator->onCompile[] = function (Configurator $config, Compiler $compiler) {
-	$compiler->addExtension('redis', new RedisExtension());
+    $compiler->addExtension('redis', new RedisExtension());
 };
 ~~~
 
@@ -78,11 +78,11 @@ Každé registrované rozšíření, získá vlastní sekci v configu. Všimnět
 
 ~~~ neon
 production:
-	redis:
-		host: 127.0.0.1
-		port: 6379
-		timeout: 10
-		database: 0
+    redis:
+        host: 127.0.0.1
+        port: 6379
+        timeout: 10
+        database: 0
 ~~~
 
 Všechno, co pod stejnou sekcí napíši v configu, získám v rozšíření pomocí metody [getConfig()](http://api.kdyby.org/class-Nette.DI.CompilerExtension.html#_getConfig). Nejčastější chyba je, zanořovat sekci `redis` do `services`, nebo do `parameters`, na to si dejte pozor!
@@ -90,28 +90,28 @@ Všechno, co pod stejnou sekcí napíši v configu, získám v rozšíření pom
 ~~~ php
 class RedisExtension extends Nette\DI\CompilerExtension
 {
-	public function loadConfiguration()
-	{
-		$builder = $this->getContainerBuilder();
-		$config = $this->getConfig();
+    public function loadConfiguration()
+    {
+        $builder = $this->getContainerBuilder();
+        $config = $this->getConfig();
 
-		$builder->addDefinition($this->prefix('client'))
-			->setClass('Kdyby\Redis\RedisClient', array(
-				'host' => $config['host'],
-				'port' => $config['port'],
-				'database' => $config['database'],
-				'timeout' => $config['timeout']
-			));
+        $builder->addDefinition($this->prefix('client'))
+            ->setClass('Kdyby\Redis\RedisClient', array(
+                'host' => $config['host'],
+                'port' => $config['port'],
+                'database' => $config['database'],
+                'timeout' => $config['timeout']
+            ));
 ~~~
 
 Dále bych taky chtěl mít nějaké rozumné výchozí hodnoty, s tím nám také pomůže metoda `getConfig()`
 
 ~~~ php
 $config = $this->getConfig(array(
-	'host' => 'localhost',
-	'port' => 6379,
-	'timeout' => 10,
-	'database' => 0
+    'host' => 'localhost',
+    'port' => 6379,
+    'timeout' => 10,
+    'database' => 0
 ));
 ~~~
 
@@ -123,7 +123,7 @@ Místo
 
 ~~~ php
 $configurator->onCompile[] = function (Configurator $config, Compiler $compiler) {
-	$compiler->addExtension('redis', new RedisExtension());
+    $compiler->addExtension('redis', new RedisExtension());
 };
 ~~~
 
@@ -140,18 +140,18 @@ No a kdybychom chtěli například `RedisClient` použít v presenteru, tak pou�
 ~~~ php
 class MyPresenter extends BasePresenter
 {
-	/** @var RedisClient */
-	private $redisClient;
+    /** @var RedisClient */
+    private $redisClient;
 
-	public function injectRedis(RedisClient $client)
-	{
-		$this->redisClient = $client;
-	}
+    public function injectRedis(RedisClient $client)
+    {
+        $this->redisClient = $client;
+    }
 
-	public function actionDefault()
-	{
-		$this->redisClient->get(...);
-	}
+    public function actionDefault()
+    {
+        $this->redisClient->get(...);
+    }
 }
 ~~~
 
@@ -161,5 +161,5 @@ Pomocná funkce `register` pak není vůbec potřeba.
 
 ~~~ neon
 extensions:
-	redis: Kdyby\Redis\DI\RedisExtension
+    redis: Kdyby\Redis\DI\RedisExtension
 ~~~

@@ -6,7 +6,7 @@ date: 2012-09-15
 tag: ["PHP", "Texy!", "FSHL"]
 ---
 
-[Davídek](http://davidgrudl.com) nám ukázal, jak má nastavené texy na http://nette.org, takže jsem toho využil a napsal si nad Texy! vrstvičku.
+[Davídek](https://davidgrudl.com) nám ukázal, jak má nastavené texy na [https://nette.org](https://nette.org), takže jsem toho využil a napsal si nad Texy! vrstvičku.
 
 Stará se o zvýrazňování kódu a taky zpracovává magické "meta makra".
 Potřeboval jsem také, aby do zvárazněného kódu generoval seznamy, tak jako to ve své dokumentaci dělá Twitter Bootstrap, takže jsem povolil `ol` v elementu `pre`.
@@ -37,190 +37,190 @@ use Nette\Utils\Strings;
 
 class Processor extends Nette\Object
 {
-	/** @var \Texy */
-	private $lastTexy;
+    /** @var \Texy */
+    private $lastTexy;
 
-	/** @var \FSHL\Highlighter */
-	private $highlighter;
+    /** @var \FSHL\Highlighter */
+    private $highlighter;
 
-	/** @var array */
-	private $meta = array();
+    /** @var array */
+    private $meta = array();
 
-	/** @var string */
-	private $title;
+    /** @var string */
+    private $title;
 
-	/** @var array */
-	private static $highlights = array(
-		'block/code' => TRUE,
-		'block/php' => 'FSHL\Lexer\Php',
-		'block/neon' => 'FSHL\Lexer\Neon',
-		'block/config' => TRUE, // @todo
-		'block/sh' => TRUE, // @todo
-		'block/texy' => TRUE, // @todo
-		'block/javascript' => 'FSHL\Lexer\Javascript',
-		'block/js' => 'FSHL\Lexer\Javascript',
-		'block/css' => 'FSHL\Lexer\Css',
-		'block/sql' => 'FSHL\Lexer\Sql',
-		'block/html' => 'FSHL\Lexer\Html',
-		'block/htmlcb' => 'FSHL\Lexer\Html',
-	);
+    /** @var array */
+    private static $highlights = array(
+        'block/code' => TRUE,
+        'block/php' => 'FSHL\Lexer\Php',
+        'block/neon' => 'FSHL\Lexer\Neon',
+        'block/config' => TRUE, // @todo
+        'block/sh' => TRUE, // @todo
+        'block/texy' => TRUE, // @todo
+        'block/javascript' => 'FSHL\Lexer\Javascript',
+        'block/js' => 'FSHL\Lexer\Javascript',
+        'block/css' => 'FSHL\Lexer\Css',
+        'block/sql' => 'FSHL\Lexer\Sql',
+        'block/html' => 'FSHL\Lexer\Html',
+        'block/htmlcb' => 'FSHL\Lexer\Html',
+    );
 
-	public function __construct(\FSHL\Highlighter $highlighter)
-	{
-		$this->highlighter = $highlighter;
-	}
+    public function __construct(\FSHL\Highlighter $highlighter)
+    {
+        $this->highlighter = $highlighter;
+    }
 
-	public function process($text)
-	{
-		$this->meta = array();
-		$this->title = array('link' => NULL, 'heading' => NULL, 'el' => NULL);
-		return $this->createTexy()->process($text);
-	}
+    public function process($text)
+    {
+        $this->meta = array();
+        $this->title = array('link' => NULL, 'heading' => NULL, 'el' => NULL);
+        return $this->createTexy()->process($text);
+    }
 
-	public function getMeta()
-	{
-		return $this->meta;
-	}
+    public function getMeta()
+    {
+        return $this->meta;
+    }
 
-	public function getTitle()
-	{
-		return $this->title;
-	}
+    public function getTitle()
+    {
+        return $this->title;
+    }
 
-	public function getLastTexy()
-	{
-		return $this->lastTexy;
-	}
+    public function getLastTexy()
+    {
+        return $this->lastTexy;
+    }
 
-	protected function createTexy()
-	{
-		$texy = new \Texy();
+    protected function createTexy()
+    {
+        $texy = new \Texy();
 
-		// obecné nastavení
-		$texy->allowedTags = \Texy::ALL;
-		$texy->linkModule->root = '';
-		$texy->tabWidth = 4;
-		$texy->phraseModule->tags['phrase/strong'] = 'b';
-		$texy->phraseModule->tags['phrase/em'] = 'i';
-		$texy->phraseModule->tags['phrase/em-alt'] = 'i';
+        // obecné nastavení
+        $texy->allowedTags = \Texy::ALL;
+        $texy->linkModule->root = '';
+        $texy->tabWidth = 4;
+        $texy->phraseModule->tags['phrase/strong'] = 'b';
+        $texy->phraseModule->tags['phrase/em'] = 'i';
+        $texy->phraseModule->tags['phrase/em-alt'] = 'i';
 
-		// nadpisy
-		$texy->headingModule->top = 1;
-		$texy->headingModule->generateID = TRUE;
-		$texy->addHandler('afterParse', array($this, 'headingHandler'));
+        // nadpisy
+        $texy->headingModule->top = 1;
+        $texy->headingModule->generateID = TRUE;
+        $texy->addHandler('afterParse', array($this, 'headingHandler'));
 
-		// čísla řádků pro twitter bootstrap
-		$texy->dtd['pre'][1]['ol'] = 1;
+        // čísla řádků pro twitter bootstrap
+        $texy->dtd['pre'][1]['ol'] = 1;
 
-		// vypne generování bílých znaků ve výsledném kódu,
-		// aby se neroztahoval kód v elementu <pre>
-		$texy->htmlOutputModule->indent = FALSE;
+        // vypne generování bílých znaků ve výsledném kódu,
+        // aby se neroztahoval kód v elementu <pre>
+        $texy->htmlOutputModule->indent = FALSE;
 
-		// <code>
-		$texy->addHandler('block', array($this, 'blockHandler'));
+        // <code>
+        $texy->addHandler('block', array($this, 'blockHandler'));
 
-		// meta
-		$texy->registerBlockPattern(
-			array($this, 'metaHandler'),
-			'#\{\{([^:]+):([^:]+)\}\}$#m', // block patterns must be multiline and line-anchored
-			'metaBlockSyntax'
-		);
+        // meta
+        $texy->registerBlockPattern(
+            array($this, 'metaHandler'),
+            '#\{\{([^:]+):([^:]+)\}\}$#m', // block patterns must be multiline and line-anchored
+            'metaBlockSyntax'
+        );
 
-		// return
-		return $this->lastTexy = $texy;
-	}
+        // return
+        return $this->lastTexy = $texy;
+    }
 
     /**
      * Metoda vykuchá element hlavního nadpisu z výsledného HTML
      * a taky koukne, jeslti nadpis neobsahuje odkaz.
      * @internal
      */
-	public function headingHandler(\Texy $texy, \TexyHtml $DOM, $isSingleLine)
-	{
-		list($title) = $texy->headingModule->TOC;
+    public function headingHandler(\Texy $texy, \TexyHtml $DOM, $isSingleLine)
+    {
+        list($title) = $texy->headingModule->TOC;
 
-		// zkopírovat element
-		$titleEl = Html::el($title['el']->getName(), $title['el']->attrs);
-		foreach ($title['el']->getChildren() as $child) {
-			$titleEl[] = $child;
-		}
+        // zkopírovat element
+        $titleEl = Html::el($title['el']->getName(), $title['el']->attrs);
+        foreach ($title['el']->getChildren() as $child) {
+            $titleEl[] = $child;
+        }
 
         // uklidit
-		$title['el']->attrs = array();
-		$title['el']->removeChildren();
-		$title['el']->setName(NULL);
+        $title['el']->attrs = array();
+        $title['el']->removeChildren();
+        $title['el']->setName(NULL);
 
-		// parsování odkazu
-		foreach ($titleEl->getChildren() as $i => $child) {
-			$matches = Strings::matchAll(
-				$texy->unProtect($child), // texy magie
-				'~<([\\w]+)([^>]*?)(([\\s]*\/>)|(>((([^<]*?|<\!\-\-.*?\-\->)|(?R))*)<\/\\1[\s]*>))~sm',
-				PREG_OFFSET_CAPTURE
-			);
-			if (!$matches) break;
-			list($tag) = $matches;
+        // parsování odkazu
+        foreach ($titleEl->getChildren() as $i => $child) {
+            $matches = Strings::matchAll(
+                $texy->unProtect($child), // texy magie
+                '~<([\\w]+)([^>]*?)(([\\s]*\/>)|(>((([^<]*?|<\!\-\-.*?\-\->)|(?R))*)<\/\\1[\s]*>))~sm',
+                PREG_OFFSET_CAPTURE
+            );
+            if (!$matches) break;
+            list($tag) = $matches;
 
-			$titleEl[$i] = $el = Html::el($tag[1][0] . ' ' . $tag[2][0]);
-			$el->setHtml($tag[6][0]);
+            $titleEl[$i] = $el = Html::el($tag[1][0] . ' ' . $tag[2][0]);
+            $el->setHtml($tag[6][0]);
 
-			if ($el->getName() === 'a') {
-				$this->title['link'] = $el->attrs['href'];
-			}
-		}
+            if ($el->getName() === 'a') {
+                $this->title['link'] = $el->attrs['href'];
+            }
+        }
 
         // obsah nadpisu
-		$this->title['heading'] = $titleEl->getText();
-		$this->title['el'] = $titleEl;
-	}
+        $this->title['heading'] = $titleEl->getText();
+        $this->title['el'] = $titleEl;
+    }
 
     /**
      * Parsuje meta značky {{key: value}}
      * @internal
      */
-	public function metaHandler(\TexyParser $parser, array $matches, $name)
-	{
-		list(, $metaName, $metaValue) = $matches;
-		$this->meta[] = array(
-			trim(Strings::normalize($metaName)),
-			trim(Strings::normalize($metaValue))
-		);
-	}
+    public function metaHandler(\TexyParser $parser, array $matches, $name)
+    {
+        list(, $metaName, $metaValue) = $matches;
+        $this->meta[] = array(
+            trim(Strings::normalize($metaName)),
+            trim(Strings::normalize($metaValue))
+        );
+    }
 
     /**
      * Zýrazňuje kód
      * @internal
      */
-	public function blockHandler(\TexyHandlerInvocation $invocation, $blockType, $content, $lang, $modifier)
-	{
-		if (isset(self::$highlights[$blockType])) {
-			list(, $lang) = explode('/', $blockType);
-		} else {
-			return $invocation->proceed($blockType, $content, $lang, $modifier);
-		}
+    public function blockHandler(\TexyHandlerInvocation $invocation, $blockType, $content, $lang, $modifier)
+    {
+        if (isset(self::$highlights[$blockType])) {
+            list(, $lang) = explode('/', $blockType);
+        } else {
+            return $invocation->proceed($blockType, $content, $lang, $modifier);
+        }
 
-		$texy = $invocation->getTexy();
-		$content = \Texy::outdent($content);
+        $texy = $invocation->getTexy();
+        $content = \Texy::outdent($content);
 
-		// zvýraznění syntaxe
-		if (class_exists($lexerClass = self::$highlights[$blockType])) {
-			$content = $this->highlighter->highlight($content, new $lexerClass());
-		} else {
-			$content = htmlspecialchars($content);
-		}
+        // zvýraznění syntaxe
+        if (class_exists($lexerClass = self::$highlights[$blockType])) {
+            $content = $this->highlighter->highlight($content, new $lexerClass());
+        } else {
+            $content = htmlspecialchars($content);
+        }
 
-		$elPre = \TexyHtml::el('pre');
-		if ($modifier) $modifier->decorate($texy, $elPre);
-		$elPre->attrs['class'] = 'src-' . strtolower($lang) . ' prettyprint linenums';
+        $elPre = \TexyHtml::el('pre');
+        if ($modifier) $modifier->decorate($texy, $elPre);
+        $elPre->attrs['class'] = 'src-' . strtolower($lang) . ' prettyprint linenums';
 
-		// čísla řádků
-		$elOl = $elPre->create('ol', array('class' => 'linenums'));
-		foreach (Strings::split($content, '~[\n\r]~') as $i => $line) {
-			$elLi = $elOl->create('li', array('class' => 'L' . $i));
-			$elLi->create('span', $texy->protect($line, \Texy::CONTENT_BLOCK));
-		}
+        // čísla řádků
+        $elOl = $elPre->create('ol', array('class' => 'linenums'));
+        foreach (Strings::split($content, '~[\n\r]~') as $i => $line) {
+            $elLi = $elOl->create('li', array('class' => 'L' . $i));
+            $elLi->create('span', $texy->protect($line, \Texy::CONTENT_BLOCK));
+        }
 
-		return $elPre;
-	}
+        return $elPre;
+    }
 
 }
 ~~~
@@ -230,34 +230,34 @@ Kvůli tomu, že každý řádek nyní obaluji prvkem `<li>`, je potřeba upravi
 ~~~ php
 class FshlHtmlOutput implements \FSHL\Output
 {
-	private $lastClass = null;
+    private $lastClass = null;
 
-	public function template($part, $class)
-	{
-		$output = '';
-		if ($this->lastClass !== $class) {
-			if (null !== $this->lastClass) $output .= '</span>';
-			if (null !== $class) $output .= '<span class="' . $class . '">';
-			$this->lastClass = $class;
-		}
-		$part = htmlspecialchars($part, ENT_COMPAT, 'UTF-8');
-		if ($this->lastClass && strpos($part, "\n") !== FALSE) {
-		    $endline = "</span>\n" . '<span class="' . $this->lastClass . '">';
-			$part = str_replace("\n", $endline, $part);
-		}
-		return $output . $part;
-	}
+    public function template($part, $class)
+    {
+        $output = '';
+        if ($this->lastClass !== $class) {
+            if (null !== $this->lastClass) $output .= '</span>';
+            if (null !== $class) $output .= '<span class="' . $class . '">';
+            $this->lastClass = $class;
+        }
+        $part = htmlspecialchars($part, ENT_COMPAT, 'UTF-8');
+        if ($this->lastClass && strpos($part, "\n") !== FALSE) {
+            $endline = "</span>\n" . '<span class="' . $this->lastClass . '">';
+            $part = str_replace("\n", $endline, $part);
+        }
+        return $output . $part;
+    }
 
-	public function keyword($part, $class)
-	{
-		$output = '';
-		if ($this->lastClass !== $class) {
-			if (null !== $this->lastClass) $output .= '</span>';
-			if (null !== $class) $output .= '<span class="' . $class . '">';
-			$this->lastClass = $class;
-		}
-		return $output . htmlspecialchars($part, ENT_COMPAT, 'UTF-8');
-	}
+    public function keyword($part, $class)
+    {
+        $output = '';
+        if ($this->lastClass !== $class) {
+            if (null !== $this->lastClass) $output .= '</span>';
+            if (null !== $class) $output .= '<span class="' . $class . '">';
+            $this->lastClass = $class;
+        }
+        return $output . htmlspecialchars($part, ENT_COMPAT, 'UTF-8');
+    }
 }
 ~~~
 
@@ -278,9 +278,9 @@ Byl jsem krapet v šoku, když jsem zjistil, že tento krásný blok s kódem ne
     padding: 8px; background-color: #f7f7f9; border: 1px solid #e1e1e8;
 }
 .prettyprint.linenums {
-	-webkit-box-shadow: inset 45px 0 0 #fbfbfc, inset 46px 0 0 #ececf0;
-	-moz-box-shadow: inset 45px 0 0 #fbfbfc, inset 46px 0 0 #ececf0;
-	box-shadow: inset 45px 0 0 #fbfbfc, inset 46px 0 0 #ececf0;
+    -webkit-box-shadow: inset 45px 0 0 #fbfbfc, inset 46px 0 0 #ececf0;
+    -moz-box-shadow: inset 45px 0 0 #fbfbfc, inset 46px 0 0 #ececf0;
+    box-shadow: inset 45px 0 0 #fbfbfc, inset 46px 0 0 #ececf0;
 }
 ol.linenums {
     margin: 0 0 0 43px; /* IE indents via margin-left */

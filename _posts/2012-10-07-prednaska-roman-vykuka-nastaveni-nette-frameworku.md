@@ -22,27 +22,27 @@ Roman ukazoval [Autowiring](http://doc.nette.org/cs/configuring#toc-auto-wiring)
 ~~~ php
 class Authorizator extends Nette\Security\Permission
 {
-	// ...
+    // ...
 
-	/**
-	 * @return Nette\Security\IAuthorizator
-	 */
-	public static function create(Nette\DI\Container $container)
-	{
-		$cache = new Nette\Caching\Cache($container->cacheStorage);
+    /**
+     * @return Nette\Security\IAuthorizator
+     */
+    public static function create(Nette\DI\Container $container)
+    {
+        $cache = new Nette\Caching\Cache($container->cacheStorage);
 
-		// pokud existuje authorizator v cachi, tak načíst
-		if ($cache->load('authorizator') !== NULL) {
-			return $cache->load('authorizator');
-		}
+        // pokud existuje authorizator v cachi, tak načíst
+        if ($cache->load('authorizator') !== NULL) {
+            return $cache->load('authorizator');
+        }
 
-		// jinak vytvořit novou a uložit do cache
-		return $cache['authorizator'] = new static(
-			$container->model->role->fetchAll(),
-			$container->model->permission->fetchAll(),
-			$container->model->resource->fetchAll()
-		);
-	}
+        // jinak vytvořit novou a uložit do cache
+        return $cache['authorizator'] = new static(
+            $container->model->role->fetchAll(),
+            $container->model->permission->fetchAll(),
+            $container->model->resource->fetchAll()
+        );
+    }
 }
 ~~~
 
@@ -50,8 +50,8 @@ Kód jsem maličko upravil, aby dával smysl. Neznám konkrétní implementaci, 
 
 ~~~ neon
 services:
-	authorizator:
-		factory: Nisa\Security\Authorizator::create()
+    authorizator:
+        factory: Nisa\Security\Authorizator::create()
 ~~~
 
 Předávat si celý DI Container je omluvitelné pouze ve dvou případěch
@@ -65,19 +65,19 @@ Předávat si celý DI Container je omluvitelné pouze ve dvou případěch
 ~~~ php
 class Authorizator extends Nette\Security\Permission
 {
-	// ...
+    // ...
 
-	/**
-	 * @return Nette\Security\IAuthorizator
-	 */
-	public static function create(
-		Nette\Caching\IStorage $cacheStorage,
-		Nisa\Model\Roles $roles,
-		Nisa\Model\Permissions $permissions,
-		Nisa\Model\Resource $resources)
-	{
-		// ...
-	}
+    /**
+     * @return Nette\Security\IAuthorizator
+     */
+    public static function create(
+        Nette\Caching\IStorage $cacheStorage,
+        Nisa\Model\Roles $roles,
+        Nisa\Model\Permissions $permissions,
+        Nisa\Model\Resource $resources)
+    {
+        // ...
+    }
 }
 ~~~
 
@@ -91,16 +91,16 @@ Kód z prvního slajdu bohužel fungovat nebude vůbec. Jsem pro zjednodušován
 ~~~ php
 class MyPresenter extends BasePresenter
 {
-	public function __construct(Nette\Mail\IMailer $mailer)
-	{
-		$this->mailer = $mailer;
-		$articles = $this->context->model->articles;
-	}
+    public function __construct(Nette\Mail\IMailer $mailer)
+    {
+        $this->mailer = $mailer;
+        $articles = $this->context->model->articles;
+    }
 
-	protected function createComponentArticleEditor()
-	{
-		return $this->context->createArticleEditor('test');
-	}
+    protected function createComponentArticleEditor()
+    {
+        return $this->context->createArticleEditor('test');
+    }
 }
 ~~~
 

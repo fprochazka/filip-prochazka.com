@@ -30,45 +30,45 @@ Pojďme si tedy napsat primitivní extension, který nám je všechny najde a za
 ~~~ php
 class PresentersExtension extends Nette\DI\CompilerExtension
 {
-	public function loadConfiguration()
-	{
-		$builder = $this->getContainerBuilder();
+    public function loadConfiguration()
+    {
+        $builder = $this->getContainerBuilder();
 
-		if ($builder->parameters['debugMode']) {
-			return; // production only
-		}
+        if ($builder->parameters['debugMode']) {
+            return; // production only
+        }
 
-		// pokud by se vymyslela nějaká inteligentní invalidace
-		// a cachování pro tento robotloader
-		// tak se můžou presentery registrovat i v debug módu
+        // pokud by se vymyslela nějaká inteligentní invalidace
+        // a cachování pro tento robotloader
+        // tak se můžou presentery registrovat i v debug módu
 
-		$robot = new Nette\Loaders\RobotLoader();
-		$robot->addDirectory($builder->expand('%appDir%'));
-		$robot->setCacheStorage(new Nette\Caching\Storages\MemoryStorage());
-		$robot->rebuild();
+        $robot = new Nette\Loaders\RobotLoader();
+        $robot->addDirectory($builder->expand('%appDir%'));
+        $robot->setCacheStorage(new Nette\Caching\Storages\MemoryStorage());
+        $robot->rebuild();
 
-		$counter = 0;
-		foreach ($robot->getIndexedClasses() as $class => $file) {
-			try {
-				$refl = Nette\Reflection\ClassType::from($class);
+        $counter = 0;
+        foreach ($robot->getIndexedClasses() as $class => $file) {
+            try {
+                $refl = Nette\Reflection\ClassType::from($class);
 
-				if (!$refl->implementsInterface(Nette\Application\IPresenter::class)) {
-					continue;
-				}
+                if (!$refl->implementsInterface(Nette\Application\IPresenter::class)) {
+                    continue;
+                }
 
-				if (!$refl->isInstantiable()) {
-					continue;
-				}
+                if (!$refl->isInstantiable()) {
+                    continue;
+                }
 
-				$builder->addDefinition($this->prefix(++$counter))
-					->setClass($class)
-					->setInject(TRUE);
+                $builder->addDefinition($this->prefix(++$counter))
+                    ->setClass($class)
+                    ->setInject(TRUE);
 
-			} catch (\ReflectionException $e) {
-				continue;
-			}
-		}
-	}
+            } catch (\ReflectionException $e) {
+                continue;
+            }
+        }
+    }
 }
 ~~~
 
@@ -76,7 +76,7 @@ Easy a teďka ji zaregistrujeme do DI Containeru
 
 ~~~ neon
 extensions:
-	presenters: My\PresentersExtension
+    presenters: My\PresentersExtension
 ~~~
 
 Gratuluji! Právě jste zrychlili vytváření instancí presenterů **cca 4-násobně**!
@@ -93,10 +93,10 @@ Do `composer.json` si hoďte tyto specifické verze, používám je právě v mo
 
 ~~~ js
 "require": {
-	"nette/nette": "dev-master#e23de7ab as 2.2.99",
-	"nette/di": "dev-master#97994498 as 2.3.99",
-	"nette/neon": "~2.3@dev",
-	"nette/utils": "~2.3@dev"
+    "nette/nette": "dev-master#e23de7ab as 2.2.99",
+    "nette/di": "dev-master#97994498 as 2.3.99",
+    "nette/neon": "~2.3@dev",
+    "nette/utils": "~2.3@dev"
 }
 ~~~
 
@@ -124,38 +124,38 @@ Vytvoříme si tedy vlastní `PresenterFactory` a [zkopírujeme do něj metodu `
 ~~~ php
 class PresenterFactory extends Nette\Application\PresenterFactory
 {
-	/** @var Nette\DI\Container */
-	private $container;
+    /** @var Nette\DI\Container */
+    private $container;
 
-	public function __construct($baseDir, Nette\DI\Container $container)
-	{
-		parent::__construct($baseDir, $container);
-		$this->container = $container;
-	}
+    public function __construct($baseDir, Nette\DI\Container $container)
+    {
+        parent::__construct($baseDir, $container);
+        $this->container = $container;
+    }
 
-	public function createPresenter($name)
-	{
-		$class = $this->getPresenterClass($name);
-		if (count($services = $this->container->findByType($class)) === 1) {
-			$presenter = $this->container->createService($services[0]);
-			$tags = $this->container->findByTag(Nette\DI\Extensions\InjectExtension::TAG_INJECT);
-			if (empty($tags[$services[0]])) {
-				$this->container->callInjects($presenter);
-			}
+    public function createPresenter($name)
+    {
+        $class = $this->getPresenterClass($name);
+        if (count($services = $this->container->findByType($class)) === 1) {
+            $presenter = $this->container->createService($services[0]);
+            $tags = $this->container->findByTag(Nette\DI\Extensions\InjectExtension::TAG_INJECT);
+            if (empty($tags[$services[0]])) {
+                $this->container->callInjects($presenter);
+            }
 
-		} else {
-			$presenter = $this->container->createInstance($class);
-			$this->container->callInjects($presenter);
-		}
+        } else {
+            $presenter = $this->container->createInstance($class);
+            $this->container->callInjects($presenter);
+        }
 
-		if ($presenter instanceof UI\Presenter && $presenter->invalidLinkMode === NULL) {
-			$presenter->invalidLinkMode = $this->container->parameters['debugMode']
-				? UI\Presenter::INVALID_LINK_WARNING
-				: UI\Presenter::INVALID_LINK_SILENT;
-		}
+        if ($presenter instanceof UI\Presenter && $presenter->invalidLinkMode === NULL) {
+            $presenter->invalidLinkMode = $this->container->parameters['debugMode']
+                ? UI\Presenter::INVALID_LINK_WARNING
+                : UI\Presenter::INVALID_LINK_SILENT;
+        }
 
-		return $presenter;
-	}
+        return $presenter;
+    }
 }
 ~~~
 
@@ -163,7 +163,7 @@ A nezapomenout zaregistrovat :)
 
 ~~~ neon
 services:
-	presenterFactory: My\PresenterFactory
+    presenterFactory: My\PresenterFactory
 ~~~
 
 
@@ -179,14 +179,14 @@ Zatím existuje pouze dev verze, takže pro instalaci dát do composeru
 
 ~~~ js
 "require": {
-	"kdyby/presenters-locator": "@dev"
+    "kdyby/presenters-locator": "@dev"
 ~~~
 
 A povolit třeba takto
 
 ~~~ neon
 extensions:
-	presenters: Kdyby\PresentersLocator\DI\PresentersLocatorExtension
+    presenters: Kdyby\PresentersLocator\DI\PresentersLocatorExtension
 ~~~
 
 Mělo by to být dost chytré na to, aby to nezkoušelo ani autoloadovat classy, které nevypadají jako presentery.
@@ -197,14 +197,14 @@ Takže pokud chcete, můžete třeba vypnout robotloader pomocí
 
 ~~~ neon
 presentersLocator:
-	scanAppDir: off
+    scanAppDir: off
 ~~~
 
 přidat si `%appDir%` do composeru
 
 ~~~ js
 "autoload": {
-	"classmap": ["app/"]
+    "classmap": ["app/"]
 }
 ~~~
 
@@ -223,5 +223,5 @@ Dočasně, než nám [opraví packagist](https://github.com/composer/packagist/i
 
 ~~~ js
 "repositories": [
-	{ "type": "vcs", "url": "https://github.com/Kdyby/PresentersLocator.git" },
+    { "type": "vcs", "url": "https://github.com/Kdyby/PresentersLocator.git" },
 ~~~

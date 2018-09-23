@@ -44,30 +44,30 @@ Definoval jsem si tedy rozhraní `IQueryObject` a `IQueryExecutor`, kterému Que
 ~~~ php
 class RolePermissionsQuery extends QueryObjectBase
 {
-	/** @var Role */
-	private $role;
+    /** @var Role */
+    private $role;
 
-	/**
-	 * @param Role $role
-	 */
-	public function __construct(Role $role)
-	{
-		$this->role = $role;
-	}
+    /**
+     * @param Role $role
+     */
+    public function __construct(Role $role)
+    {
+        $this->role = $role;
+    }
 
-	/**
-	 * @param IQueryable $dao
-	 * @return Doctrine\ORM\QueryBuilder
-	 */
-	protected function doCreateQuery(IQueryable $dao)
-	{
-		return $dao->createQueryBuilder('perm')->select('perm', 'priv', 'act', 'res')
-			->innerJoin('perm.privilege', 'priv')
-			->innerJoin('perm.role', 'role')
-			->innerJoin('priv.action', 'act')
-			->innerJoin('priv.resource', 'res')
-			->where('role = :role')->setParameter('role', $this->role);
-	}
+    /**
+     * @param IQueryable $dao
+     * @return Doctrine\ORM\QueryBuilder
+     */
+    protected function doCreateQuery(IQueryable $dao)
+    {
+        return $dao->createQueryBuilder('perm')->select('perm', 'priv', 'act', 'res')
+            ->innerJoin('perm.privilege', 'priv')
+            ->innerJoin('perm.role', 'role')
+            ->innerJoin('priv.action', 'act')
+            ->innerJoin('priv.resource', 'res')
+            ->where('role = :role')->setParameter('role', $this->role);
+    }
 }
 ~~~
 
@@ -76,7 +76,7 @@ A získávám výsledek zjednodušeně takto
 ~~~ php
 $role = $em->getRepository('Role')->find(1);
 $result = $em->getRepository('Permission')
-	->fetch(new RolePermissionsQuery($role));
+    ->fetch(new RolePermissionsQuery($role));
 ~~~
 
 Nemusím tedy znečišťovat `Dao` dalšími metodami, protože všechno mám rozdělené na třídy.

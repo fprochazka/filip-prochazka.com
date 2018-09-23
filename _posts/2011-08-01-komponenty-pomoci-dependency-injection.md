@@ -16,11 +16,11 @@ Ale pěkně od začátku. Jak tedy, úplně nejjednodušeji, získám napříkla
 ~~~ php
 class ArticleControl extends Nette\Application\UI\Control
 {
-	public function render($id)
-	{
-		$this->template->article = $this->presenter->context->db->query("SELECT * FROM articles WHERE id = %i", $id);
-		$this->template->render();
-	}
+    public function render($id)
+    {
+        $this->template->article = $this->presenter->context->db->query("SELECT * FROM articles WHERE id = %i", $id);
+        $this->template->render();
+    }
 }
 ~~~
 
@@ -29,20 +29,20 @@ Snadné, že? Ale moc to nedodržuje princip Dependency Injection. Pokud by tako
 ~~~ php
 class ArticleControl extends Nette\Application\UI\Control
 {
-	/** @var DibiConnection */
-	private $db;
+    /** @var DibiConnection */
+    private $db;
 
-	public function __construct(DibiConnection $db)
-	{
-		parent::__construct(); // tenhle řádek je velice důležitý
-		$this->db = $db;
-	}
+    public function __construct(DibiConnection $db)
+    {
+        parent::__construct(); // tenhle řádek je velice důležitý
+        $this->db = $db;
+    }
 
-	public function render($id)
-	{
-		$this->template->article = $this->db->query("SELECT * FROM articles WHERE id = %i", $id);
-		$this->template->render();
-	}
+    public function render($id)
+    {
+        $this->template->article = $this->db->query("SELECT * FROM articles WHERE id = %i", $id);
+        $this->template->render();
+    }
 }
 ~~~
 
@@ -51,18 +51,18 @@ To je mnohem lepší. Ale protože naše aplikace využívá modely jako logicko
 ~~~ php
 class Articles extends Nette\Object
 {
-	/** @var DibiConnection */
-	private $db;
+    /** @var DibiConnection */
+    private $db;
 
-	public function __construct(DibiConnection $db)
-	{
-		$this->db = $db;
-	}
+    public function __construct(DibiConnection $db)
+    {
+        $this->db = $db;
+    }
 
-	public function find($id)
-	{
-		return $this->db->select('*')->from('articles')->where('id = %i', $id)->fetch() ?: NULL;
-	}
+    public function find($id)
+    {
+        return $this->db->select('*')->from('articles')->where('id = %i', $id)->fetch() ?: NULL;
+    }
 }
 ~~~
 
@@ -71,20 +71,20 @@ Kód byl přesunut do modelu, kam patří. Zároveň bylo zaručeno, že když d
 ~~~ php
 class ArticleControl extends Nette\Application\UI\Control
 {
-	/** @var Articles */
-	private $articles;
+    /** @var Articles */
+    private $articles;
 
-	public function __construct(Articles $articles)
-	{
-		parent::__construct();
-		$this->articles = $articles;
-	}
+    public function __construct(Articles $articles)
+    {
+        parent::__construct();
+        $this->articles = $articles;
+    }
 
-	public function render($id)
-	{
-		$this->template->article = $this->articles->find($id);
-		$this->template->render();
-	}
+    public function render($id)
+    {
+        $this->template->article = $this->articles->find($id);
+        $this->template->render();
+    }
 }
 ~~~
 
@@ -92,11 +92,11 @@ Jak by teď vypadala šablona téhle komponenty?
 
 ~~~ html
 {if $article}
-	<h1>{$article->title}</h1>
-	<div class="article">{$article->content}</div>
-	...
+    <h1>{$article->title}</h1>
+    <div class="article">{$article->content}</div>
+    ...
 {else}
-	<p>Je nám líto, ale článek neexistuje, nebo byl smazán.</p>
+    <p>Je nám líto, ale článek neexistuje, nebo byl smazán.</p>
 {/if}
 ~~~
 
@@ -108,7 +108,7 @@ Takovouto komponentu si teď můžeme připojit do presenteru pomocí továrnič
 ~~~ php
 protected function createComponentArticle()
 {
-	return new ArticleControl($this->context->articles);
+    return new ArticleControl($this->context->articles);
 }
 ~~~
 
@@ -132,15 +132,15 @@ A co teď s tím translatorem v tom formuláři? To je snadné, prostě mu ho p�
 ~~~ php
 protected function createComponentUserForm()
 {
-	$form = new Nette\Application\UI\Form();
-	$form->addText('name', 'Name');
-	$form->addText('surname', 'Surname');
+    $form = new Nette\Application\UI\Form();
+    $form->addText('name', 'Name');
+    $form->addText('surname', 'Surname');
 
-	// předáme translator
-	$form->setTranslator($this->context->translator);
+    // předáme translator
+    $form->setTranslator($this->context->translator);
 
-	// připojíme formulář
-	return $form;
+    // připojíme formulář
+    return $form;
 }
 ~~~
 

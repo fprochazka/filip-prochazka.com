@@ -36,7 +36,7 @@ Jen kvůli debugovacím informacím do panelu překrývám metody a mám v nich 
 
 ~~~ php
 if ($this->panel !== NULL && $id === $result) { // probably untranslated
-	$this->panel->markUntranslated($id);
+    $this->panel->markUntranslated($id);
 }
 ~~~
 
@@ -48,60 +48,60 @@ use Kdyby\Aop\JoinPoint;
 
 class TranslatorPanelAspect extends Nette\Object
 {
-	/** @var \Kdyby\Translation\Diagnostics\Panel */
-	private $panel;
+    /** @var \Kdyby\Translation\Diagnostics\Panel */
+    private $panel;
 
-	public function __construct(\Kdyby\Translation\Diagnostics\Panel $panel)
-	{
-		$this->panel = $panel;
-	}
+    public function __construct(\Kdyby\Translation\Diagnostics\Panel $panel)
+    {
+        $this->panel = $panel;
+    }
 
-	/**
-	 * @Aop\Before("method(Kdyby\Translation\Translator->translate) && setting(%debugMode% == TRUE)")
-	 */
-	public function translate(JoinPoint\BeforeMethod $before)
-	{
-		$message = $afterReturning->arguments[0]; // first argument
+    /**
+     * @Aop\Before("method(Kdyby\Translation\Translator->translate) && setting(%debugMode% == TRUE)")
+     */
+    public function translate(JoinPoint\BeforeMethod $before)
+    {
+        $message = $afterReturning->arguments[0]; // first argument
 
-		if ($message instanceof Nette\Utils\Html) {
-			$this->panel->markUntranslated($message);
-		}
-	}
+        if ($message instanceof Nette\Utils\Html) {
+            $this->panel->markUntranslated($message);
+        }
+    }
 
-	/**
-	 * @Aop\AfterReturning("method(Kdyby\Translation\Translator->trans) && setting(%debugMode% == TRUE)")
-	 */
-	public function trans(JoinPoint\AfterReturning $afterReturning)
-	{
-		$id = $afterReturning->arguments[0]; // first argument
-		$result = $afterReturning->getResult();
+    /**
+     * @Aop\AfterReturning("method(Kdyby\Translation\Translator->trans) && setting(%debugMode% == TRUE)")
+     */
+    public function trans(JoinPoint\AfterReturning $afterReturning)
+    {
+        $id = $afterReturning->arguments[0]; // first argument
+        $result = $afterReturning->getResult();
 
-		if ($id === $result) { // probably untranslated
-			$this->panel->markUntranslated($id);
-		}
-	}
+        if ($id === $result) { // probably untranslated
+            $this->panel->markUntranslated($id);
+        }
+    }
 
-	/**
-	 * @Aop\Around("method(Kdyby\Translation\Translator->transChoice) && setting(%debugMode% == TRUE)")
-	 */
-	public function transChoiceDebug(JoinPoint\AroundMethod $around)
-	{
-		$id = $around->arguments[0]; // first argument
+    /**
+     * @Aop\Around("method(Kdyby\Translation\Translator->transChoice) && setting(%debugMode% == TRUE)")
+     */
+    public function transChoiceDebug(JoinPoint\AroundMethod $around)
+    {
+        $id = $around->arguments[0]; // first argument
 
-		try {
-			$result = $around->proceed();
+        try {
+            $result = $around->proceed();
 
-		} catch (\Exception $e) {
-			$result = $id;
-			$this->panel->choiceError($e);
-		}
+        } catch (\Exception $e) {
+            $result = $id;
+            $this->panel->choiceError($e);
+        }
 
-		if ($id === $result) { // probably untranslated
-			$this->panel->markUntranslated($id);
-		}
+        if ($id === $result) { // probably untranslated
+            $this->panel->markUntranslated($id);
+        }
 
-		return $result;
-	}
+        return $result;
+    }
 
 }
 ~~~
@@ -110,7 +110,7 @@ Tohle by mohlo posloužit jako výborný základ, teď si aspekt registruji do c
 
 ~~~ neon
 aspects:
-	- TranslatorPanelAspect
+    - TranslatorPanelAspect
 ~~~
 
 A můžu vyčistit `Translator`. Nebudu ho sem kopírovat celý, pouze metody co by se změnily.
@@ -119,30 +119,30 @@ A můžu vyčistit `Translator`. Nebudu ho sem kopírovat celý, pouze metody co
 class Translator extends BaseTranslator implements Nette\Localization\ITranslator
 {
 
-	// smažu $panel
+    // smažu $panel
 
-	// ...
+    // ...
 
-	// smažu metodu injectPanel
+    // smažu metodu injectPanel
 
-	public function translate($message, $count = NULL, array $parameters = array(), $domain = NULL, $locale = NULL)
-	{
-		if (empty($message)) {
-			return $message;
+    public function translate($message, $count = NULL, array $parameters = array(), $domain = NULL, $locale = NULL)
+    {
+        if (empty($message)) {
+            return $message;
 
-		} elseif ($message instanceof Nette\Utils\Html) {
-			// tady už nemusím volat panel
-			return $message;
-		}
+        } elseif ($message instanceof Nette\Utils\Html) {
+            // tady už nemusím volat panel
+            return $message;
+        }
 
-		// ...
-	}
+        // ...
+    }
 
-	// metodu trans už nemusím vůbec dědit
+    // metodu trans už nemusím vůbec dědit
 
-	// metodu transChoice už nemusím vůbec dědit
+    // metodu transChoice už nemusím vůbec dědit
 
-	// ...
+    // ...
 
 }
 ~~~
@@ -159,28 +159,28 @@ Presentery už nejakou dobu jdou vytvářet přes DI Container, takže by to nem
 class EntityParametersAspect extends Nette\Object
 {
 
-	/**
-	 * @Aop\Before("method(Nette\Application\UI\Presenter->[render|action|handle]*())")
-	 */
-	public function process(JoinPoint\BeforeMethod $before)
-	{
-		$arguments = $before->getArguments(); // argumenty metody
-		$refl = $before->getTargetReflection(); // reflexe metody
+    /**
+     * @Aop\Before("method(Nette\Application\UI\Presenter->[render|action|handle]*())")
+     */
+    public function process(JoinPoint\BeforeMethod $before)
+    {
+        $arguments = $before->getArguments(); // argumenty metody
+        $refl = $before->getTargetReflection(); // reflexe metody
 
-		// přečtu anotace metody, abych zjistil typy
-		foreach ($ref->getParameters() as $i => $parameter) {
-			if (/* parametr nema definovany typ entity */) {
-				continue;
-			}
+        // přečtu anotace metody, abych zjistil typy
+        foreach ($ref->getParameters() as $i => $parameter) {
+            if (/* parametr nema definovany typ entity */) {
+                continue;
+            }
 
-			if ($entity = $this->entityManager->find($entityClass, $arguments[$i])) {
-				$before->setArgument($i, $entity);
+            if ($entity = $this->entityManager->find($entityClass, $arguments[$i])) {
+                $before->setArgument($i, $entity);
 
-			} else {
-				$before->setArgument($i, NULL);
-			}
-		}
-	}
+            } else {
+                $before->setArgument($i, NULL);
+            }
+        }
+    }
 
 }
 ~~~

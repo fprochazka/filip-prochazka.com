@@ -30,19 +30,19 @@ Jenže nepoužívám Navicat ale Adminer.
 
 function adminer_object()
 {
-	// required to run any plugin
-	include_once __DIR__ . "/plugins/plugin.php";
+    // required to run any plugin
+    include_once __DIR__ . "/plugins/plugin.php";
 
-	// autoloader
-	foreach (glob("plugins/*.php") as $filename) {
-		include_once "./$filename";
-	}
+    // autoloader
+    foreach (glob("plugins/*.php") as $filename) {
+        include_once "./$filename";
+    }
 
-	$plugins = array(
-		// specify enabled plugins here
-	);
+    $plugins = array(
+        // specify enabled plugins here
+    );
 
-	return new AdminerPlugin($plugins);
+    return new AdminerPlugin($plugins);
 }
 
 // include original Adminer
@@ -64,29 +64,29 @@ Na začátek souboru `index.php` vložíme následující třídu
 ~~~ php
 class AdminerColors
 {
-	function head()
-	{
-		static $colors = array(
-			// v tomhle poli si můžete zvolit barvy pro jednotlivé adresy
-			'127.0.0.1' => '#d0fbcd',
-			'localhost' => '#d0fbcd',
-			'dev.kdyby.org' => '#fbf9cd',
-			'www.kdyby.org' => '#fbd2cd',
-		);
+    function head()
+    {
+        static $colors = array(
+            // v tomhle poli si můžete zvolit barvy pro jednotlivé adresy
+            '127.0.0.1' => '#d0fbcd',
+            'localhost' => '#d0fbcd',
+            'dev.kdyby.org' => '#fbf9cd',
+            'www.kdyby.org' => '#fbd2cd',
+        );
 
-		if (!isset($colors[$_GET['server']])) return;
+        if (!isset($colors[$_GET['server']])) return;
 
-		echo '<style>body { background: ' . $colors[$_GET['server']] . '; }</style>';
-	}
+        echo '<style>body { background: ' . $colors[$_GET['server']] . '; }</style>';
+    }
 }
 ~~~
 
 A do pole s pluginy vytvoříme novou instanci.
 
 ~~~ php
-	$plugins = array(
-		new AdminerColors,
-	);
+    $plugins = array(
+        new AdminerColors,
+    );
 ~~~
 
 F5 a localhost už by měl chytnout nezdravou zelenou. Pokud by se vám zdálo, že je to hnusné jak noc, tak máte pravdu. Je to hnus :)

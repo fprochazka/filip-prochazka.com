@@ -21,28 +21,28 @@ Prý to jde udělat jednoduchým regulárem v `.htaccess`, ale co my, co z `mod_
 ~~~ php
 class HttpHelpers extends Nette\Object
 {
-	public static function utmCanonicalize(Nette\Http\Request $httpRequest, Nette\Http\Response $httpResponse)
-	{
-		if ($httpRequest->isAjax() || (!$httpRequest->isMethod('GET') && !$httpRequest->isMethod('HEAD'))) {
-			return;
-		}
+    public static function utmCanonicalize(Nette\Http\Request $httpRequest, Nette\Http\Response $httpResponse)
+    {
+        if ($httpRequest->isAjax() || (!$httpRequest->isMethod('GET') && !$httpRequest->isMethod('HEAD'))) {
+            return;
+        }
 
-		$utm = array();
-		foreach ($params = $httpRequest->getQuery() as $name => $value) {
-			if (substr($name, 0, 4) === 'utm_') {
-				unset($params[$name]);
-				$utm[$name] = $value;
-			}
-		}
+        $utm = array();
+        foreach ($params = $httpRequest->getQuery() as $name => $value) {
+            if (substr($name, 0, 4) === 'utm_') {
+                unset($params[$name]);
+                $utm[$name] = $value;
+            }
+        }
 
-		if ($utm) {
-			$url = clone $httpRequest->getUrl();
-			$url->setQuery($params);
-			$url->setFragment(http_build_query($utm));
-			$httpResponse->redirect($url, Nette\Http\IResponse::S301_MOVED_PERMANENTLY);
-			exit(0);
-		}
-	}
+        if ($utm) {
+            $url = clone $httpRequest->getUrl();
+            $url->setQuery($params);
+            $url->setFragment(http_build_query($utm));
+            $httpResponse->redirect($url, Nette\Http\IResponse::S301_MOVED_PERMANENTLY);
+            exit(0);
+        }
+    }
 }
 ~~~
 

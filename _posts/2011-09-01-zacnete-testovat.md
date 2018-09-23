@@ -48,15 +48,15 @@ Máme nainstalovaný a nastavený PHPUnit a můžeme napsat první test.
 ~~~ php
 class MyHelloWorldTest extends PHPUnit_Framework_TestCase
 {
-	public function testOneEqualsOne()
-	{
-		$this->assertTrue(1 == 1);
-	}
+    public function testOneEqualsOne()
+    {
+        $this->assertTrue(1 == 1);
+    }
 
-	public function testHelloEqualsHello()
-	{
-		$this->assertTrue("hello" == "hello");
-	}
+    public function testHelloEqualsHello()
+    {
+        $this->assertTrue("hello" == "hello");
+    }
 }
 ~~~
 

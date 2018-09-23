@@ -42,9 +42,9 @@ Nezapomenout nastavit verzi graph api.
 
 ~~~ neon
 facebook:
-	appId: "123"
-	appSecret: "abc"
-	graphVersion: v2.3
+    appId: "123"
+    appSecret: "abc"
+    graphVersion: v2.3
 ~~~
 
 Všimněte si, že v configu nenastavuju práva na práci se stránkou, ale nechávám zde pouze výchozí práva, která mi dovolí číst informace o uživateli. Je to proto, že "dokonalé" workflow má vypadat tak, že uživatele nejprve přihlásím a požádám o read práva a až když je přihlášený a chtěl by například v administraci připojit stránky pro publikování, tak ho pošlu na Facebook login znovu, tentokrát ale s upraveným "scope" a budu po něm chtít ať mi přidá další práva. Tenhle proces se jmenuje [rerequest](https://developers.facebook.com/docs/facebook-login/login-flow-for-web/v2.3#re-asking-declined-permissions). Vyladit tohle workflow ale není cílem návodu, takže si ho tím komplikovat nebudeme a rovnou při prvním přihlášení budeme chtít všechna práva. Je ale důležité tenhle princip znát, protože Facebook by si mohl usmyslet, že to děláte špatně a zablokovat vás.
@@ -54,39 +54,39 @@ A takhle by mohlo vypadat hodně vyčištěné přihlašování bez persistence 
 ~~~ php
 class HomepagePresenter extends Nette\Application\UI\Presenter
 {
-	/** @var \Kdyby\Facebook\Facebook @inject */
-	public $facebook;
+    /** @var \Kdyby\Facebook\Facebook @inject */
+    public $facebook;
 
-	/** @return \Kdyby\Facebook\Dialog\LoginDialog */
-	protected function createComponentFbLogin()
-	{
-		$dialog = $this->facebook->createDialog('login');
-		/** @var \Kdyby\Facebook\Dialog\LoginDialog $dialog */
+    /** @return \Kdyby\Facebook\Dialog\LoginDialog */
+    protected function createComponentFbLogin()
+    {
+        $dialog = $this->facebook->createDialog('login');
+        /** @var \Kdyby\Facebook\Dialog\LoginDialog $dialog */
 
-		$dialog->setScope(['publish_pages', 'manage_pages']);
+        $dialog->setScope(['publish_pages', 'manage_pages']);
 
-		$dialog->onResponse[] = function (\Kdyby\Facebook\Dialog\LoginDialog $dialog) {
-			$fb = $dialog->getFacebook();
+        $dialog->onResponse[] = function (\Kdyby\Facebook\Dialog\LoginDialog $dialog) {
+            $fb = $dialog->getFacebook();
 
-			if (!$fb->getUser()) {
-				$this->flashMessage("Sorry bro, facebook authentication failed.");
-				return;
-			}
+            if (!$fb->getUser()) {
+                $this->flashMessage("Sorry bro, facebook authentication failed.");
+                return;
+            }
 
-			try {
-				$me = $fb->api('/me');
-				$this->user->login(new Identity($me->id, [], (array) $me));
+            try {
+                $me = $fb->api('/me');
+                $this->user->login(new Identity($me->id, [], (array) $me));
 
-			} catch (\Kdyby\Facebook\FacebookApiException $e) {
-				\Tracy\Debugger::log($e, 'facebook');
-				$this->flashMessage("Sorry bro, facebook authentication failed hard.");
-			}
+            } catch (\Kdyby\Facebook\FacebookApiException $e) {
+                \Tracy\Debugger::log($e, 'facebook');
+                $this->flashMessage("Sorry bro, facebook authentication failed hard.");
+            }
 
-			$this->redirect('this');
-		};
+            $this->redirect('this');
+        };
 
-		return $dialog;
-	}
+        return $dialog;
+    }
 
 }
 ~~~
@@ -95,11 +95,11 @@ Do šablony `app/presenters/templates/Homepage/default.latte` si pro test vlož�
 
 ~~~ html
 <div id="content">
-	{if !$user->loggedIn}
-		<a n:href="fbLogin-open!">Login using facebook</a>
-	{else}
-		{? dump($user->identity)}
-	{/if}
+    {if !$user->loggedIn}
+        <a n:href="fbLogin-open!">Login using facebook</a>
+    {else}
+        {? dump($user->identity)}
+    {/if}
 </div>
 ~~~
 
@@ -142,18 +142,18 @@ Publikovat budeme na endpoint `/{page-id}/feed`, jehož [dokumentace a všechny 
 ~~~ php
 public function handlePublishPost()
 {
-	$accounts = $this->facebook->api('/me/accounts');
-	foreach ($accounts->data as $page) {
-		if ($page->id == "425160755061") {
-			$this->facebook->api('/' . $page->id . '/feed', 'POST', [
-				'link' => 'https://www.kdyby.org/',
-				'message' => 'testing publishing on page',
-				'caption' => 'testing caption',
-				'description' => 'testing description',
-				'access_token' => $page->access_token,
-			]);
-		}
-	}
+    $accounts = $this->facebook->api('/me/accounts');
+    foreach ($accounts->data as $page) {
+        if ($page->id == "425160755061") {
+            $this->facebook->api('/' . $page->id . '/feed', 'POST', [
+                'link' => 'https://www.kdyby.org/',
+                'message' => 'testing publishing on page',
+                'caption' => 'testing caption',
+                'description' => 'testing description',
+                'access_token' => $page->access_token,
+            ]);
+        }
+    }
 }
 ~~~
 

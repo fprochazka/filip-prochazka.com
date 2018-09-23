@@ -98,12 +98,12 @@ Po spojení se otevře nový panel.
 
 1. Může zabít běh, nebo spustit pokračování `F9` až do konce scriptu, nebo do dalšího breakpointu.
 2. Nástroje na krokování scriptu
-	1. Otevře soubor, ve kterém Xdebug čeká (například když si zavřeme soubor s třídou a nevíme, kde jsme skončili)
-	2. Přeskočit další výraz `F8` - výraz se vykoná, ale "na pozadí""
-	3. Vstoupit do dalšího výrazu `F7` - například když volám nějakou svou funkci, tak debugger krokuje i její obsah
-	4. Násilně vstoupit do dalšího výrazu
-	5. Vyskočit z funkce (souboru) `Shift+F8`
-	6. Pokračovat vykonávání až ke kurzoru
+    1. Otevře soubor, ve kterém Xdebug čeká (například když si zavřeme soubor s třídou a nevíme, kde jsme skončili)
+    2. Přeskočit další výraz `F8` - výraz se vykoná, ale "na pozadí""
+    3. Vstoupit do dalšího výrazu `F7` - například když volám nějakou svou funkci, tak debugger krokuje i její obsah
+    4. Násilně vstoupit do dalšího výrazu
+    5. Vyskočit z funkce (souboru) `Shift+F8`
+    6. Pokračovat vykonávání až ke kurzoru
 3. Stack trace ukazuje zanoření funkcí a metod, jak byly volány. Například je výborné, že se můžete posunout o úroveň výš a kouknout na proměnné v předchozí funkci. Program se nikam neposouvá, pouze debugger zobrazuje jiný kontext programu.
 4. Proměnné v aktuálním kontextu - zde si můžeme detailně prohlédnout obsah proměnných a dokonce ho měnit!
 

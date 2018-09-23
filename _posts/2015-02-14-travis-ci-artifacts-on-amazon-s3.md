@@ -23,18 +23,18 @@ Vlezeme si do "Properties" bucketu, roletka "Permissions", prostřední tlačít
 
 ~~~ js
 {
-	"Version": "2008-10-17",
-	"Statement": [
-		{
-			"Sid": "AllowPublicRead",
-			"Effect": "Allow",
-			"Principal": {
-				"AWS": "*"
-			},
-			"Action": "s3:GetObject",
-			"Resource": "arn:aws:s3:::muj-travis/*"
-		}
-	]
+    "Version": "2008-10-17",
+    "Statement": [
+        {
+            "Sid": "AllowPublicRead",
+            "Effect": "Allow",
+            "Principal": {
+                "AWS": "*"
+            },
+            "Action": "s3:GetObject",
+            "Resource": "arn:aws:s3:::muj-travis/*"
+        }
+    ]
 }
 ~~~
 

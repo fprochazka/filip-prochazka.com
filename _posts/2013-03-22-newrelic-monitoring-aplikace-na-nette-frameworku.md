@@ -54,61 +54,61 @@ use Nette\Diagnostics\Debugger;
 
 class NewRelicProfilingListener extends Nette\Object implements Kdyby\Events\Subscriber
 {
-	public function getSubscribedEvents()
-	{
-		return array(
-			'Nette\\Application\\Application::onStartup',
-			'Nette\\Application\\Application::onRequest',
-			'Nette\\Application\\Application::onError'
-		);
-	}
+    public function getSubscribedEvents()
+    {
+        return array(
+            'Nette\\Application\\Application::onStartup',
+            'Nette\\Application\\Application::onRequest',
+            'Nette\\Application\\Application::onError'
+        );
+    }
 
-	public function onStartup(Application $app)
-	{
-		if (!extension_loaded('newrelic')) {
-			return;
-		}
+    public function onStartup(Application $app)
+    {
+        if (!extension_loaded('newrelic')) {
+            return;
+        }
 
-		// registrace vlastního loggeru na errory
-		Debugger::$logger = new Logger;
-		Debugger::$logger->directory =& Debugger::$logDirectory;
-		Debugger::$logger->email =& Debugger::$email;
-	}
+        // registrace vlastního loggeru na errory
+        Debugger::$logger = new Logger;
+        Debugger::$logger->directory =& Debugger::$logDirectory;
+        Debugger::$logger->email =& Debugger::$email;
+    }
 
-	public function onRequest(Application $app, Request $request)
-	{
-		if (!extension_loaded('newrelic')) {
-			return;
-		}
+    public function onRequest(Application $app, Request $request)
+    {
+        if (!extension_loaded('newrelic')) {
+            return;
+        }
 
-		if (PHP_SAPI === 'cli') {
-			// uložit v čitelném formátu
-			newrelic_name_transaction('$ ' . basename($_SERVER['argv'][0]) . ' ' . implode(' ', array_slice($_SERVER['argv'], 1)));
+        if (PHP_SAPI === 'cli') {
+            // uložit v čitelném formátu
+            newrelic_name_transaction('$ ' . basename($_SERVER['argv'][0]) . ' ' . implode(' ', array_slice($_SERVER['argv'], 1)));
 
-			// označit jako proces na pozadí
-			newrelic_background_job(TRUE);
+            // označit jako proces na pozadí
+            newrelic_background_job(TRUE);
 
-			return;
-		}
+            return;
+        }
 
-		// pojmenování požadavku podle presenteru a akce
-		$params = $request->getParameters();
-		newrelic_name_transaction($request->getPresenterName() . (isset($params['action']) ? ':' . $params['action'] : ''));
-	}
+        // pojmenování požadavku podle presenteru a akce
+        $params = $request->getParameters();
+        newrelic_name_transaction($request->getPresenterName() . (isset($params['action']) ? ':' . $params['action'] : ''));
+    }
 
-	public function onError(Application $app, \Exception $e)
-	{
-		if (!extension_loaded('newrelic')) {
-			return;
-		}
+    public function onError(Application $app, \Exception $e)
+    {
+        if (!extension_loaded('newrelic')) {
+            return;
+        }
 
-		if ($e instanceof Nette\Application\BadRequestException) {
-			return; // skip
-		}
+        if ($e instanceof Nette\Application\BadRequestException) {
+            return; // skip
+        }
 
-		// logovat pouze výjimky, které se dostanou až k uživateli jako chyba 500
-		newrelic_notice_error($e->getMessage(), $e);
-	}
+        // logovat pouze výjimky, které se dostanou až k uživateli jako chyba 500
+        newrelic_notice_error($e->getMessage(), $e);
+    }
 }
 ~~~
 
@@ -121,20 +121,20 @@ use Nette;
 
 class Logger extends Nette\Diagnostics\Logger
 {
-	public function log($message, $priority = self::INFO)
-	{
-		$res = parent::log($message, $priority);
+    public function log($message, $priority = self::INFO)
+    {
+        $res = parent::log($message, $priority);
 
-		// pouze zprávy, které jsou označené jako chyby
-		if ($priority === self::ERROR || $priority === self::CRITICAL) {
-			if (is_array($message)) {
-				$message = implode(' ', $message);
-			}
-			newrelic_notice_error($message);
-		}
+        // pouze zprávy, které jsou označené jako chyby
+        if ($priority === self::ERROR || $priority === self::CRITICAL) {
+            if (is_array($message)) {
+                $message = implode(' ', $message);
+            }
+            newrelic_notice_error($message);
+        }
 
-		return $res;
-	}
+        return $res;
+    }
 }
 ~~~
 
@@ -142,9 +142,9 @@ Pokud máte v aplikaci [Kdyby/Events](https://github.com/kdyby/events), tak je r
 
 ~~~ neon
 services:
-	newRelicListener:
-		class: NewRelic\NewRelicProfilingListener
-		tag: [kdyby.subscriber]
+    newRelicListener:
+        class: NewRelic\NewRelicProfilingListener
+        tag: [kdyby.subscriber]
 ~~~
 
 Co se týče logování chyb, má NewRelic [do laděnky](http://doc.nette.org/cs/debugging#toc-vizualizace-chyb-a-vyjimek) ještě světelné míle daleko. To co tam je teď, připomíná spíše brášku `log/error.log`. Pro laděnky si tedy stále musím dojít do logu na server. Je ale super vidět prolnutí chybovosti vzhledem k počtu požadavků. Určitě tedy stojí za to, posílat chyby do NewRelicu.
