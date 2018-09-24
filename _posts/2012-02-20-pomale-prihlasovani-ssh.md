@@ -13,4 +13,4 @@ UseDNS no
 ~~~
 
 
-Zdroj: http://www.netadmintools.com/art605.html
+Zdroj: [https://www.netadmintools.com/art605.html](https://www.netadmintools.com/art605.html)

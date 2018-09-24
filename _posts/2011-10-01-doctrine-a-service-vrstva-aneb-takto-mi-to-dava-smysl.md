@@ -11,7 +11,7 @@ Webexpo 2011 bylo velice inspirativní. S Patrikem jsme si v sobotu večer otev�
 
 ## Repozitáře nestačí
 
-Repozitář je, podle definice, jenom taková chytřejší kolekce. Je potřeba entity i ukládat a mazat, nevidím důvod, proč by to nemohl dělat ten stejný objekt. Vznikl tedy `Dao`, nebo-li [Data-Access-Object](http://en.wikipedia.org/wiki/Data_access_object).
+Repozitář je, podle definice, jenom taková chytřejší kolekce. Je potřeba entity i ukládat a mazat, nevidím důvod, proč by to nemohl dělat ten stejný objekt. Vznikl tedy `Dao`, nebo-li [Data-Access-Object](https://en.wikipedia.org/wiki/Data_access_object).
 
 `Dao` implementuje několik samostatných rozhraní a rozšiřuje repozitář
 
@@ -35,9 +35,9 @@ Zde bych doporučil článek Honzy Tichého [Pět vrstev modelu](http://www.phpg
 
 ## Tolik metod musí stačit
 
-`Dao` třída nám pěkně nabobtnala a umí toho tak akorát. Kdybych se měl držet myšlenek svého článku v Nette kuchařce [ERM](http://wiki.nette.org/cs/cookbook/model-entity-repository-mapper), tak bych nyní, pro specifické dotazy, třídu `Dao` dědil a přidával jí metody pro jednotlivé DQL. Metody jako `findBarByBazAndOrderItByFoo()` rychle přibývají a objekt těžkne, ztrácí řád a vůbec toho umí nějak moc.
+`Dao` třída nám pěkně nabobtnala a umí toho tak akorát. Kdybych se měl držet myšlenek svého článku v Nette kuchařce [ERM](https://wiki.nette.org/cs/cookbook/model-entity-repository-mapper), tak bych nyní, pro specifické dotazy, třídu `Dao` dědil a přidával jí metody pro jednotlivé DQL. Metody jako `findBarByBazAndOrderItByFoo()` rychle přibývají a objekt těžkne, ztrácí řád a vůbec toho umí nějak moc.
 
-Zde přichází na řadu Aleš Roubíček s článkem [Doménové dotazy](http://rarous.net/weblog/377-domenove-dotazy.aspx), který mi připomněl dávno zapomenuté články od Fowlera. V podstatě je to kuchařka na samostatné třídy pro DQL. Možná je to v jiném jazyce, ale je to snadno pochopitelné, takže tuto část do hloubky rozebírat nebudu a poprosím Vás odskočit si na jeho článek pro detaily a chybějící souvislosti.
+Zde přichází na řadu Aleš Roubíček s článkem [Doménové dotazy](https://rarous.net/weblog/377-domenove-dotazy.aspx), který mi připomněl dávno zapomenuté články od Fowlera. V podstatě je to kuchařka na samostatné třídy pro DQL. Možná je to v jiném jazyce, ale je to snadno pochopitelné, takže tuto část do hloubky rozebírat nebudu a poprosím Vás odskočit si na jeho článek pro detaily a chybějící souvislosti.
 
 Definoval jsem si tedy rozhraní `IQueryObject` a `IQueryExecutor`, kterému Query objekty předávám a získávám tak výsledek. Když teď chci zapsat dotaz, tak si podědím abstraktní `QueryObjectBase`, která už rozhraní `IQueryObject` implementuje a implementuji metodu `doCreateQuery()`, kterou vyžaduje abstraktní předek.
 

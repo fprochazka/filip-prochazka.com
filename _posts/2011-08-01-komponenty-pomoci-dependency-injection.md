@@ -24,7 +24,7 @@ class ArticleControl extends Nette\Application\UI\Control
 }
 ~~~
 
-Snadné, že? Ale moc to nedodržuje princip Dependency Injection. Pokud by taková komponenta už v konstruktoru přijala `@db`, tak si na něj nemusí sahat přes presenter. Proč je takový přístup lepší si můžete přečíst v [dokumentaci Nette](http://doc.nette.org/cs/dependency-injection) a nebo na [Zdrojáku](http://zdrojak.root.cz/serialy/jak-na-dependency-injection/)
+Snadné, že? Ale moc to nedodržuje princip Dependency Injection. Pokud by taková komponenta už v konstruktoru přijala `@db`, tak si na něj nemusí sahat přes presenter. Proč je takový přístup lepší si můžete přečíst v [dokumentaci Nette](https://doc.nette.org/cs/dependency-injection) a nebo na [Zdrojáku](https://zdrojak.root.cz/serialy/jak-na-dependency-injection/)
 
 ~~~ php
 class ArticleControl extends Nette\Application\UI\Control
@@ -103,7 +103,7 @@ Jak by teď vypadala šablona téhle komponenty?
 Díky tomu, že model vrací `NULL`, když nic nenajde a dibi umírá víceméně pouze na syntaktických chybách, nikdy nemůže vzniknout jiný stav, než že článek buď existuje a model ho najde a vrátí, nebo neexistuje a vrátí pouze `NULL`. Nemusíme se proto bát, že by vyskočila chyba a přestala se nám načítat stránka, uprostřed vykreslování šablony.
 
 
-Takovouto komponentu si teď můžeme připojit do presenteru pomocí továrničky a předáme jí model, který máme zaregistrovaný jako službu pod názvem `articles`. Je samozřejmě možné použít i nějaký [model loader](http://wiki.nette.org/cs/cookbook/dynamicke-nacitani-modelu).
+Takovouto komponentu si teď můžeme připojit do presenteru pomocí továrničky a předáme jí model, který máme zaregistrovaný jako službu pod názvem `articles`. Je samozřejmě možné použít i nějaký [model loader](https://wiki.nette.org/cs/cookbook/dynamicke-nacitani-modelu).
 
 ~~~ php
 protected function createComponentArticle()
@@ -148,4 +148,4 @@ A je vystaráno! Už nikdy žádný `Environment`! :)
 
 ## Kam dál?
 
-Více o vytváření modelů v dibi si můžete přečíst v článku [Model: Entity-Repository-Mapper](http://wiki.nette.org/cs/cookbook/model-entity-repository-mapper). Velice zajímavá debata o ORM pro Nette [je i na fóru](http://forum.nette.org/cs/7328-hledani-nette-like-orm-pro-php) a pokud by někoho zajímalo více o NotORM může pokračovat v podnětném čtení v [dalším vláknu](http://forum.nette.org/cs/8389-petivrstvy-model-postaveny-na-notorm)
+Více o vytváření modelů v dibi si můžete přečíst v článku [Model: Entity-Repository-Mapper](https://wiki.nette.org/cs/cookbook/model-entity-repository-mapper). Velice zajímavá debata o ORM pro Nette [je i na fóru](https://forum.nette.org/cs/7328-hledani-nette-like-orm-pro-php) a pokud by někoho zajímalo více o NotORM může pokračovat v podnětném čtení v [dalším vláknu](https://forum.nette.org/cs/8389-petivrstvy-model-postaveny-na-notorm)

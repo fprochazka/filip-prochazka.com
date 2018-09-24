@@ -11,7 +11,7 @@ Už je to pár měsíců, co jsem začal testovat a přišel jsem za tu dobu na 
 
 ## Instalace konfigurace a konvence
 
-PHPUnit doporučuji nainstalovat pomocí [Pearu](http://pear.php.net/). Osobně používám 3.6.0RC4 a není s ní problém.
+PHPUnit doporučuji nainstalovat pomocí [Pearu](https://pear.php.net/). Osobně používám 3.6.0RC4 a není s ní problém.
 
 ~~~ shell
 $ pear config-set auto_discover 1
@@ -62,7 +62,7 @@ class MyHelloWorldTest extends PHPUnit_Framework_TestCase
 
 Všimněte si hlavně pojmenování. Názvy třídy i metod jsou jako věta a popisují to, co se v testu děje a k čemu se vztahuje. V testech pak voláme tzv. "asserty". Vyjadřují podmínku, jakou jejich argumenty musí splnit. PHPUnit z toho pak generuje přehled a řekne nám, když některé testy neprojdou a proč neprošly. Je to takový chytřejší automatický `dump()` se statistikami.
 
-[Assertů je celá řada](http://www.phpunit.de/manual/3.6/en/writing-tests-for-phpunit.html#writing-tests-for-phpunit.assertions) a doporučuji si je projít všechny. Oficiální dokumentace obsahuje pěkné a názorné ukázky.
+[Assertů je celá řada](https://www.phpunit.de/manual/3.6/en/writing-tests-for-phpunit.html#writing-tests-for-phpunit.assertions) a doporučuji si je projít všechny. Oficiální dokumentace obsahuje pěkné a názorné ukázky.
 
 Test si tedy uložíme, třeba do souboru `tests/Kdyby/MyHelloWorldTest.php` a spustíme
 
@@ -75,11 +75,11 @@ Krásná zelená, testy fungují a můžeme začít vyvíjet!
 
 PHPUnit nabízí možnost, překrýt si, mimo jiné, metody `setup` a `teardown`. Tyhle se opakovaně volají před každým zavoláním testovací metody a po každém zavolání testovací metody.
 
-Ale pozor, je tu jeden chyták. PHPUnit vytváří pro každé zavolání testovací metody nový objekt testu. Není proto možné sdílet nějakou proměnnou mezi dvěma testy. Ovšem občas je to potřeba a na to se používá annotace `@depends`. Krásně to jde pochopit z [ukázky v dokumentaci](http://www.phpunit.de/manual/3.6/en/writing-tests-for-phpunit.html#writing-tests-for-phpunit.test-dependencies).
+Ale pozor, je tu jeden chyták. PHPUnit vytváří pro každé zavolání testovací metody nový objekt testu. Není proto možné sdílet nějakou proměnnou mezi dvěma testy. Ovšem občas je to potřeba a na to se používá annotace `@depends`. Krásně to jde pochopit z [ukázky v dokumentaci](https://www.phpunit.de/manual/3.6/en/writing-tests-for-phpunit.html#writing-tests-for-phpunit.test-dependencies).
 
-Dalším šikovným nástrojem jsou "zdroje dat". Často je potřeba pouštět ten samý test pro více různých vstupů a výstupů a bylo by velice otravné vypisovat jednotlivé asserty jen s různými proměnnými. Opět je to velice pěkně ukázané na [příkladu v dokumentaci](http://www.phpunit.de/manual/3.6/en/writing-tests-for-phpunit.html#writing-tests-for-phpunit.data-providers).
+Dalším šikovným nástrojem jsou "zdroje dat". Často je potřeba pouštět ten samý test pro více různých vstupů a výstupů a bylo by velice otravné vypisovat jednotlivé asserty jen s různými proměnnými. Opět je to velice pěkně ukázané na [příkladu v dokumentaci](https://www.phpunit.de/manual/3.6/en/writing-tests-for-phpunit.html#writing-tests-for-phpunit.data-providers).
 
-Co je asi nejdůležitější a velice opomíjená věc, je testovat chybové stavy. Je **velice důležité** mít otestované, že se třída nebude chovat nepředvídatelně v neočekávaných stavech, ale že třeba vyhodí výjimku. Na to se hodí [testování výjimek](http://www.phpunit.de/manual/current/en/writing-tests-for-phpunit.html#writing-tests-for-phpunit.exceptions).
+Co je asi nejdůležitější a velice opomíjená věc, je testovat chybové stavy. Je **velice důležité** mít otestované, že se třída nebude chovat nepředvídatelně v neočekávaných stavech, ale že třeba vyhodí výjimku. Na to se hodí [testování výjimek](https://www.phpunit.de/manual/current/en/writing-tests-for-phpunit.html#writing-tests-for-phpunit.exceptions).
 
 
 ## Testování databáze

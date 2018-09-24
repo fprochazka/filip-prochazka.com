@@ -10,7 +10,7 @@ V Nette Frameworku funguje instanciování presenterů tak, že [v PresenterFact
 se nějak přeloží název presenteru v "Nette tvaru", třeba `Front:Homepage` na název třídy, třeba na `FrontModule\HomepagePresenter` (což závisí na konvenci a jde to samozřejmě změnit).
 
 V tenhle moment známe název třídy, která se má instanciovat a spustit. Jenže tato třída má nějaké závislosti a je potřeba správně vytvořit instanci a tyto závislosti předat.
-Jak na to? Dříve to fungovalo tak, že se prostě přes reflexi kouklo na konstruktor a proběhl [autowire](http://doc.nette.org/cs/2.2/configuring#toc-auto-wiring).
+Jak na to? Dříve to fungovalo tak, že se prostě přes reflexi kouklo na konstruktor a proběhl [autowire](https://doc.nette.org/cs/2.2/configuring#toc-auto-wiring).
 
 Před pár měsíci (nebo roky?) byla přidána podpora pro "vytahování" instancí presenterů [z DI Containeru](https://github.com/nette/application/blob/226c1f1deb00cfeb1c4e60bdb5eaa962775afd8e/src/Application/PresenterFactory.php#L51).
 Což je strašně fajn, protože si pak můžete presentery zaregistrovat do DI Containeru.

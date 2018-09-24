@@ -6,7 +6,7 @@ date: 2013-09-05 20:30
 tag: ["Nette Framework", "PHP", "Kdyby", "Symfony", "Doctrine"]
 ---
 
-Znáte termín [Aspektově orientované programování](http://cs.wikipedia.org/wiki/Aspektov%C4%9B_orientovan%C3%A9_programov%C3%A1n%C3%AD?)
+Znáte termín [Aspektově orientované programování](https://cs.wikipedia.org/wiki/Aspektov%C4%9B_orientovan%C3%A9_programov%C3%A1n%C3%AD?)
 Stejně jako u "Kdyby/Events":/blog/eventy-a-nette-framework, pointou je rozbít systém na menší logické celky, ovšem každý přístup to dělá maličko jinak.
 
 Hranice mezi Eventy a AOP je strašlivě tenká a rozhodnout se který přístup v konkrétním případě použít nemusí být vůbec lehké.
@@ -26,7 +26,7 @@ Má plno skvělých využití. Od debugovacích a logovacích nástrojů až po 
 ## A co to teda umí?
 
 Hned na začátek bych se měl přiznat, že jsem prachsprostě obšlehl Flow3, protože ten je nejblíže mému ideálu.
-Pokud Vám bude v článku nebo v mé dokumentaci něco nejasného, [sločte si do dokumentace ke Flow](http://docs.typo3.org/flow/TYPO3FlowDocumentation/TheDefinitiveGuide/PartIII/AspectOrientedProgramming.html),
+Pokud Vám bude v článku nebo v mé dokumentaci něco nejasného, [sločte si do dokumentace ke Flow](https://docs.typo3.org/flow/TYPO3FlowDocumentation/TheDefinitiveGuide/PartIII/AspectOrientedProgramming.html),
 až na drobné detaily je chování téměř identické.
 
 Asi nejlepší bude ukázat si to na živém kódu, pojďme si například trošku vyčistit třídu `Kdyby\Translation\Translator`,

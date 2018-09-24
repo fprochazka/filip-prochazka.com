@@ -8,11 +8,11 @@ tag: ["Nette Framework", "SEO"]
 
 ---
 
-**POZOR:** [IE9 a Safari 5+ zahazují fragment při opakovaném redirectu](http://stackoverflow.com/a/5915350). Takže bohužel tato technika není 100% spolehlivá.
+**POZOR:** [IE9 a Safari 5+ zahazují fragment při opakovaném redirectu](https://stackoverflow.com/a/5915350). Takže bohužel tato technika není 100% spolehlivá.
 
 ----
 
-Na [diskuse.jakpsatweb.cz](http://diskuse.jakpsatweb.cz/) se objevil [zajímavý dotaz](http://diskuse.jakpsatweb.cz/?action=vthread&forum=31&topic=143893#1) - jak přesměrovat request s `utm_` parametry na request bez nich a zároveň je přesunout [do fragmentu](http://api.nette.org/2.0/Nette.Http.Url.html?)
+Na [diskuse.jakpsatweb.cz](https://diskuse.jakpsatweb.cz/) se objevil [zajímavý dotaz](https://diskuse.jakpsatweb.cz/?action=vthread&forum=31&topic=143893#1) - jak přesměrovat request s `utm_` parametry na request bez nich a zároveň je přesunout [do fragmentu](https://api.nette.org/2.0/Nette.Http.Url.html?)
 
 Důvod je jednoduchý, pokud vám budou na web směřovat odkazy s `utm_` parametry i bez nich, vyhledávače by si mohly myslet, že máte na webu duplicitní obsah, protože je přístupný přes více různých adres. Takový vyhledávač by se mohl nezaujatému pozorovateli jevit velice stupidní, protože "každý přece ví", že `utm_` parametry jsou jen na analýzu návštěvnosti. Ale jistota je jistota.
 

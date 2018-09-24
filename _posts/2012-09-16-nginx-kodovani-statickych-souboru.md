@@ -21,7 +21,7 @@ http {
 Teď už to funguje správně
 
 ~~~ shell
-$ curl -v http://filip-prochazka.com/humans.txt
+$ curl -v https://filip-prochazka.com/humans.txt
 ...
 < Content-Type: text/plain; charset=utf-8
 ~~~

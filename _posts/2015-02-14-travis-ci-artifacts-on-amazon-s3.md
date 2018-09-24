@@ -12,12 +12,12 @@ Protože jsme byli líní si nastavovat Jenkinse, tak používáme [Travis-CI](h
 
 Co s tím? No, bude potřeba ten "bordel" z buildu nahrát někam jinam.
 
-Když náhodou narazíte na tu správnou kombinaci slov, tak se vám poštěstí najít [dva](http://blog.travis-ci.com/2012-12-18-travis-artifacts/) [články](http://docs.travis-ci.com/user/uploading-artifacts/). Bohužel jsou oba dva úplně blbě a jenom s nimi budete ztrácet čas. Já jsem se po pár hodinách dopracoval k následujícímu řešení.
+Když náhodou narazíte na tu správnou kombinaci slov, tak se vám poštěstí najít [dva](https://blog.travis-ci.com/2012-12-18-travis-artifacts/) [články](https://docs.travis-ci.com/user/uploading-artifacts/). Bohužel jsou oba dva úplně blbě a jenom s nimi budete ztrácet čas. Já jsem se po pár hodinách dopracoval k následujícímu řešení.
 
 <!--more-->
 ## S3: nový kýblík
 
-Zaregistrovat se na Amazon a vytvořit nový kýblíček je velice primitivní. Jediné gotcha, na které jsem narazil, tak je povolit, aby z bucketu šlo číst přes veřejné url. Návod jak to udělat jsem [našel tady](http://stackoverflow.com/a/4709391).
+Zaregistrovat se na Amazon a vytvořit nový kýblíček je velice primitivní. Jediné gotcha, na které jsem narazil, tak je povolit, aby z bucketu šlo číst přes veřejné url. Návod jak to udělat jsem [našel tady](https://stackoverflow.com/a/4709391).
 
 Vlezeme si do "Properties" bucketu, roletka "Permissions", prostřední tlačítko "Add bucket policy"
 
@@ -116,8 +116,8 @@ export ARTIFACTS_TARGET_PATHS=artifacts/$TRAVIS_REPO_SLUG/$TRAVIS_BUILD_ID/$TRAV
 nahradíme `my-s3-key-id` za přístupový klíč našeho uživatele, `my-s3-secret` za secret a `muj-travis` za název kýblíčku.
 Pokud používáte jiný region tak i `eu-west-1`, ale `eu-centra-1` mi z nějakého důvodu nefungoval, tak jsem to nechal v Irsku.
 
-Ano, vidíte správně, commitnul jsem do repa klíč a secret ke svému S3 bucketu v plaintextu. Proč bych neměl takovou věc dělat? Věděli jste, že existují roboti, kteří prochází veřejné repozitáře a hledají commitnuté klíče a pak je zneužívají na šíření spamu a virů? :) No a proto [je dobrý nápad commitovat zašifrované klíče](http://docs.travis-ci.com/user/encryption-keys/), nebo použít nastavení [Environment Variables](http://docs.travis-ci.com/user/environment-variables/#Secure-Variables) repozitáře.
+Ano, vidíte správně, commitnul jsem do repa klíč a secret ke svému S3 bucketu v plaintextu. Proč bych neměl takovou věc dělat? Věděli jste, že existují roboti, kteří prochází veřejné repozitáře a hledají commitnuté klíče a pak je zneužívají na šíření spamu a virů? :) No a proto [je dobrý nápad commitovat zašifrované klíče](https://docs.travis-ci.com/user/encryption-keys/), nebo použít nastavení [Environment Variables](https://docs.travis-ci.com/user/environment-variables/#Secure-Variables) repozitáře.
 
-Proč teda sakra commituju ty klíče v plaintextu? Vyvíjíme [feature branchingem a na všechno děláme pullrequesty](https://guides.github.com/introduction/flow/). No a Travis má bezpečnostní feature, že nedovolí použít v buildu pullrequestu zašifrované parametry a je jedno jestli je tam vložít přes "Environment Variables" v nastavení repozitáře, nebo [přes cli utilitu](http://blog.travis-ci.com/2013-01-14-new-client/) na kterou potřebujete ruby. Je to asi kvůli tomu, že bych si mohl do pullrequestu dát nějaké echo a vypsat si ty klíče v plaintextu a pak je zneužít. To chápu. Co nechápu, tak že tohle není možné použití ani u Travis-PRO pro privátní repozitáře, kde je naprosto jasné, že to používají pouze a jenom lidé z firmy a je jedno co s pullrequestem udělám za šaškárny.
+Proč teda sakra commituju ty klíče v plaintextu? Vyvíjíme [feature branchingem a na všechno děláme pullrequesty](https://guides.github.com/introduction/flow/). No a Travis má bezpečnostní feature, že nedovolí použít v buildu pullrequestu zašifrované parametry a je jedno jestli je tam vložít přes "Environment Variables" v nastavení repozitáře, nebo [přes cli utilitu](https://blog.travis-ci.com/2013-01-14-new-client/) na kterou potřebujete ruby. Je to asi kvůli tomu, že bych si mohl do pullrequestu dát nějaké echo a vypsat si ty klíče v plaintextu a pak je zneužít. To chápu. Co nechápu, tak že tohle není možné použití ani u Travis-PRO pro privátní repozitáře, kde je naprosto jasné, že to používají pouze a jenom lidé z firmy a je jedno co s pullrequestem udělám za šaškárny.
 
 Jako vždy, budu rád když mě vyvedete z omylu, pokud existuje lepší řešení :)

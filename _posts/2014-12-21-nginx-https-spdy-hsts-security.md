@@ -19,7 +19,7 @@ V poslední době je to samá kauza s odposloucháváním od NSA- už tohle samo
 Když máte dobře nastavené HTTPS tak to zaručuje že
 
 - nikdo nemůže **odposlechnout obsah komunikace**, tedy na veřejné wifi v kavárně se nemusíte bát přihlásit na facebook, protože vaše heslo nikdo z nich nemůže na síti odposlechnout
-- není možné **změnit obsah webu** - kdo by tohle dělal? Kdokoliv kdo má rád peníze! Sedíte přece na veřejné wifi v kavárně a někoho by tam mohlo napadnout, že když vám dává zadarmo internet, tak by klidně mohl do stránek které si prohlížíte strkat reklamy, nebo je aspoň nahrazovat za ty svoje. A nemusí to být přímo ani ta kavárna, může to [udělat kdokoliv - třeba Michal Špaček na konferenci](http://youtu.be/0TX8fdhi6ck?t=18m55s). Stačí krabička za pár dolarů, proxy která přidá do stránky reklamu a sednout si do KFC a tvářit se jako veřejná wifi.
+- není možné **změnit obsah webu** - kdo by tohle dělal? Kdokoliv kdo má rád peníze! Sedíte přece na veřejné wifi v kavárně a někoho by tam mohlo napadnout, že když vám dává zadarmo internet, tak by klidně mohl do stránek které si prohlížíte strkat reklamy, nebo je aspoň nahrazovat za ty svoje. A nemusí to být přímo ani ta kavárna, může to [udělat kdokoliv - třeba Michal Špaček na konferenci](https://youtu.be/0TX8fdhi6ck?t=18m55s). Stačí krabička za pár dolarů, proxy která přidá do stránky reklamu a sednout si do KFC a tvářit se jako veřejná wifi.
 
 Tohle jsou prostě fakta - když nemáte HTTPS, tak vašim zákazníkům/čtenářům může někdo měnit po síti obsah webu, klidně i změnit obsah článku. A taková možnost je pro mě naprosto nepřijatelná, ať je jakkoliv nepravděpodobné, že by někdo měl potřebu dělat tohle zrovna mému blogu.
 
@@ -43,10 +43,10 @@ Pořád si nepřipadáte dostatečně motivovaní? Tak to je na čase si přeč�
 
 Kompilovat nginx samozřejmě **nemusíte**, já to dělám proto, že je to zábava a často je to rychlejší než čekat na hotové balíčky.
 
-- stáhnout aktuální nginx na http://nginx.org/en/download.html
-- ověřit podpis staženého balíku přes [PGP](http://wiki.nginx.org/Pgp)
+- stáhnout aktuální nginx na https://nginx.org/en/download.html
+- ověřit podpis staženého balíku přes [PGP](https://wiki.nginx.org/Pgp)
 - rozbalit
-- [zkompilovat](http://nginx.org/en/docs/configure.html)
+- [zkompilovat](https://nginx.org/en/docs/configure.html)
 
 ~~~ shell
 $ ./configure --with-ipv6 --with-http_ssl_module --with-http_spdy_module \
@@ -62,7 +62,7 @@ Nainstaluje se v systému do `/usr/local/nginx`.
 ### Oficiální repozitáře
 
 Obecně je lepší si to prostě nainstalovat z repozitáře.
-A oficiální repozitáře, které obsahují balíky z mainline, [jsou na této adrese](http://nginx.org/en/linux_packages.html).
+A oficiální repozitáře, které obsahují balíky z mainline, [jsou na této adrese](https://nginx.org/en/linux_packages.html).
 
 
 
@@ -163,7 +163,7 @@ Do nginxu budeme za chvíli nastavovat 3 soubory, aby správně mohl fungovat s 
 $ cat kdyby.org.crt sub.class2.server.ca.pem > kdyby.org.bundle.crt
 ~~~
 
-- `kdyby.org.bundle+root.crt` je potřeba, abychom mohli nastavit tzv. [OCSP stapling - více viz wiki](http://en.wikipedia.org/wiki/OCSP_stapling)
+- `kdyby.org.bundle+root.crt` je potřeba, abychom mohli nastavit tzv. [OCSP stapling - více viz wiki](https://en.wikipedia.org/wiki/OCSP_stapling)
 
 ~~~ shell
 $ cat kdyby.org.bundle.crt ca.pem > kdyby.org.bundle+root.crt
@@ -201,7 +201,7 @@ Rozdělíme si to pěkně na části a vysvětlíme si co která část dělá :
 
 ### nginx.conf
 
-Jako první si vygenerujeme krásný unikátní vstup pro [eliptické křivky](http://en.wikipedia.org/wiki/Elliptic_curve_Diffie%E2%80%93Hellman). Generuje se to docela dlouho :)
+Jako první si vygenerujeme krásný unikátní vstup pro [eliptické křivky](https://en.wikipedia.org/wiki/Elliptic_curve_Diffie%E2%80%93Hellman). Generuje se to docela dlouho :)
 
 ~~~ shell
 $ openssl dhparam -outform pem -out dhparam2048.pem 2048
@@ -233,7 +233,7 @@ Tohle už je malinko onanie, ale když ona je ta hlavička docela dlouhá :)
 
 <script src="https://gist.github.com/fprochazka/04df7f71222e8056af5c.js?file=hsts.conf"></script>
 
-- Klíčové slovo `always` [je možné přidávat až od nginx 1.7.5](http://nginx.org/en/docs/http/ngx_http_headers_module.html#add_header) a díky němu se hlavička pošle nezávisle na tom jaký vracíte http kód
+- Klíčové slovo `always` [je možné přidávat až od nginx 1.7.5](https://nginx.org/en/docs/http/ngx_http_headers_module.html#add_header) a díky němu se hlavička pošle nezávisle na tom jaký vracíte http kód
 - pokud nechcete, nebo nemůžete, tak z hlavičky HSTS můžete vyhodit část `; includeSubDomains; preload` a dejte si opravdu velký pozor na `includeSubDomains`, protože pokud nemáte wildcard certifikát tak vám přestanou fungovat subdomény, které nemají HTTPS, protože prohlížeče je prostě budou ignorovat
 
 
@@ -241,7 +241,7 @@ Tohle už je malinko onanie, ale když ona je ta hlavička docela dlouhá :)
 
 Teď potřebujeme, aby jeden ze serverů byl výchozí (aby SNI správně fungovalo) - jeho certifikáty se pošlou prohlížeči, pokud nepodporuje SNI. Já si jako vychozí zvolil `kdyby.org` - je to poznat podle klíčového slova `default` na řádku s `listen`.
 
-Pokud potřebujete podporovat staré prohlížeče, [konrétně IEčka na Windows XP](http://cs.wikipedia.org/wiki/Server_Name_Indication#Nepodporovan.C3.A9_opera.C4.8Dn.C3.AD_syst.C3.A9my_a_prohl.C3.AD.C5.BEe.C4.8De), tak tam SNI fungovat nebude. Musíte mít tedy na jeden certifikát (doména a subdomény) jednu IPv4 adresu.
+Pokud potřebujete podporovat staré prohlížeče, [konrétně IEčka na Windows XP](https://cs.wikipedia.org/wiki/Server_Name_Indication#Nepodporovan.C3.A9_opera.C4.8Dn.C3.AD_syst.C3.A9my_a_prohl.C3.AD.C5.BEe.C4.8De), tak tam SNI fungovat nebude. Musíte mít tedy na jeden certifikát (doména a subdomény) jednu IPv4 adresu.
 Pokud se vám tam ale povede nainstalovat Chrome nebo Firefox, tak v nich to funguje i na XP.
 Myslím si ale, že je na čase se na staré XP vykašlat ;)
 
@@ -256,7 +256,7 @@ A teď ještě jeden nevýchozí vhost, se spoustou dalších přesměrování, 
 
 ### IPv6
 
-Nejprve je potřeba nastavit `AAAA` záznam v DNS vaší domény. Můžete si otestovat, jestli se to už projevilo, pomocí [IPv6 validátoru](http://ipv6-test.com/validate.php), u mně to Wedos DNS serverům trvalo několik hodin než se to obnovilo.
+Nejprve je potřeba nastavit `AAAA` záznam v DNS vaší domény. Můžete si otestovat, jestli se to už projevilo, pomocí [IPv6 validátoru](https://ipv6-test.com/validate.php), u mně to Wedos DNS serverům trvalo několik hodin než se to obnovilo.
 
 Důležité je taky aby váš server naslouchal po síti na IPv6, moje nastavení souboru `/etc/network/interfaces` (mám debian) vypadá následovně.
 Ten první `iface` jsem tam měl už po instalaci automaticky. Přidal jsem jenom ten blok s `inet6`.
@@ -292,11 +292,11 @@ Známku kdyby.org už jsme viděli, co takhle [filip-prochazka.com](https://www.
 ![nginx-https-spdy-filip-prochazka-com-ssllabs](/content/nginx-https-spdy-filip-prochazka-com-ssllabs.png)
 
 
-Výborně :) A teď ještě spdycheck - [kdyby.org](http://spdycheck.org/#www.kdyby.org) a [filip-prochazka.com](http://spdycheck.org/#filip-prochazka.com). Mělo by to vypadat takto:
+Výborně :) A teď ještě spdycheck - [kdyby.org](https://spdycheck.org/#www.kdyby.org) a [filip-prochazka.com](https://spdycheck.org/#filip-prochazka.com). Mělo by to vypadat takto:
 
 ![nginx-https-spdy-kdyby-org-spdycheck](/content/nginx-https-spdy-kdyby-org-spdycheck.png)
 
-A ještě [IPv6 test](http://ipv6-test.com/validate.php)
+A ještě [IPv6 test](https://ipv6-test.com/validate.php)
 
 ![nginx-https-spdy-filip-prochazka-com-ipv6-test](/content/nginx-https-spdy-filip-prochazka-com-ipv6-test.png)
 
@@ -312,14 +312,14 @@ Pokud máte nápad na jakékoliv vylepšení (pokud to nebude fix bezpečnostní
 - [Configuring nginx for SSL SNI vhosts by @StefanWallin](https://gist.github.com/StefanWallin/5690c76aee1f783c3d57)
 - [Security Labs: RC4 in TLS is Broken: Now What? - Qualys Community](https://community.qualys.com/blogs/securitylabs/2013/03/19/rc4-in-tls-is-broken-now-what)
 - [Security/Server Side TLS - Mozilla wiki](https://wiki.mozilla.org/Security/Server_Side_TLS#Intermediate_compatibility_.28default.29)
-- [Nginx HTTPS / SSL Google SPDY configuration](http://centminmod.com/nginx_configure_https_ssl_spdy.html)
+- [Nginx HTTPS / SSL Google SPDY configuration](https://centminmod.com/nginx_configure_https_ssl_spdy.html)
 - [How to enable SPDY with nginx (Debian Squeeze) - cowthink.org](https://cowthink.org/how-to-enable-spdy-with-nginx-debian-squeeze/)
 - [Security Labs: SHA1 Deprecation: What You Need ... - Qualys Community](https://community.qualys.com/blogs/securitylabs/2014/09/09/sha1-deprecation-what-you-need-to-know)
 - [Forward secrecy - Wikipedia](https://en.wikipedia.org/wiki/Forward_secrecy)
-- [NGINX SSL Termination - nginx.com](http://nginx.com/resources/admin-guide/nginx-ssl-termination/)
+- [NGINX SSL Termination - nginx.com](https://nginx.com/resources/admin-guide/nginx-ssl-termination/)
 - [TLS has exactly one performance problem: it is not used widely enough](https://istlsfastyet.com/)
-- [Jak rozjet IPv6 na vlastním serveru? - jklir.net](http://blog.jklir.net/jak-rozjet-ipv6-na-vlastnim-serveru-20120919.html)
-- [How To Set Up SSL Vhosts Under Nginx + SNI Support + IPv6](http://www.howtoforge.com/how-to-set-up-ssl-vhosts-under-nginx-plus-sni-support-ubuntu-11.04-debian-squeeze-p2)
+- [Jak rozjet IPv6 na vlastním serveru? - jklir.net](https://blog.jklir.net/jak-rozjet-ipv6-na-vlastnim-serveru-20120919.html)
+- [How To Set Up SSL Vhosts Under Nginx + SNI Support + IPv6](https://www.howtoforge.com/how-to-set-up-ssl-vhosts-under-nginx-plus-sni-support-ubuntu-11.04-debian-squeeze-p2)
 - [NetworkConfiguration - Debian Wiki](https://wiki.debian.org/NetworkConfiguration)
 
 A taky bych chtěl poděkovat [Jardovi Hanslíkovi](https://twitter.com/kukulich), [Petrovi Soukupovi](https://twitter.com/petrsoukup), Tadeáši Menglerovi a [Michalu Špačkovi](https://twitter.com/spazef0rze), se kterými jsem si vyměnil v emailech jednou tolik textu co je v tomhle článku :)

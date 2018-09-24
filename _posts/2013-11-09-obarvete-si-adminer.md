@@ -20,7 +20,7 @@ Jenže nepoužívám Navicat ale Adminer.
 
 ## Rychlokurz psaní pluginů pro Adminer
 
-- [Stáhneme si Adminer](http://www.adminer.org/cs/#download).
+- [Stáhneme si Adminer](https://www.adminer.org/cs/#download).
 - Stažený soubor přejmenujeme z `adminer-blabla.php` na `adminer.php`
 - Vytvoříme si vedle Admineru složku `plugins/` a do ní [stáhneme soubor plugin.php](https://github.com/vrana/adminer/blob/master/plugins/plugin.php)
 - Vytvoříme soubor `index.php` do kterého dáme následující kód a přes který budeme k Admineru přistupovat
@@ -91,7 +91,7 @@ A do pole s pluginy vytvoříme novou instanci.
 
 F5 a localhost už by měl chytnout nezdravou zelenou. Pokud by se vám zdálo, že je to hnusné jak noc, tak máte pravdu. Je to hnus :)
 
-Proto je potřeba stáhnout můj [adminer.css](http://filip-prochazka.com/content/adminer.css) (stačí ho umístit do stejné složky jako je `index.php` a Adminer si ho sám načte), který fixuje ty největší průsery a kdyby se někomu zželelo nás graficky retardovaných programátorů a dodělal by tomu barevnej lifting, vůbec bych se nezlobil :)
+Proto je potřeba stáhnout můj [adminer.css](https://filip-prochazka.com/content/adminer.css) (stačí ho umístit do stejné složky jako je `index.php` a Adminer si ho sám načte), který fixuje ty největší průsery a kdyby se někomu zželelo nás graficky retardovaných programátorů a dodělal by tomu barevnej lifting, vůbec bych se nezlobil :)
 
 
 

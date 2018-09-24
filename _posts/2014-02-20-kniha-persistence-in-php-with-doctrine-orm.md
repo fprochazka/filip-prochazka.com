@@ -8,10 +8,10 @@ tag: ["Doctrine", "ORM", "Knihy", "PHP"]
 
 ![book-doctrine-orm](/content/book-doctrine-orm.jpg){.left-img.tiny-image}
 
-Před pár měsíci mi www.packtpub.com napsali (jako jednomu z mnoha), jestli bych pro ně nechtěl napsat knihu o [Doctrine 2 ORM](http://www.doctrine-project.org/projects/orm.html).
+Před pár měsíci mi www.packtpub.com napsali (jako jednomu z mnoha), jestli bych pro ně nechtěl napsat knihu o [Doctrine 2 ORM](https://www.doctrine-project.org/projects/orm.html).
 Byť o Doctrine něco málo vím, nepřipadal jsem si jako vhodný kandidát, tak jsem to odmítl.
 
-Myslím, že jsem udělal dobře, protože ji nakonec napsal [Kévin Dunglas](http://dunglas.fr/),
+Myslím, že jsem udělal dobře, protože ji nakonec napsal [Kévin Dunglas](https://dunglas.fr/),
 člověk který přispívá do opensource projektů a ekosystémů jako jsou Symfony, JavaScript a Ubuntu.
 
 
@@ -52,6 +52,6 @@ a jako bonus si u toho napíšete jednoduchý blog :)
 
 ## Shut up and take my money!
 
-Knihu je možné [koupit na webu www.packtpub.com](http://goo.gl/wVDdr6).
+Knihu je možné [koupit na webu www.packtpub.com](https://goo.gl/wVDdr6).
 Co mě moc potěšilo, tak že si ji můžete stáhnout v PDF a ePUB a ani jedno neobsahuje žádné zjevné DRM.
 Taky je fajn, že ke knize si můžete stáhnout i všechny ukázky kódu (a funkční).

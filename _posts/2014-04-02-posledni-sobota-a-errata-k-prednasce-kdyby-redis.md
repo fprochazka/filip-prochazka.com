@@ -6,9 +6,9 @@ date: 2014-04-02 00:30
 tag: ["Nette Framework", "Cache", "Kdyby", "Redis", "PHP"]
 ---
 
-Na [Pražské březnové posobotě](http://forum.nette.org/cs/17090-posledni-sobota-59-csfd-praha-29-3-2014") jsem měl přednášku o [Kdyby/Redis](https://github.com/Kdyby/Redis/blob/master/docs/en/index.md), zde jsou slajdy s komentáři:
+Na [Pražské březnové posobotě](https://forum.nette.org/cs/17090-posledni-sobota-59-csfd-praha-29-3-2014") jsem měl přednášku o [Kdyby/Redis](https://github.com/Kdyby/Redis/blob/master/docs/en/index.md), zde jsou slajdy s komentáři:
 
-<iframe src="http://www.slideshare.net/slideshow/embed_code/33007726" width="427" height="356" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:1px solid #CCC; border-width:1px 1px 0; margin-bottom:5px; max-width: 100%;" allowfullscreen> </iframe>
+<iframe src="https://www.slideshare.net/slideshow/embed_code/33007726" width="427" height="356" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:1px solid #CCC; border-width:1px 1px 0; margin-bottom:5px; max-width: 100%;" allowfullscreen> </iframe>
 
 Kamera byla, takže až to [Patrik](https://twitter.com/PatrikVotocek) zpracuje, bude i video
 
@@ -27,7 +27,7 @@ Po přednášce jsme měli plodnou diskuzi a kluci se mi vysmáli, že ukládám
 Protože používáme nejnovější stable PHP (tedy 5.5.něco) žil jsem v mylné představě že APC je mrtvé a tedy nad tím nemusím vůbec přemýšlet.
 Jenže! Ono není tak úplně mrtvé a nepoužitelné jak jsem si myslel.
 
-Ještě během [Davidovy](https://twitter.com/geekovo) přednášky jsem nainstaloval [APCu](http://pecl.php.net/package/APCu),
+Ještě během [Davidovy](https://twitter.com/geekovo) přednášky jsem nainstaloval [APCu](https://pecl.php.net/package/APCu),
 tedy uživatelskou cache z APC (ta část která neztratila smysl existence) 
 a vylepšil [Kdyby/Annotations](https://github.com/Kdyby/Annotations) aby na nich šla lépe konfigurovat cache.
 

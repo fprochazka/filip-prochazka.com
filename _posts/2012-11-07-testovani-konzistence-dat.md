@@ -11,7 +11,7 @@ Objevil jsem docela zásadní bug ve svém `RedisExtension` pro Nette Framework.
 
 ## Zamykání klíče v Redisu
 
-Oficální dokumentace doporučuje použít [SETNX](http://redis.io/commands/setnx). Je úplně jedno jakou datovou strukturu použijete. Redis prostě neblokuje a můžete si klidně dělat stojky na hlavě. Uspávat aplikaci a hádat se o zámek spamováním Redisu? Až jako poslední možnost.
+Oficální dokumentace doporučuje použít [SETNX](https://redis.io/commands/setnx). Je úplně jedno jakou datovou strukturu použijete. Redis prostě neblokuje a můžete si klidně dělat stojky na hlavě. Uspávat aplikaci a hádat se o zámek spamováním Redisu? Až jako poslední možnost.
 
 Ovšem po zbytek článku (až ke komentářům) budeme předpokládat, že metodyku zamykání máme vyřešenou. Jak si ale ověříme, že funguje?
 

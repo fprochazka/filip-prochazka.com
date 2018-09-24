@@ -28,7 +28,7 @@ common:
 
 Asi by ale nebylo ideální, kdyby si kvůli použití rozšíření musel programátor plnit config balastem, který tam být nemusí.
 
-Řešit se to dá velice elegantně napsáním vlastního [rozsíření compileru](http://doc.nette.org/cs/di-extensions). Takové rožšíření vlastně bude jen registrovat služby stejně jako neon config, ale bude to dělat pomocí [metod třídy ContainerBuilder](http://api.kdyby.org/class-Nette.DI.ContainerBuilder.html). Je to sice výrazně ukecanější než čistý neon config, ale získáme tím ohromnou flexibilitu.
+Řešit se to dá velice elegantně napsáním vlastního [rozsíření compileru](https://doc.nette.org/cs/di-extensions). Takové rožšíření vlastně bude jen registrovat služby stejně jako neon config, ale bude to dělat pomocí [metod třídy ContainerBuilder](https://api.kdyby.org/class-Nette.DI.ContainerBuilder.html). Je to sice výrazně ukecanější než čistý neon config, ale získáme tím ohromnou flexibilitu.
 
 Úplně stupidní přepis do `CompilerExtension` by vypadal takto
 
@@ -74,7 +74,7 @@ $configurator->onCompile[] = function (Configurator $config, Compiler $compiler)
 
 Nyní se rozšíření dá rozumně používat, ale šlo by to udělat lépe. Například budeme chtít změnit port, nebo adresu, kde Redis běží.
 
-Každé registrované rozšíření, získá vlastní sekci v configu. Všimněte si jména, jaké jsem použil v příkladu nahoře, v metodě [addExtension()](http://api.kdyby.org/class-Nette.DI.Compiler.html#_addExtension).
+Každé registrované rozšíření, získá vlastní sekci v configu. Všimněte si jména, jaké jsem použil v příkladu nahoře, v metodě [addExtension()](https://api.kdyby.org/class-Nette.DI.Compiler.html#_addExtension).
 
 ~~~ neon
 production:
@@ -85,7 +85,7 @@ production:
         database: 0
 ~~~
 
-Všechno, co pod stejnou sekcí napíši v configu, získám v rozšíření pomocí metody [getConfig()](http://api.kdyby.org/class-Nette.DI.CompilerExtension.html#_getConfig). Nejčastější chyba je, zanořovat sekci `redis` do `services`, nebo do `parameters`, na to si dejte pozor!
+Všechno, co pod stejnou sekcí napíši v configu, získám v rozšíření pomocí metody [getConfig()](https://api.kdyby.org/class-Nette.DI.CompilerExtension.html#_getConfig). Nejčastější chyba je, zanořovat sekci `redis` do `services`, nebo do `parameters`, na to si dejte pozor!
 
 ~~~ php
 class RedisExtension extends Nette\DI\CompilerExtension
@@ -135,7 +135,7 @@ RedisExtension::register($configurator);
 
 Hotové a funkční rozšíření compileru pro Redis, si [můžete prohlédnout zde](https://github.com/Kdyby/Redis/blob/1df4d84a599e883255e76e53e6e1468ade127e25/src/Kdyby/Redis/DI/RedisExtension.php).
 
-No a kdybychom chtěli například `RedisClient` použít v presenteru, tak použijeme [oblíbené `inject*()` metody](http://pla.nette.org/cs/inject-autowire).
+No a kdybychom chtěli například `RedisClient` použít v presenteru, tak použijeme [oblíbené `inject*()` metody](https://pla.nette.org/cs/inject-autowire).
 
 ~~~ php
 class MyPresenter extends BasePresenter

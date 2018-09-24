@@ -21,14 +21,14 @@ Co znamená psát aplikaci čistě? Tak, aby se dobře vyvíjela a ještě lépe
 - použít MVC (né vždy, ale v 99% případů u webových aplikací je to must-have)
 - použít rozšířený framework (komunita, podpora, doplňky)
 - psát testy (alespoň integrační)
-- <a href="http://en.wikipedia.org/wiki/SOLID_(object-oriented_design)">SOLID</a>
+- <a href="https://en.wikipedia.org/wiki/SOLID_(object-oriented_design)">SOLID</a>
 	- Single responsibility
 	- Open-closed
 	- Liskov substitution
 	- Interface segregation
 	- Dependency inversion
-- [DRY](http://en.wikipedia.org/wiki/Don't_repeat_yourself)
-- [KISS](http://en.wikipedia.org/wiki/KISS_principle)
+- [DRY](https://en.wikipedia.org/wiki/Don't_repeat_yourself)
+- [KISS](https://en.wikipedia.org/wiki/KISS_principle)
 
 To bychom měli jako takový buzzwordový základ. Ale není to vůbec málo, že?
 

@@ -6,14 +6,14 @@ date: 2014-06-26 21:00
 tag: ["Nette Framework", "PHP", "Kdyby", "RabbitMq"]
 ---
 
-Pokud právě čtete tento článek, tak jste jistě četli i [Eventy a Nette Framework](http://filip-prochazka.com/blog/eventy-a-nette-framework) a pokud ne, tak doporučuji si na něj odskočit, já tu počkám.
+Pokud právě čtete tento článek, tak jste jistě četli i [Eventy a Nette Framework](https://filip-prochazka.com/blog/eventy-a-nette-framework) a pokud ne, tak doporučuji si na něj odskočit, já tu počkám.
 
 Jak teď už všichni víme, Eventy jsou strašně silný nástroj, jenže i s Eventy se můžeme dostat do situace, že toho už sice nedělají příliš naše třídy, ale tentokrát celá aplikace.
 Takové poslání emailu, komunikace s platební bránou, poslání smsky, komunikace s externím pokladním API a kdo ví co ještě nějaký čas zabere.
 
 Nebylo by fajn, kdyby se některé naše eventy zpracovaly asynchronně, na pozadí, abychom nezdržovali uživatele? Tak přesně od toho je [RabbitMQ](https://www.rabbitmq.com/) a tedy i [Kdyby/RabbitMq](https://github.com/kdyby/rabbitmq).
 
-Nebudu vás ale zatěžovat teorií, tu sepsal už [Jakub Kohout](http://www.jakubkohout.cz/2014/06/rabbitmq-easy-start.html) i s přehledem několika šikovných nástrojů, které se vám budou hodit. Tak až si to přečtete, pojďme rovnou skočit rovnýma nohama do praxe.
+Nebudu vás ale zatěžovat teorií, tu sepsal už [Jakub Kohout](https://www.jakubkohout.cz/2014/06/rabbitmq-easy-start.html) i s přehledem několika šikovných nástrojů, které se vám budou hodit. Tak až si to přečtete, pojďme rovnou skočit rovnýma nohama do praxe.
 
 <!--more-->
 ## První producer
@@ -163,7 +163,7 @@ Abych to trošku zpestřil, tak já jsem si zapl rovnou 4 consumery na stejnou f
 
 ## Asynchronní Eventy?
 
-Vezmeme si třeba `OrderMailerListener` z [předchozího článku](http://filip-prochazka.com/blog/eventy-a-nette-framework) a místo maileru si předáme producer.
+Vezmeme si třeba `OrderMailerListener` z [předchozího článku](https://filip-prochazka.com/blog/eventy-a-nette-framework) a místo maileru si předáme producer.
 
 ~~~ neon
 rabbitmq:
@@ -211,7 +211,7 @@ A teď už jenom napsat třídu co bude posílat emaily a nakonfigurovat consume
 
 ## Nesmrtelný daemon?
 
-Na to jak udržet proces při životě je spousta technik, my jsme se rozhodli použít [supervisord](http://supervisord.org/).
+Na to jak udržet proces při životě je spousta technik, my jsme se rozhodli použít [supervisord](https://supervisord.org/).
 Spouští jednotlivé procesy co mu zadáte, jako své vlastní podporocesy, a má tedy nad nimy výbornou kontrolu.
 
 Po instalaci si vytvoříme konfigurační soubor a do sekce s programy dáme
@@ -226,7 +226,7 @@ process_name=%(process_num)02d
 numprocs=4
 ~~~
 
-Jak se konfigurují programy [máte i v dokumentaci](http://supervisord.org/configuration.html#program-x-section-settings), ale projděme si, co jsem tady spáchal já.
+Jak se konfigurují programy [máte i v dokumentaci](https://supervisord.org/configuration.html#program-x-section-settings), ale projděme si, co jsem tady spáchal já.
 
 - Nejprve jsem program pojmenoval. Překvapivě se mu nelíbí, když má moc dvojteček v názvu, takže musím používat podtržítka (dvojtečky by byly hezčí).
 - `command` definuje co se má spustit a s jakými parametry
@@ -249,7 +249,7 @@ Raději si to projdeme znovu do detailů
 - posledním parametrem je `-m 500` a ten říká, že jakmile worker zpracuje 500 messagí, tak se má ukončit. Tahle volba je extra šikovná v kombinaci s automatickými restarty a faktem, že PHP není určené k psaní nekonečně běžících scriptů.
 - a na konci je argument s názvem consumera z configu `facebookNotifications`
 
-Nastaveno, spuštěno a pokud si zapnete i [webové rozhranní k supervisord](http://supervisord.org/configuration.html#inet-http-server-section-settings), tak můžete přes web sledovat stav svých workerů
+Nastaveno, spuštěno a pokud si zapnete i [webové rozhranní k supervisord](https://supervisord.org/configuration.html#inet-http-server-section-settings), tak můžete přes web sledovat stav svých workerů
 
 ![rabbitmq-supervisord](/content/rabbitmq-supervisord.png)
 

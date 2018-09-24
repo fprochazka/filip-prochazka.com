@@ -6,13 +6,13 @@ date: 2013-03-22 20:30
 tag: ["Nette Framework", "NewRelic", "Monitoring", "PHP"]
 ---
 
-Má Vaše aplikace víc než pět návštěv denně? Pak není od věci nějakým způsobem monitorovat, co se děje. Za tímhle účelem vznikají nejrůznější placené i opensource řešení. Některé lepší, některé horší. Několik měsíců zpátky jsem řešil, jaký monitoring nasadím na svoje sexy [VPS od Wedosu](http://hosting.wedos.com/cs/virtualni-servery.html) (na kterém běží i tento blog).
+Má Vaše aplikace víc než pět návštěv denně? Pak není od věci nějakým způsobem monitorovat, co se děje. Za tímhle účelem vznikají nejrůznější placené i opensource řešení. Některé lepší, některé horší. Několik měsíců zpátky jsem řešil, jaký monitoring nasadím na svoje sexy [VPS od Wedosu](https://hosting.wedos.com/cs/virtualni-servery.html) (na kterém běží i tento blog).
 
 <blockquote class="twitter-tweet" lang="cs"><p><a href="https://twitter.com/wedoscom">@wedoscom</a> Monitoring! To je jediná věc, která mi chybí! Nepotřebuju návštěvnost, ani analytiku - stačí vytíženost zdrojů na VPS.</p>&mdash; Filip Procházka (@ProchazkaFilip) <a href="https://twitter.com/ProchazkaFilip/statuses/214754921571041280">June 18, 2012</a></blockquote>
 
-Nebudu to protahovat, zvolil jsem nakonec [NewRelic](http://newrelic.com/), který mi poradil [Honza Doleček](https://twitter.com/juznacz). Jeho jediné mínus je, že je docela drahý. Ale po měsíci trial verze a tričku zdarma už se mi nechtělo nikam migrovat.
+Nebudu to protahovat, zvolil jsem nakonec [NewRelic](https://newrelic.com/), který mi poradil [Honza Doleček](https://twitter.com/juznacz). Jeho jediné mínus je, že je docela drahý. Ale po měsíci trial verze a tričku zdarma už se mi nechtělo nikam migrovat.
 
-Pak jsem dlouho monitoring neřešil a teď máme NewRelic i v [Damejidlo.cz](http://www.damejidlo.cz/). Na své VPS mám pár malých webíků, ale tady už začíná být kritické, mít vše pod dohledem.
+Pak jsem dlouho monitoring neřešil a teď máme NewRelic i v [Damejidlo.cz](https://www.damejidlo.cz/). Na své VPS mám pár malých webíků, ale tady už začíná být kritické, mít vše pod dohledem.
 
 Před pár dny jsem objevil [killer feature NewRelicu](https://newrelic.com/docs/php/the-php-api) a o tu bych se s Vámi chtěl zde podělit. Je to jeho PHP API. Abych to trošku rozvedl, NewRelic se instaluje tak, že [do phpčka zavedete modul a nastavíte IDčko aplikace](https://newrelic.com/docs/php/quick-installation-instructions-advanced-users). V ten moment začne rozsíření odesílat data na jejich servery a já se můžu kochat krásnými grafy :)
 
@@ -147,7 +147,7 @@ services:
         tag: [kdyby.subscriber]
 ~~~
 
-Co se týče logování chyb, má NewRelic [do laděnky](http://doc.nette.org/cs/debugging#toc-vizualizace-chyb-a-vyjimek) ještě světelné míle daleko. To co tam je teď, připomíná spíše brášku `log/error.log`. Pro laděnky si tedy stále musím dojít do logu na server. Je ale super vidět prolnutí chybovosti vzhledem k počtu požadavků. Určitě tedy stojí za to, posílat chyby do NewRelicu.
+Co se týče logování chyb, má NewRelic [do laděnky](https://doc.nette.org/cs/debugging#toc-vizualizace-chyb-a-vyjimek) ještě světelné míle daleko. To co tam je teď, připomíná spíše brášku `log/error.log`. Pro laděnky si tedy stále musím dojít do logu na server. Je ale super vidět prolnutí chybovosti vzhledem k počtu požadavků. Určitě tedy stojí za to, posílat chyby do NewRelicu.
 
 Na druhou stranu, chudý rozbor chyb je vynahrazený luxusním profilerem, který automaticky loguje requesty, které trvají déle než by měly a velice přesně, až možná doterně, upozorňuje na úzká hrdla aplikace.
 

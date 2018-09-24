@@ -56,7 +56,7 @@ class EmailQueue extends Nette\Object
 }
 ~~~
 
-Je trošku stupidní, že kvůli [kompatibilitě s PSR](http://www.php-fig.org/psr/psr-3/) tam mají všechny metody 2x,
+Je trošku stupidní, že kvůli [kompatibilitě s PSR](https://www.php-fig.org/psr/psr-3/) tam mají všechny metody 2x,
 tedy `addWarning` i `warning` (a dokonce i `warn`), ale zase tak moc mě to netrápí, prostě si vyberte jednu konvenci a ty používejte :)
 
 

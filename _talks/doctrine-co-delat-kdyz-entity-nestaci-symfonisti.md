@@ -22,4 +22,4 @@ A ukázal jsem pár dalších tipů, jak nemít z databáze úplně hloupé úlo
 
 Pokud by na slidy nebylo dobře vidět z videa, můžete si je prohlédnout [na slideshare][slides].
 
-[slides]: http://www.slideshare.net/HosipLan/doctrine-co-dlat-kdy-entity-nesta
+[slides]: https://www.slideshare.net/HosipLan/doctrine-co-dlat-kdy-entity-nesta

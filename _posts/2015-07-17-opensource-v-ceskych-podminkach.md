@@ -8,9 +8,9 @@ tag: ["Nette Framework"]
 
 Možná jste zaregistrovali
 
-- [Devel: Jak přimět větší firmy podporovat open source](http://devel.cz/otazka/jak-primet-vetsi-firmy-podporovat-open-source)
-- [Nette fórum: Jak přimět větší firmy podporovat open source](http://forum.nette.org/cs/23585-jak-primet-vetsi-firmy-podporovat-open-source)
-- [Nette fórum: Nette Pro: zatím asi nejschůdnější budoucnost pro Nette](http://forum.nette.org/cs/23770-nette-pro-zatim-asi-nejschudnejsi-budoucnost-pro-nette)
+- [Devel: Jak přimět větší firmy podporovat open source](https://devel.cz/otazka/jak-primet-vetsi-firmy-podporovat-open-source)
+- [Nette fórum: Jak přimět větší firmy podporovat open source](https://forum.nette.org/cs/23585-jak-primet-vetsi-firmy-podporovat-open-source)
+- [Nette fórum: Nette Pro: zatím asi nejschůdnější budoucnost pro Nette](https://forum.nette.org/cs/23770-nette-pro-zatim-asi-nejschudnejsi-budoucnost-pro-nette)
 
 David Grudl, tvůrce Nette Frameworku zkrátka řeší, jak se dostat do stavu, že bude Nette živit jeho a né naopak.
 
@@ -87,7 +87,7 @@ Matně si pamatuju že jsem pomáhal Martinu Majorovi s nějakým pullrequestem,
 
 Na druhou stranu, nemám z toho ani ždibíček černé svědomí.
 Netvrdím že všechny mé příspěvky byly dokonalé, ale [115 pullrequestů](https://github.com/pulls?utf8=%E2%9C%93&q=is%3Apr+author%3Afprochazka+org%3Anette+) podle mě není málo.
-Stejně tak netvrdím, že jsem vždy dával dokonalé rady, ale [přes čtyři a půl tisíce příspěvků](http://forum.nette.org/cs/userlist.php?username=&show_group=-1&sort_by=num_posts&sort_dir=DESC&search=Odeslat) taky není málo.
+Stejně tak netvrdím, že jsem vždy dával dokonalé rady, ale [přes čtyři a půl tisíce příspěvků](https://forum.nette.org/cs/userlist.php?username=&show_group=-1&sort_by=num_posts&sort_dir=DESC&search=Odeslat) taky není málo.
 Nebo těch [39 rozšíření](https://packagist.org/packages/kdyby/) pro Nette, to mi taky nepřijde jako málo.
 
 Rozhodně se tím nesnažím říct, že já už mám svůj "morální dluh" za všechno co mi Nette přineslo splacenej, to zdaleka ne.
@@ -127,7 +127,7 @@ Na druhou stranu, v tomhle se poslední ~2 roky o několik řádů zlepšil a je
 ## Všechno je o penězích
 
 No a hlavně, David do teď ani jednou **neřekl přímo**, že chce být placený **za vývoj** Nette. Nepamatuju si, že by to jednou jedinkrát někde zmínil nebo někam napsal.
-Udělal to poprvé [až tady](http://forum.nette.org/cs/23770#p159589) (všimněte si drastického rozdílu reakcí komunity na tento příspěvek a na ten první ve vláknu).
+Udělal to poprvé [až tady](https://forum.nette.org/cs/23770#p159589) (všimněte si drastického rozdílu reakcí komunity na tento příspěvek a na ten první ve vláknu).
 
 Na Nette chatu mi bylo jedním člověkem vyčteno, že ti kteří se zajímají, tak to věděli. V tom případě **jsem ignorant**, stejně jako naprostá většina komunity. Čest výjimkám.
 
@@ -173,11 +173,11 @@ Kompletně bych přepracoval donate na "[Patreon model](https://www.patreon.com/
 - Musí pravidelně na Nette blogu vznikat report o tom, že se fakt něco děje a David fakt pracuje (naprosto zásadní pro úspěch). Takhle totiž funguje jakékoliv normální fulltime zaměstnání, že ten co někomu platí, tak má přehled o tom co se udělalo a co ne. A taky proč se to neudělalo.
 - Když už se něco udělá, musejí se naplánovat a zpropagovat nové věci, na kterých se bude dělat další měsíc, třeba.
 
-Když se tohle udělá, tak to [není žádné žebrání](http://www.latrine.cz/drzet-hubu-sem-tam-spitnout). Je to úplně obyčejná výměna služeb.
+Když se tohle udělá, tak to [není žádné žebrání](https://www.latrine.cz/drzet-hubu-sem-tam-spitnout). Je to úplně obyčejná výměna služeb.
 Stránka se může zpropagovat na rootu, zdrojáku, lupě.
 Evangelisti si můžou hodit ribon na weby a twítnout výzvu.
 Jestli má někdo na to tohle v ČR dokázat, tak je to David s Nette.
-Fukovi to [taky funguje](http://fuxoft.cz/fffilm/ffffriends/?alltime=yeah) a to jeho blog jen těžko někomu generuje zisk.
+Fukovi to [taky funguje](https://fuxoft.cz/fffilm/ffffriends/?alltime=yeah) a to jeho blog jen těžko někomu generuje zisk.
 
 Nic z toho nemusí udělat David, můžeme to klidně udělat nějaký víkend (nebo dva) jako komunita.
 Nemůžeme to ale udělat bez tebe Davide, musíš chtít ty sám a dovolit nám to.

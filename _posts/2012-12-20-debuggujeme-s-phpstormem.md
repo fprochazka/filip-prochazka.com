@@ -6,7 +6,7 @@ date: 2012-12-20 16:20
 tag: ["PhpStorm", "Xdebug", "PHP"]
 ---
 
-Nejprve si [nainstalujeme a nastavíme Xdebug](http://xdebug.org/docs/install), pomocí [pecl](http://pecl.php.net/), který by měl být součastí všech instalací PHP.
+Nejprve si [nainstalujeme a nastavíme Xdebug](https://xdebug.org/docs/install), pomocí [pecl](https://pecl.php.net/), který by měl být součastí všech instalací PHP.
 
 ~~~ shell
 $ sudo pecl install xdebug
@@ -134,5 +134,5 @@ A opět můžu studovat obsah proměnných, měnit jejich hodnoty a volat vlastn
 
 když to co potřebuje je IDE! Sublime text je sice hyper cool textový editor, ve kterém zrovna píšu i tenhle článek, ale přestaňte se už mučit. Kód není text.
 
-PhpStorm můžete [používat první měsíc zdarma](http://www.jetbrains.com/phpstorm/) ;)
- A pokud se vám nebude líbit, je tu pořád ještě [NetBeans](http://netbeans.org/) a [PhpEd](http://www.nusphere.com/products/phped.htm).
+PhpStorm můžete [používat první měsíc zdarma](https://www.jetbrains.com/phpstorm/) ;)
+ A pokud se vám nebude líbit, je tu pořád ještě [NetBeans](https://netbeans.org/) a [PhpEd](https://www.nusphere.com/products/phped.htm).

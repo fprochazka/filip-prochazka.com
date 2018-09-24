@@ -88,7 +88,7 @@ Fajn, takže při zápisu do tabulky s jídly se nám data zprelikují pod fullt
 
 ## Hledáme Semtex
 
-Takhle nějak by mohla vypadat search query ([inspirovaná článkem od Jakuba](http://php.vrana.cz/fulltextove-vyhledavani-v-mysql.php))
+Takhle nějak by mohla vypadat search query ([inspirovaná článkem od Jakuba](https://php.vrana.cz/fulltextove-vyhledavani-v-mysql.php))
 
 ~~~ sql
 SELECT food_id FROM food_fulltext

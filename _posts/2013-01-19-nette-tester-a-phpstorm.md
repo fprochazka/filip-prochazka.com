@@ -11,7 +11,7 @@ Rozhodl jsem se přepsat všechny svoje testy z PHPUnitu na [Nette\Tester](https
 <!--more-->
 ## Vytvoření ekosystému
 
-Abychom mohli testy spouštět, potřebujeme do projektu nainstalovat Nette\Tester a nakopírovat pár kraťoučkých scriptů. Instalovat doporučuji pomocí [Composeru](http://doc.nette.org/cs/composer)
+Abychom mohli testy spouštět, potřebujeme do projektu nainstalovat Nette\Tester a nakopírovat pár kraťoučkých scriptů. Instalovat doporučuji pomocí [Composeru](https://doc.nette.org/cs/composer)
 
 ~~~ js
     "require-dev": {
@@ -32,7 +32,7 @@ Vytvořím si prázdný `tests/php.ini-unix`, nebo jeho alternativu pro Windows 
 
 S oblibou používám i [script na php lint](https://github.com/Kdyby/Redis/blob/master/tests/lint.php), který zkontroluje syntaxi všech php scriptů, [předtím, než spustí testy](https://github.com/Kdyby/Redis/blob/master/.travis.yml#L13).
 
-Testy v [Travisu](http://travis-ci.org) spouštím jednoduše `$ ./tests/run-tests.sh -s tests/KdybyTests/`, viz [konfigurace](https://github.com/Kdyby/Redis/blob/master/.travis.yml).
+Testy v [Travisu](https://travis-ci.org) spouštím jednoduše `$ ./tests/run-tests.sh -s tests/KdybyTests/`, viz [konfigurace](https://github.com/Kdyby/Redis/blob/master/.travis.yml).
 
 
 ## Jednotlivé testy
@@ -97,7 +97,7 @@ class ${NAME}Test extends Tester\TestCase
 
 ## Spouštěč testů
 
-PhpStorm obsahuje podporu pro spouštění bashových scriptů (a nejspíš i `.bat`, ale to zjišťovat nebudu). Je nutné [nainstalovat plugin BashSupport](http://plugins.jetbrains.com/plugin/?id=4230), ideálně pomocí repozitáře v `Settings > Plugins > Browse repositories`.
+PhpStorm obsahuje podporu pro spouštění bashových scriptů (a nejspíš i `.bat`, ale to zjišťovat nebudu). Je nutné [nainstalovat plugin BashSupport](https://plugins.jetbrains.com/plugin/?id=4230), ideálně pomocí repozitáře v `Settings > Plugins > Browse repositories`.
 
 Konfiguruje se velice snadno. Kliknu pravým tlačítkem ma `tests/run-tests.sh` a zvolím "Create 'run-tests'"
 

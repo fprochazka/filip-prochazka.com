@@ -6,7 +6,7 @@ date: 2015-07-19 13:45
 tag: ["Composer", "PHP", "Git"]
 ---
 
-[Na fóru se Lexi ptal](http://forum.nette.org/cs/23721-jak-na-vlastni-composer-balicek-s-nette-komponentou#p159274),
+[Na fóru se Lexi ptal](https://forum.nette.org/cs/23721-jak-na-vlastni-composer-balicek-s-nette-komponentou#p159274),
 jak řešit vývoj Composer balíčků. Já vyzkoušel tyhle tři varianty, respektive tyhle 3 jsou podle mě použitelné a hodí se v různých situacích.
 
 <!--more-->
@@ -59,7 +59,7 @@ Například Rohlik.cz mám na Nette 2.3, ale nějakej archaickej projekt na 2.1.
 ## Více pracovních složek
 
 Díky tomu jak git funguje, tak je možné vytvořit novou workdir, která ale bude sdílet historii s jinou.
-Dělá se to [pomocí příkazu `git-new-workdir`](http://stackoverflow.com/a/6270727/602899),
+Dělá se to [pomocí příkazu `git-new-workdir`](https://stackoverflow.com/a/6270727/602899),
 který ovšem není běžně dostupný jako ostatní příkazy a je potřeba si ho buď doinstalovat nebo nalinkovat do systémového `PATH`.
 
 Například mám v Kdyby/Doctrine branch `nette-2.1` a potřebuji ji pro projekty s Nette 2.1. Takže vlezu do `vendor/kdyby`, smažu složku `doctrine` a spustím

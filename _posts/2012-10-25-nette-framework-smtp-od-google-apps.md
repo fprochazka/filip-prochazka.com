@@ -21,7 +21,7 @@ Dalším krokem bývá nastavení MX záznamů domény, abychom emaily mohli tak
 
 ## Použití v Nette
 
-Následujících pár řadků nám nastaví [SMTP mailer](http://api.nette.org/2.0/Nette.Mail.SmtpMailer.html)
+Následujících pár řadků nám nastaví [SMTP mailer](https://api.nette.org/2.0/Nette.Mail.SmtpMailer.html)
 
 ~~~ neon
 production:

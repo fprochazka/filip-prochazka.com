@@ -8,13 +8,13 @@ tag: ["Nette Framework", "Doctrine", "Kdyby", "PHP"]
 
 Vyčleňuji právě [svoji integraci Doctrine](https://github.com/kdyby/doctrine) do Nette Frameworku a jedna její část řeší údálosti.
 
-Doctrine má na události jednoduchý systém - existuje třída `EventManager`, do které se registrují listenery a když se "něco stane", vyvoláme nad ní událost a ta se předá příslušným listenerům. Pro detaily si můžete odskočit do [podrobné dokumentace](http://docs.doctrine-project.org/en/latest/reference/events.html).
+Doctrine má na události jednoduchý systém - existuje třída `EventManager`, do které se registrují listenery a když se "něco stane", vyvoláme nad ní událost a ta se předá příslušným listenerům. Pro detaily si můžete odskočit do [podrobné dokumentace](https://docs.doctrine-project.org/en/latest/reference/events.html).
 
-Nette Framework [má také události](http://doc.nette.org/cs/php-language-enhancements#toc-udalosti). Používáte je nejspíše každý den ve formulářích, když nastavujete `$form->onSuccess[] = $callback;`.
+Nette Framework [má také události](https://doc.nette.org/cs/php-language-enhancements#toc-udalosti). Používáte je nejspíše každý den ve formulářích, když nastavujete `$form->onSuccess[] = $callback;`.
 
 A mě napadlo: co kdybych to sjednotil?
 
-(Pro plné pochopení článku je nutné znát [použití obou systémů](http://doc.nette.org/cs/php-language-enhancements#toc-udalosti), tak si to [skočte přečíst](http://docs.doctrine-project.org/en/latest/reference/events.html), já tu počkám)
+(Pro plné pochopení článku je nutné znát [použití obou systémů](https://doc.nette.org/cs/php-language-enhancements#toc-udalosti), tak si to [skočte přečíst](https://docs.doctrine-project.org/en/latest/reference/events.html), já tu počkám)
 
 <!--more-->
 ## Autowire událostí
@@ -160,6 +160,6 @@ Co jsem tedy získal?
 
 Já se teď budu muset snažit, abych to nepoužíval i tam, kde se to moc nehodí, protože se mi tento koncept velice líbí.
 
-Pokud si chcete [Kdyby/Events](https://github.com/kdyby/events) vyzkoušet, nainstalujte si pomocí [Composeru](http://getcomposer.org/) balíček [kdyby/events](https://packagist.org/packages/kdyby/events) a zaregistrujte extension `Kdyby\Events\DI\EventsExtension`.
+Pokud si chcete [Kdyby/Events](https://github.com/kdyby/events) vyzkoušet, nainstalujte si pomocí [Composeru](https://getcomposer.org/) balíček [kdyby/events](https://packagist.org/packages/kdyby/events) a zaregistrujte extension `Kdyby\Events\DI\EventsExtension`.
 
 Co vy, zaujalo vás to? Zkusíte to? Vidíte tam nějaký problém, nebo vás napadá jak to ještě vylepšit? Budu vděčný za každou reakci!

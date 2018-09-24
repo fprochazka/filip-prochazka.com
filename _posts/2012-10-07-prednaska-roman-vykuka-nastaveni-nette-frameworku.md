@@ -17,7 +17,7 @@ Tohle prosím Romane neber jako útok, ale jako návrhy na vylepšení. Kdybych 
 
 ## Autowiring
 
-Roman ukazoval [Autowiring](http://doc.nette.org/cs/configuring#toc-auto-wiring), na dost nešťastném příkladu. Do statické metody si předával celý DI Container.
+Roman ukazoval [Autowiring](https://doc.nette.org/cs/configuring#toc-auto-wiring), na dost nešťastném příkladu. Do statické metody si předával celý DI Container.
 
 ~~~ php
 class Authorizator extends Nette\Security\Permission
@@ -110,11 +110,11 @@ Použivání konstruktoru presenteru pro předávání závislostí je samozřej
 
 ## Komponenty v DIC
 
-Roman také ukazuje, jak se dají vytvářet komponenty pomocí DIC. Stejné nadšení jsem [při uvedení feature měl také](http://forum.nette.org/cs/9418-komponenty-v-dic-pomoci-novych-tovarnicek). Jenomže používání továrniček v DIC přináší několik problémů, na které ale v jednoduché aplikaci většinou nenarazíte.
+Roman také ukazuje, jak se dají vytvářet komponenty pomocí DIC. Stejné nadšení jsem [při uvedení feature měl také](https://forum.nette.org/cs/9418-komponenty-v-dic-pomoci-novych-tovarnicek). Jenomže používání továrniček v DIC přináší několik problémů, na které ale v jednoduché aplikaci většinou nenarazíte.
 
 Asi nejhorší problém je, že takovéto komponenty se nedají moc pěkně skládat. Protože do presenteru se nedá injektnout továrnička, nedá se injektnout ani nikam jinam, ani do komponenty samotné. Jsme tedy odkázáni na používání `$this->context` v presenteru a `$this->presenter->context` v komponentách. V modelových třídách je to prakticky neřešitelné. Jediné co se dá udělat, tak předávat si celý DIC do modelových tříd. Ale z toho už jsme doufám vyrostli.
 
-V současné době je jediným řešením [si napsat factory nebo builder třídu](http://forum.nette.org/cs/11883-vicenasobne-pouziti-formulare-dedicnost-nebo-tovarna), která bude vytvářet konkrétní typ komponenty. Nepovažuji to za problém, protože se to dá [celkem jednoduchým způsobem vylepšit](http://forum.nette.org/cs/11555-dependency-injection-factories-konecne-pouzitelne-tovarnicky). Roman tohle téma zmiňoval, ale nevysvětlil proč je to problém.
+V současné době je jediným řešením [si napsat factory nebo builder třídu](https://forum.nette.org/cs/11883-vicenasobne-pouziti-formulare-dedicnost-nebo-tovarna), která bude vytvářet konkrétní typ komponenty. Nepovažuji to za problém, protože se to dá [celkem jednoduchým způsobem vylepšit](https://forum.nette.org/cs/11555-dependency-injection-factories-konecne-pouzitelne-tovarnicky). Roman tohle téma zmiňoval, ale nevysvětlil proč je to problém.
 
 
 ## Dynamické načítání konfigů
@@ -126,11 +126,11 @@ Také bych zvážil přesunutí logiky načítání konfiguračních souborů mo
 
 ## Otázky na konec
 
-Co se týče používání `$this->context` v presenteru, tak jak jsem psal výše, je to pohodlné a neodsuzuju to. Ale z hlediska čistoty bych raději používal [inject*() metody](http://pla.nette.org/cs/inject-autowire).
+Co se týče používání `$this->context` v presenteru, tak jak jsem psal výše, je to pohodlné a neodsuzuju to. Ale z hlediska čistoty bych raději používal [inject*() metody](https://pla.nette.org/cs/inject-autowire).
 
 
 ## Závěrem
 
-Koukni na [Composer](http://doc.nette.org/cs/composer), pomůže ti se skládáním závislostí modulů ;)
+Koukni na [Composer](https://doc.nette.org/cs/composer), pomůže ti se skládáním závislostí modulů ;)
 
 Díky za přednášku, kde ti mám dát follow?

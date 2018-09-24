@@ -24,4 +24,4 @@ Ale v momentě, kdy už má cache závislosti, je na čase zvážit jiné způso
 
 Pokud by na slidy nebylo dobře vidět z videa, můžete si je prohlédnout [na slideshare][slides].
 
-[slides]: http://www.slideshare.net/HosipLan/nejlep-cache-je-dn-cache
+[slides]: https://www.slideshare.net/HosipLan/nejlep-cache-je-dn-cache

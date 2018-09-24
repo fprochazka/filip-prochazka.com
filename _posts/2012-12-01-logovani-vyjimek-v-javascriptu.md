@@ -228,4 +228,4 @@ console.originalLog(JSON.stringify(simplifyObj(exception, 5)));
 Nad tímhle kusem kódu jsem strávil většinu dne a pokorně to vzdávám. Už nemám ani chuť dodělat to server-side logování. Myslím, že mi Javascript ukradl duši.
 
 
-A co vy? Logujete chyby v Javascriptu? Já teda asi budu doufat, že mě zachrání tento projekt http://rescuejs.com/
+A co vy? Logujete chyby v Javascriptu? Já teda asi budu doufat, že mě zachrání tento projekt https://rescuejs.com/

@@ -22,4 +22,4 @@ A o tom, jak pomocí codeception snadno psát Selenium testy.
 
 Pokud by na slidy nebylo dobře vidět z videa, můžete si je prohlédnout [na slideshare][slides].
 
-[slides]: http://www.slideshare.net/HosipLan/testovn-prakticky
+[slides]: https://www.slideshare.net/HosipLan/testovn-prakticky

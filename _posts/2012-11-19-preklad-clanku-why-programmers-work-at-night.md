@@ -10,7 +10,7 @@ Překládám tento článek hlavně kvůli svým blízkým. Třeba i dalším pr
 
 *Pokud vás bude nějaká fráze štvát, můžete mi napsat, jak ji přeložit lépe :)*
 
-Zdroj: [swizec.com](http://swizec.com/blog/why-programmers-work-at-night/swizec/3198)
+Zdroj: [swizec.com](https://swizec.com/blog/why-programmers-work-at-night/swizec/3198)
 
 
 ## Proč programátoři pracují v noci
@@ -26,7 +26,7 @@ Napadají mně tři důvody: "rozvrh kreativců", "ospalý mozek" a zářící o
 
 ## Rozvrh kreativců
 
-Paul Graham [napsal o rozvrhu kreativců v roce 2009](http://www.paulgraham.com/makersschedule.html) - jde o to, že jsou jakési dva typy časových rozvrhů. Tradiční rozvrh "vedoucího"((nebo managera)), kde den je rozdělen do hodinových úseků práce a minutových (maximálně hodinových) úseků vyrušování.
+Paul Graham [napsal o rozvrhu kreativců v roce 2009](https://www.paulgraham.com/makersschedule.html) - jde o to, že jsou jakési dva typy časových rozvrhů. Tradiční rozvrh "vedoucího"((nebo managera)), kde den je rozdělen do hodinových úseků práce a minutových (maximálně hodinových) úseků vyrušování.
 
 A naproti tomu existuje něco, co Paul nazývá rozvrh kreativců - časový rozvrh těch z nás, kteří něco vytváří. Práce na velkých abstraktních systémech vyžaduje pojmutí celého úkolu do mysli - někdo tohle kdysi přirovnal ke stavění domu z drahého křišťálového skla, jakmile vás někdo rozptýlí, celé se to začne řítit k zemi a rozbíjet na tisíce kousků.
 
@@ -45,7 +45,7 @@ Proč tedy provádíme naši psychicky nejnáročnější práci, když mozek ch
 
 Protože *když jsme unavení, jsme lepší programátoři*.
 
-Podobně jako u [balmerovy křivky](http://xkcd.com/323/), únava nám pomáhá lépe se soustředit, protože když je náš mozek unavený, tak se prostě musí soustředit! Nemáme pak přebytečnou mozkovou kapacitu, abychom si mohli dovolit ztratit koncentraci.
+Podobně jako u [balmerovy křivky](https://xkcd.com/323/), únava nám pomáhá lépe se soustředit, protože když je náš mozek unavený, tak se prostě musí soustředit! Nemáme pak přebytečnou mozkovou kapacitu, abychom si mohli dovolit ztratit koncentraci.
 
 Připadá mi, že nejméně práce udělám, když vypiji příliš "mnoho čaje"((asi myslel kávu;)?)), nebo si dám energetický nápoj ve špatný moment. Jsem pak hyperaktivní a v jedné sekundě kontroluji Twitter, v další se dívám na Hacker News a jsem prostě příliš roztěkaný...
 
