@@ -59,6 +59,9 @@ plugins:
 
 tag_page_layout: tag
 tag_page_dir: blog/tag
+tag_page_data:
+  sitemap:
+    exclude: 'yes'
 tag_permalink_style: pretty
 ignored_tags: []
 
