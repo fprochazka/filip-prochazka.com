@@ -1,0 +1,28 @@
+---
+layout: default
+title: "Blog: Co se nevešlo na Twitter - Filip Procházka"
+permalink: /blog
+sitemap:
+  priority: 0.1
+---
+
+<div class="blog-articles">
+
+	<div class="row">
+		<h1 class="motto col-xs-12 col-lg-11 offset-lg-1">
+			<a href="{% link blogRss.xml %}" class="rss hidden-sm-down"><img src="{% link /assets/img/rss.png %}"></a>
+			Blog: Co se nevešlo na Twitter
+		</h1>
+	</div>
+
+    {% for post in site.posts limit:5 %}
+        {% include blogpostPreview.html post=post %}
+    {% endfor %}
+
+	<div class="row more-articles">
+		<div class="col-lg-10 offset-lg-2">
+			<a href="{% link archive.html %}">Všechny články...</a>
+		</div>
+	</div>
+
+</div>

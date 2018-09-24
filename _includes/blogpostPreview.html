@@ -1,0 +1,22 @@
+        <article class="row article hentry" itemscope itemtype="http://schema.org/Article">
+            <div class="col-lg-2 article-info hidden-md-down">
+                <a class="date" href="{{ post.url }}">
+                    <time class="published" datetime="{{ post.date | date_to_xmlschema }}" title="{{ post.date | date_to_xmlschema }}">{{ post.date | date_to_xmlschema }}</time>
+                </a>
+                <span class="hidden" itemprop="dateCreated">{{ post.date | date_to_xmlschema }}</span>
+                <span class="hidden" itemprop="datePublished">{{ post.date | date_to_xmlschema }}</span>
+                {% for tag in post.tags %}
+                    <a class="article-tag" href="/blog/tag/{{ tag | slugify: 'latin' }}">{{ tag }}</a>
+                {% endfor %}
+            </div>
+            <div class="col-lg-8 article-content">
+                <h2 itemprop="headline" class="entry-title">
+                    <a href="{% if post.titleLink != '' and post.titleLink != nil %}{{ post.titleLink }}{% else %}{{ post.url }}{% endif %}" itemprop="name">{{ post.title }}</a>
+                </h2>
+
+                <div class="content entry-content" itemprop="articleBody">
+                    {{ post.excerpt | headings_increase_level }}
+                    <p><a href="{{ post.url }}">Pokračovat ve čtení ...</a></p>
+                </div>
+            </div>
+        </article>

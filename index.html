@@ -1,0 +1,114 @@
+---
+layout: default
+title: "Filip Procházka"
+permalink: /
+meta:
+  og:
+    type: profile
+    other:
+      - property: "profile:first_name"
+        value: Filip
+      - property: "profile:first_name"
+        value: Procházka
+      - property: "profile:gender"
+        value: male
+sitemap:
+  priority: 1.0
+---
+
+<div itemscope itemtype="http://schema.org/Person" class="profile">
+	<div class="row">
+		<div class="col-lg-10 offset-lg-1">
+
+			<div class="pull-right cv-pic hidden-sm-down">
+				<img src="{% link /assets/img/selfi.jpg %}" alt="Filip Procházka" itemprop="image" width="300">
+			</div>
+
+			<h2 class="first">Ahoj!</h2>
+
+			<p>Jmenuji se <span itemprop="name">Filip Procházka</span> a jsem <span itemprop="jobTitle">programátor</span>. Programuji především weby a webové aplikace v PHP.</p>
+			<p>
+				Při své práci používám nejraději <a href="https://nette.org">Nette&nbsp;Framework</a> a <a href="http://www.doctrine-project.org/">Doctrine&nbsp;2</a>.
+				Vyvíjím <abbr title="Systém na správu komponent (a obsahu) webových aplikací">CMS</abbr>&nbsp;<a href="https://kdyby.org">Kdyby</a>,
+				který si <abbr title="nebo alespoň jeho části">můžete prohlédnout</abbr> na <a href="https://github.com/kdyby">Githubu</a>.
+			</p>
+			<p>
+				Snažím se programovat tak, abych se za svoje výtvory nemusel stydět.
+				Píšu testy, odsazuju taby, snažím se dodržovat pravidla čistého kódu a i když to tak někdy může vypadat, nejsem žádný fanatik,
+				který by se řídil dogmaty - snažím se při práci používat vlastní hlavu.
+			</p>
+			<p>
+				A protože mám zbytečně moc volného času (čti: vůbec nic nestíhám), rozhodl jsem se, že do toho začnu ještě studovat vysokou školu.
+				Takže jsem po skoro čtyřech letech v praxi (maturoval jsem 2010) úspěšně složil <abbr title="Testy studijních předpokladů">TSP</abbr>
+				a od 1.&nbsp;září&nbsp;2014 jsem studentem <a href="http://www.fi.muni.cz/katalog/obory_html/bc-ap.xhtml">Aplikované Informatiky</a> na <a href="http://www.muni.cz/">Masarykově Univerzitě</a> v Brně.
+			</p>
+			<p>
+				Taky se nijak netajím tím, že se považuji za <a href="https://cs.wikipedia.org/wiki/Libertarianismus">Libertariána</a>.
+			</p>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-lg-10 offset-lg-1">
+			<h2>Chcete mě kontaktovat?</h2>
+
+			<p>
+				Pokud mi chcete napsat email, moje adresa je <a href="mailto:{{ site.email }}" itemprop="email">{{ site.email }}</a>,
+				ale nebojte, nejsem ze <a href="https://cs.wikipedia.org/wiki/.su">Sovětského svazu</a>, jsem z Moravy :)
+				A můj email je zároveň také můj Jabber.
+			</p>
+
+			<p>Záležitosti života a smrti můžeme řešit po telefonu <span itemprop="telephone">+420.774&nbsp;634&nbsp;649</span></p>
+
+			<p>
+				Najdete mě také na <a href="https://www.facebook.com/{{ site.facebook.profileId }}">Facebooku</a>,
+				<a href="https://plus.google.com/{{ site.gplus.accountId }}" rel="me">Google+</a>
+				a vydatně twítuji jako <a href="https://twitter.com/{{ site.twitter.handle }}">@{{ site.twitter.handle }}</a>
+			</p>
+
+			<p>ICQ stále mám, ale na něj mi nepište! </p>
+		</div>
+	</div>
+
+	<div class="row vcard" id="contact">
+		<div class="col-xl-5 col-lg-6 offset-lg-1">
+			<h2>Obchodní a fakturační údaje</h2>
+
+			<div>
+				<p itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
+					<span class="fn">Filip Procházka</span><br>
+					<span class="adr"><span class="street-address" itemprop="streetAddress">Starovičky 28</span><br>
+					<span class="postal-code" itemprop="postalCode">69168</span>&nbsp;<span class="locality" itemprop="addressLocality">Starovičky</span></span>
+				</p>
+
+				<p>
+					IČ: <span itemprop="vatID">01310534</span><br>
+					DIČ: <span itemprop="taxID">CZ9104154433</span> (plátce DPH)
+				</p>
+			</div>
+
+			<h3>Bankovní spojení</h3>
+
+			<div>
+				<p>
+					<span>1109451029 / 3030</span> (AirBank)<br>
+					<small>CZ08&nbsp;3030&nbsp;0000&nbsp;0011&nbsp;0945&nbsp;1029</small>
+				</p>
+			</div>
+		</div>
+
+		<div class="col-xl-5 col-lg-4">
+			<h2>Kontaktní Adresa</h2>
+
+			<div>
+				<p itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
+					<span class="fn">Filip Procházka</span><br>
+					<span class="adr"><span class="street-address" itemprop="streetAddress">Gorkého 52/2</span><br>
+					<span class="postal-code" itemprop="postalCode">60200</span>&nbsp;<span class="locality" itemprop="addressLocality">Brno</span></span>
+				</p>
+
+				<p>E-mail: <a href="mailto:{{ site.email }}" itemprop="email" class="email">{{ site.email }}</a></p>
+			</div>
+		</div>
+	</div>
+</div>

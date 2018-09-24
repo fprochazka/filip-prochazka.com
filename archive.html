@@ -1,0 +1,21 @@
+---
+layout: default
+title: "Blog: Co se nevešlo na Twitter - Archiv - Filip Procházka"
+permalink: /archive
+sitemap:
+  priority: 0.1
+---
+
+<div class="row">
+	<h1 class="col-md-11 offset-md-1">Co se nevešlo na Twitter - Archiv</h1>
+</div>
+
+<div class="row archive">
+	<div class="col-md-9 offset-md-1">
+        {% for item in site.posts %}
+		<h2><a href="{{ item.url }}">
+            {{ item.title }} <time datetime="{{ item.date | date_to_xmlschema }}" title="{{ item.date | date_to_xmlschema }}">{{ item.date | date: date_to_xmlschema }}</time>
+		</a></h2>
+        {% endfor %}
+	</div>
+</div>

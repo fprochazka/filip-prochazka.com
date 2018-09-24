@@ -1,0 +1,115 @@
+# Welcome to Jekyll!
+#
+# This config file is meant for settings that affect your whole blog, values
+# which you are expected to set up once and rarely edit after that. If you find
+# yourself editing this file very often, consider using Jekyll's data files
+# feature for the data you need to update frequently.
+#
+# For technical reasons, this file is *NOT* reloaded automatically when you use
+# 'bundle exec jekyll serve'. If you change this file, please restart the server process.
+
+# Site settings
+# These are used to personalize your new site. If you look in the HTML files,
+# you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
+# You can create any custom variable you would like, and they will be accessible
+# in the templates via {{ site.myvariable }}.
+encoding: UTF-8
+timezone: Europe/Prague
+host: 127.0.0.1
+port: 4000
+
+title: Filip Procházka
+email: filip@prochazka.su
+#description: >- # this means to ignore newlines until "baseurl:"
+#  Write an awesome description for your new site here. You can edit this
+#  line in _config.yml. It will appear in your document head meta (for
+#  Google search results) and in your feed.xml site description.
+#baseurl: "" # the subpath of your site, e.g. /blog
+url: "https://filip-prochazka.com" # the base hostname & protocol for your site
+
+permalink: /blog/:year/:month/:title:output_ext
+
+googleAnalytics:
+  account: UA-12182518-9
+
+disqus:
+  shortname: filip-prochazka-blog
+
+twitter:
+  handle: ProchazkaFilip
+
+gplus:
+  accountId: '103239456693574460264'
+
+facebook:
+  username: FilipProchazka
+  profileId: '1634280910'
+
+github:
+  username: fprochazka
+  repository: fprochazka/filip-prochazka.com
+
+
+# Build settings
+markdown: kramdown
+#theme: minima
+plugins:
+#  - jekyll-feed
+#  - jekyll/tagging
+
+tag_page_layout: tag
+tag_page_dir: blog/tag
+tag_page_data:
+  sitemap:
+    exclude: 'yes'
+tag_permalink_style: pretty
+ignored_tags: []
+
+sass:
+  sass_dir: assets/css/_sass
+  style: compact # possible values: nested expanded compact compressed
+
+favicon:
+  source: assets/img/favicon.png
+
+# Exclude from processing.
+# The following items will not be processed, by default. Create a custom list to override the default setting.
+exclude:
+  - _old/
+  - .git/
+  - .idea/
+  - _locale/
+  - Gemfile
+  - Gemfile.lock
+  - readme.md
+#   - node_modules
+#   - vendor/bundle/
+#   - vendor/cache/
+#   - vendor/gems/
+#   - vendor/ruby/
+
+include: ['_redirects']
+
+excerpt_separator: "<!--more-->"
+
+collections:
+  talks:
+    talk: true
+    output: true
+    permalink: /talks/:name
+
+defaults:
+  -   scope:
+        path: "" # an empty string here means all files in the project
+      values:
+        meta:
+          description: "Jmenuji se Filip Procházka a jsem programátor. Programuji především weby a webové aplikace v PHP."
+          og:
+            type: website
+            locale: cs_CZ
+            image: /assets/img/selfi.jpg
+            other: []
+          twitter:
+            type: summary
+            image: /assets/img/selfi.jpg
+            other: []

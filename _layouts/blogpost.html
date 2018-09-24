@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+{% include head.html %}
+    <link rel="alternate" type="application/rss+xml" title="Blog: Co se nevešlo na Twitter - Filip Procházka" href="{link //rss}">
+</head>
+<body>
+<div class="container">
+    {% include header.html %}
+
+    <div class="blog-article">
+
+        <article class="row article hentry" itemscope itemtype="http://schema.org/Article">
+            <div class="offset-xxl-2 col-xxl-8 offset-xl-1 col-xl-10 article-content">
+                <h1 itemprop="headline" class="entry-title">
+                    {{ page.title }}
+                </h1>
+
+                <div class="article-info byline author vcard">
+                    <a class="date" href="{{ page.url }}">
+                        <time datetime="{{ page.date | date_to_xmlschema }}" title="{{ page.date | date_to_xmlschema }}">{{ page.date | date_to_xmlschema }}</time>
+                    </a>
+                    <span class="hidden" itemprop="dateCreated">{{ page.date | date_to_xmlschema }}</span>
+                    <span class="hidden" itemprop="datePublished">{{ page.date | date_to_xmlschema }}</span>
+
+                    {% for tag in page.tags %}
+                    <a class="article-tag" href="/blog/tag/{{ tag | slugify: 'latin' }}">{{ tag }}</a>
+                    {% endfor %}
+                </div>
+
+                <div class="content entry-content" itemprop="articleBody">
+                    {{ content }}
+                </div>
+
+                <div class="pull-right fix-me">
+                    <span class="title">Mám tu chybu?</span>
+                    <a href="https://github.com/{{ site.github.repository }}/edit/master/blog/{{ page.path }}" target="_blank" class="btn btn-outline-secondary">Fix me</a>
+                </div>
+
+                <div class="pull-right social-share">
+                    <span class="title">Please share</span>
+                    {% capture tweet_text %}{{ page.title }} {{ page.url | absolute_url }} via @{{ site.twitter.handle }}{% endcapture %}
+                    <a href="https://twitter.com/intent/tweet?text={{ tweet_text | url_encode }}" class="btn btn-social-icon btn-twitter"><span class="fa fa-twitter"></span></a>
+                    <a href="https://www.facebook.com/sharer.php?u={{ page.url | absolute_url | url_encode }}&amp;t={{ page.title | url_encode }}" class="btn btn-social-icon btn-facebook"><span class="fa fa-facebook"></span></a>
+                    <a href="https://plus.google.com/share?url={{ page.url | absolute_url | url_encode }}" class="btn btn-social-icon btn-google"><span class="fa fa-google"></span></a>
+                </div>
+
+                <p>
+                    <small>Autor: <a href="https://plus.google.com/{{ site.gplus.accountId }}?rel=author" itemprop="author"><span class="fn">Filip Procházka</span></a></small>
+                </p>
+            </div>
+        </article>
+
+        {% if jekyll.environment == "production" %}
+        <div class="row">
+            <div class="offset-xxl-2 col-xxl-8 offset-xl-1 col-xl-10">
+                {% include disqus.html %}
+            </div>
+        </div>
+        {% endif %}
+
+    </div>
+
+</div>
+{% include footer.html %}
+</body>
+</html>
