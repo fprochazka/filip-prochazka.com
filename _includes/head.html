@@ -36,7 +36,7 @@
     <meta name="msapplication-TileColor" content="#da532c">
     <meta name="theme-color" content="#ffffff">
 
-    <link rel="stylesheet" href="{{ '/assets/css/styles.css' | relative_url }}"/>
+    <link rel="stylesheet" href="{{ '/assets/css/styles.css' | relative_url }}?{{site.time | date: '%s%N'}}"/>
 
     {% if jekyll.environment == "production" %}<script>
 		window.ga = window.ga || function (){(ga.q=ga.q||[]).push(arguments)};

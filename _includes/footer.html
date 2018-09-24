@@ -1,2 +1,2 @@
 <script src="{% link /assets/js/lib/timeago.v4.0.0-beta.1.min.js %}"></script>
-<script src="{% link /assets/js/app.js %}"></script>
+<script src="{% link /assets/js/app.js %}?{{site.time | date: '%s%N'}}"></script>
