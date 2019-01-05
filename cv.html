@@ -30,7 +30,7 @@ sitemap:
 				<span class="visible-print-inline">Filip Procházka - </span>Curriculum Vitae
 			</h2>
 
-            {% assign thisYear = site.time | date: "%Y" | plus: 0 %}
+			{% assign thisYear = site.time | date: "%Y" | plus: 0 %}
 			<ul>
 				<li><strong>Primární jazyky</strong>: PHP (Nette Framework, Symfony), JavaScript, SQL</li>
 				<li><strong>Zkušenosti s</strong>: Python, Bash, C/C++, Java, Haskell a další</li>
@@ -39,11 +39,18 @@ sitemap:
 
 			<h2 id="work-and-projects">Práce a projekty</h2>
 
-			<h3>TajnyProjekt™ <small>Cogvio s.r.o.</small> <span class="light">- březen 2017 až současnost</span></h3>
+			<h3><a href="https://www.cogvio.com/">Cogvio s.r.o.</a> <span class="light">- březen 2017 až současnost</span></h3>
 
 			<p>
-				S <a href="https://twitter.com/petrbartos">Petrem Bartošem</a> vedu vývoj aplikace v Javě na přelévání a čištění dat z různých zdrojů,
-				které zobrazuje analytický nástroj v JavaScriptu, pomocí RESTful API psaného ve Spring MVC.
+				<abbr title="VP of Engineering">Vedu vývoj</abbr> aplikací, které slouží k automatizaci v Health &amp; Pharma industry.
+				Naše hlavní témata jsou Market Access, Pharmaceutical Pricing a rozjíždíme další.
+			</p>
+
+			<p>
+				Nejvíc času se věnuji vývoji <a href="https://www.cogvio.com/products/">Price Monitoru</a>,
+				který píšeme jako API v Javě (Spring Boot, Hibernate, PostgreSQL, ElasticSearch, ...), nad kterým je UI v JavaScriptu.
+				Součástí systému je i pipeline na zpracování dat o lécích, do které lejeme vyšší desítky zdrojů.
+				Celý systém běží na AWS a aplikace samotná pak v Dockeru.
 			</p>
 
 			<h3>Lavito.cz <span class="light">- únor 2016 až leden 2017</span></h3>
