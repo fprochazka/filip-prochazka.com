@@ -1,6 +1,7 @@
 ---
 layout: talk
 title: "How to compile an extensible DI Container #brnophp - Přednášky - Filip Procházka"
+permalink: talks/how-to-compile-an-extensible-di-container-brnophp
 date: 2015-02-26
 talk:
   title: "How to compile an extensible DI Container #brnophp"

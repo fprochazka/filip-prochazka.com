@@ -1,6 +1,7 @@
 ---
 layout: talk
 title: "Kdyby/Redis #posobota - Přednášky - Filip Procházka"
+permalink: talks/kdyby-redis-posobota
 date: 2014-04-22
 talk:
   title: "Kdyby/Redis #posobota"

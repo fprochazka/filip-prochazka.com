@@ -1,6 +1,7 @@
 ---
 layout: talk
 title: "Rok flákání a 4 roky remote #olapRemote - Přednášky - Filip Procházka"
+permalink: talks/rok-flakani-a-4-roky-remote-olap-remote
 date: 2017-01-24
 talk:
   title: "Rok flákání a 4 roky remote #olapRemote"

@@ -1,6 +1,7 @@
 ---
 layout: talk
 title: "Nejlepší cache je žádná cache #posobota - Přednášky - Filip Procházka"
+permalink: talks/nejlepsi-cache-je-zadna-cache-posobota
 date: 2016-03-15
 talk:
   title: "Nejlepší cache je žádná cache #posobota"

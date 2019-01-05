@@ -1,6 +1,7 @@
 ---
 layout: talk
 title: "Dependency Injection v Nette 2.1 prakticky #posobota - Přednášky - Filip Procházka"
+permalink: talks/dependency-injection-v-nette-prakticky-posobota
 date: 2014-01-29
 talk:
   title: "Dependency Injection v Nette 2.1 prakticky #posobota"

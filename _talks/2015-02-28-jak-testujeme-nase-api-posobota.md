@@ -1,6 +1,7 @@
 ---
 layout: talk
 title: "Jak testujeme naše /api #posobota - Přednášky - Filip Procházka"
+permalink: talks/jak-testujeme-nase-api-posobota
 date: 2015-02-28
 talk:
   title: "Jak testujeme naše /api #posobota"

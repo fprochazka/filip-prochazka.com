@@ -1,6 +1,7 @@
 ---
 layout: talk
 title: "Doctrine: co dělat, když entity nestačí? #symfonisti - Přednášky - Filip Procházka"
+permalink: talks/doctrine-co-delat-kdyz-entity-nestaci-symfonisti
 date: 2016-05-18
 talk:
   title: "Doctrine: co dělat, když entity nestačí? #symfonisti"

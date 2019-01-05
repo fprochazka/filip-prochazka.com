@@ -1,6 +1,7 @@
 ---
 layout: talk
 title: "Představení nástroje Composer #posobota - Přednášky - Filip Procházka"
+permalink: talks/predstaveni-nastroje-composer-posobota
 date: 2012-04-01
 talk:
   title: "Představení nástroje Composer #posobota"

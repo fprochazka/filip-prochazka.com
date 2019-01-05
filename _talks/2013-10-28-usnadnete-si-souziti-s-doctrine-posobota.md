@@ -1,6 +1,7 @@
 ---
 layout: talk
 title: "Usnadněte si soužití s Doctrine #posobota - Přednášky - Filip Procházka"
+permalink: talks/usnadnete-si-souziti-s-doctrine-posobota
 date: 2013-10-28
 talk:
   title: "Usnadněte si soužití s Doctrine #posobota"

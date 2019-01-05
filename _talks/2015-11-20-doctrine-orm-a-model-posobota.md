@@ -1,6 +1,7 @@
 ---
 layout: talk
 title: "Doctrine ORM & model #posobota - Přednášky - Filip Procházka"
+permalink: talks/doctrine-orm-a-model-posobota
 date: 2015-11-20
 talk:
   title: "Doctrine ORM & model #posobota"

@@ -1,6 +1,7 @@
 ---
 layout: talk
 title: "Testování Prakticky #phpLive - Přednášky - Filip Procházka"
+permalink: talks/testovani-prakticky-php-live
 date: 2015-12-21
 talk:
   title: "Testování Prakticky #phpLive"

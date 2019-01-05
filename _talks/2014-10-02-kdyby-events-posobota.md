@@ -1,6 +1,7 @@
 ---
 layout: talk
 title: "Kdyby/Events #posobota - Přednášky - Filip Procházka"
+permalink: talks/kdyby-events-posobota
 date: 2014-10-02
 talk:
   title: "Kdyby/Events #posobota"

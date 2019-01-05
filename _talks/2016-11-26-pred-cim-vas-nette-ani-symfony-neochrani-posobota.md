@@ -1,6 +1,7 @@
 ---
 layout: talk
 title: "Před čím vás Nette ani Symfony neochrání #posobota - Přednášky - Filip Procházka"
+permalink: talks/pred-cim-vas-nette-ani-symfony-neochrani-posobota
 date: 2016-11-26
 talk:
   title: "Před čím vás Nette ani Symfony neochrání #posobota"
