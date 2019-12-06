@@ -1,7 +1,7 @@
 ---
 layout: talk
 title: "Evolving Architecture #posobota - Přednášky - Filip Procházka"
-date: 2018-10-20
+date: 2019-11-30
 talk:
   title: "Evolving Architecture #posobota"
   video: "https://www.youtube.com/embed/ZDQPZixsCXM"
