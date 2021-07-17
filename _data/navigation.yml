@@ -11,10 +11,6 @@ items:
       url: /job
       active: []
 
-  -   title: Open source
-      url: /open-source
-      active: ["/paid-support", "/donation"]
-
   -   title: Přednášky
       url: /talks
       active: []
