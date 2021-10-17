@@ -2,7 +2,7 @@
 layout: blogpost
 title: "Importing your existing AWS Route53 records into Terraform"
 permalink: blog/importing-your-existing-aws-route53-records-into-terraform
-date: 2021-10-17 10:00
+date: 2021-10-17 09:50
 tag: ["Terraform", "AWS", "Route53"]
 ---
 
