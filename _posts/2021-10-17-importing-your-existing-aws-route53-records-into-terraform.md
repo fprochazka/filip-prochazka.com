@@ -215,8 +215,8 @@ The final step is to use your text editor to remove `allow_overwrite = true` arg
 ## Gotchas
 
 Please review the [TXT records](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/ResourceRecordTypes.html#TXTFormat) the script generates extra carefully.
-Terraform [automatically surrounds the values for TXT records in quotes](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/route53_record#records), but
-extra-long records like Google's DKIM might have to be split up using `\"\"`.
+Terraform [automatically surrounds the values for TXT records in quotes](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/route53_record#argument-reference),
+but extra-long records like Google's DKIM might have to be split up using `\"\"`.
 
 ## Why didn't you just...?
 
