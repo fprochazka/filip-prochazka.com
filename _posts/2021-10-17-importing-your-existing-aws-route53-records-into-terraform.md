@@ -57,8 +57,8 @@ once, and you're done!
 
 ## Faster writing of record resources
 
-Since Terraform will overwrite the records, you really have to write them correctly on the first try. Thankfully, AWS has a cli client that can dump all the Route53 routes in a
-single JSON request.
+Since Terraform will overwrite the records, you really have to write them correctly on the first try.
+Thankfully, AWS has a cli client that can dump all the Route53 routes into JSON in a single request.
 
 ~~~ shell
 aws route53 list-resource-record-sets --hosted-zone-id Z4KAPRWWNC7JR \
