@@ -6,8 +6,9 @@ date: 2021-10-17 09:50
 tag: ["Terraform", "AWS", "Route53"]
 ---
 
-When you start with a cloud, you rarely get everything just right on the first try. Most projects begin with IaaC after they've already been using AWS for some time - which means
-you'll have a bunch of resources that have been created using the AWS Console, and they [have to be imported into Terraform](https://www.terraform.io/docs/cli/import/index.html).
+When you start with a cloud, you rarely get everything just right on the first try. Most projects begin with [IaC](https://cs.wikipedia.org/wiki/Infrastructure_as_Code)
+after they've already been using AWS for some time - which means you'll have a bunch of resources that have been created using the AWS Console,
+and they [have to be imported into Terraform](https://www.terraform.io/docs/cli/import/index.html).
 
 Unfortunately, Route53 is extra tricky because you can easily create *a lot* of resources. It can quickly become unbearable to manually import because, as with any Terraform
 resource, you have to first write the definition, and then you run the import command over and over for each resource individually... Or do you?
