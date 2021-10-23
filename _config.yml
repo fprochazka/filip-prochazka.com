@@ -75,18 +75,17 @@ favicon:
 # Exclude from processing.
 # The following items will not be processed, by default. Create a custom list to override the default setting.
 exclude:
-  - _old/
-  - .git/
-  - .idea/
-  - _locale/
-  - Gemfile
-  - Gemfile.lock
-  - readme.md
-#   - node_modules
-#   - vendor/bundle/
-#   - vendor/cache/
-#   - vendor/gems/
-#   - vendor/ruby/
+  - '_old/'
+  - '.git/'
+  - '.idea/'
+  - '_locale/'
+  - 'docker-compose.yml'
+  - 'Gemfile'
+  - 'Gemfile.lock'
+  - 'readme.md'
+  - '.sass-cache'
+  - 'node_modules'
+  - 'vendor/'
 
 include: ['_redirects']
 
