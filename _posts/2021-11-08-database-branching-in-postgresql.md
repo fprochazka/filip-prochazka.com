@@ -19,8 +19,8 @@ What now? If only you could just magically revert the database to where it was b
 ## Branching the database
 
 Sadly, PostgreSQL does not have a real branching feature. But it has something that can be used as such -
-the [CREATE DATABASE](https://www.postgresql.org/docs/13/sql-createdatabase.html) command. It allows you to copy the entire database with all its data via a single command.
-It has only one limitation - there can be no active connection to the database you're copying, but that's not an issue on your localhost.
+the [CREATE DATABASE](https://www.postgresql.org/docs/13/sql-createdatabase.html) command. It allows you to copy the entire database with all its data via a single command, and it
+does so really fast. It has only one limitation - there can be no active connection to the database you're copying, but that's not an issue on your localhost.
 
 ~~~sql
 CREATE DATABASE app_copy WITH TEMPLATE app OWNER a_user;
