@@ -68,7 +68,7 @@ which helps prevent nasty conflicts.
 My local database of an app where I'm utilizing this technique has around 130GB, and it is not trivial to initialize it for reasons that are out-of-scope of this article.
 What are the alternatives?
 
-* regular filesystem copy&paste: 4-5min (and you also have to change app configuration and start a new database instance from the copied files)
+* regular filesystem copy&paste: 4-5min (if you want to switch the databases, you have to turn off the server and switch files, or start a new instance and reconfigure your app)
 * `CREATE DATABASE`: 5-6min
 * dump&restore: I'm not going to even try, but it's going to be at least 1 hour
 
