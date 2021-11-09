@@ -27,9 +27,9 @@ CREATE DATABASE app_copy WITH TEMPLATE app OWNER a_user;
 ~~~
 
 To work around the limitation, I always keep a separate connection that I can use for the databases manipulation. Unlike MySQL, PostgreSQL requires a database name for a
-connection, and it simply won't connect unless you give it one, so you cannot connect to "nothing" to manipulate the databases. But there is a simple workaround - every PostgreSQL
-instance has a default database named `postgres` containing metadata. If you connect to this database and disconnect from all the others, you can safely copy and drop your
-application databases.
+connection, and it simply won't connect unless you give it one, so you cannot connect to "nothing" to manipulate the databases. But there is a simple workaround - most PostgreSQL
+instances have a default database named `postgres`. If you connect to this database and disconnect from all the others, you can safely copy and drop your application databases. You
+can also create an empty dummy database just for this.
 
 With this tool in hand, let us look at the "branching strategy".
 
@@ -62,3 +62,14 @@ This little dance is a bit weird, but that's because the strategy is optimizing 
 
 You can obviously create much more complex strategies. But this basic strategy is good enough for my everyday use since I'm trying to never work on more features simultaneously,
 which helps prevent nasty conflicts.
+
+## Why didn't you just ...?
+
+My local database of an app where I'm utilizing this technique has around 130GB, and it is not trivial to initialize it for reasons that are out-of-scope of this article.
+What are the alternatives?
+
+* regular filesystem copy&paste: 4-5min (and you also have to change app configuration and start a new database instance from the copied files)
+* `CREATE DATABASE`: 5-6min
+* dump&restore: I'm not going to even try, but it's going to be at least 1 hour
+
+As you can see, `CREATE DATABASE` combines speed and simplicity and is ideal for this use case.
