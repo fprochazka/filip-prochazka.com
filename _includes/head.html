@@ -4,29 +4,34 @@
 
 	<title>{{ page.title }}</title>
 
+    {% if page.excerpt %}
+        {% assign page_description = page.excerpt | strip_html | strip_newlines | truncate: 300 %}
+    {% else %}
+        {% assign page_description = page.meta.description %}
+    {% endif %}
+
 	<meta property="og:site_name" content="Filip Procházka"/>
 	<meta property="og:title" content="{{ page.title }}"/>
 	<meta property="og:type" content="{{ page.meta.og.type }}"/>
 	<meta property="og:url" content="{{ site.url }}{{ page.url }}"/>
 	<meta property="og:locale" content="{{ page.meta.og.locale }}">
 	<meta property="fb:profile_id" content="{{ site.facebook.profileId }}">
-    {% if page.meta.description != "" and page.meta.description != nil %}<meta property="og:description" content="{{ page.meta.description }}">
-    {% endif %}<meta property="og:image" content="{{ page.meta.og.image }}">
+    <meta property="og:description" content="{{ page_description }}">
+    <meta property="og:image" content="{{ page.meta.og.image }}">
     {% for item in page.meta.og.other %}<meta property="{{ item.property }}" content="{{ item.value }}">
     {% endfor %}<meta name="twitter:card" content="{{ page.meta.twitter.type }}">
 	<meta name="twitter:url" content="{{ site.url }}{{ page.url }}">
 	<meta name="twitter:title" content="{{ page.title }}">
 	<meta name="twitter:image" content="{{ page.meta.twitter.image }}">
-    {% if page.meta.description != "" and page.meta.description != nil %}<meta name="twitter:description" content="{{ page.meta.description }}">
-    {% endif %}<meta name="twitter:creator" content="{{ site.twitter.handle }}">
+    <meta name="twitter:description" content="{{ page_description }}">
+    <meta name="twitter:creator" content="{{ site.twitter.handle }}">
     {% for item in page.meta.twitter.other %}<meta property="{{ item.property }}" content="{{ item.value }}">
     {% endfor %}<meta name=”twitter:site” content="{{ site.twitter.handle }}">
 
 	<link rel="canonical" href="{{ site.url }}{{ page.url }}"/>
 
 	<link rel="author" href="{% link /humans.txt %}" type="text/plain"/>
-    {% if page.meta.description != "" and page.meta.description != nil %}<meta name="description" content="{{ page.meta.description }}">
-    {% endif %}
+    <meta name="description" content="{{ page_description }}">
     <link rel="apple-touch-icon" sizes="180x180" href="{% link /apple-touch-icon.png %}">
     <link rel="icon" type="image/png" sizes="32x32" href="{% link /favicon-32x32.png %}">
     <link rel="icon" type="image/png" sizes="16x16" href="{% link /favicon-16x16.png %}">
