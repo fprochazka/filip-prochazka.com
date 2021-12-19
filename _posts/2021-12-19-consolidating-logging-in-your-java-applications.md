@@ -1,7 +1,7 @@
 ---
 layout: blogpost
-title: "Consolidating logging for your Java applications"
-permalink: blog/consolidating-logging-for-your-java-applications
+title: "Consolidating logging in your Java applications"
+permalink: blog/consolidating-logging-in-your-java-applications
 date: 2021-12-19 21:00
 tag: ["Java", "Logging", "SFL4J", "Log4j", "Logback", "Maven"]
 ---
