@@ -58,7 +58,7 @@ V PhpStormu jsem si nadefinoval šablonu, díky které je vytvoření nového te
  * Test: Kdyby\\${PACKAGE}\\${NAME}${DESCRIPTION}.
  *
  * @testCase Kdyby\\${PACKAGE}\\${NAME}Test
- * @author Filip Procházka <filip@prochazka.su>
+ * @author Filip Procházka <mr@fprochazka.cz>
  * @package Kdyby\\${PACKAGE}
  */
 
@@ -74,7 +74,7 @@ require_once __DIR__ . '/../bootstrap.php';
 
 
 /**
- * @author Filip Procházka <filip@prochazka.su>
+ * @author Filip Procházka <mr@fprochazka.cz>
  */
 class ${NAME}Test extends Tester\TestCase
 {

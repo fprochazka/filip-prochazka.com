@@ -1,6 +1,6 @@
 /* TEAM */
 Programmer, Coder: Filip Procházka
-Contact: filip@prochazka.su
+Contact: mr@fprochazka.cz
 Twitter: @ProchazkaFilip
 Location: Brno, Czech Republic.
 

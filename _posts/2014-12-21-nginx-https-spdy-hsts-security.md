@@ -91,7 +91,7 @@ Locality Name (eg, city) []:Brno
 Organization Name (eg, company) [Internet Widgits Pty Ltd]:Filip Procházka
 Organizational Unit Name (eg, section) []:
 Common Name (e.g. server FQDN or YOUR name) []:kdyby.org
-Email Address []:filip@prochazka.su
+Email Address []:mr@fprochazka.cz
 
 Please enter the following 'extra' attributes to be sent with your certificate request
 A challenge password []:
