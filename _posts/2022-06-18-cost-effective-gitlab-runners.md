@@ -36,7 +36,7 @@ Right now, looking at the article [Which is the best Spot request method to use?
 
 As you'll see later in the article, it's very beneficial to right-size EC2 instances for the jobs. The T3 instances are cheap and even cheaper with the SpotFleet, but they are not very fast, and you really don't want to compile big Java projects on them. But you also don't want to build every job on big C5 instances.
 
-You can solve this by simply registering the runner multiple times with different configurations. Give each configuration a tag `small`, `medium`, `large`, etc., and when you add the same tag to a job, [the corresponding instance will execute it](https://docs.gitlab.com/ee/ci/runners/configure_runners.html#use-tags-to-control-which-jobs-a-runner-can-run). You don't even have to create new instances, since the runner is not actually executing the jobs, you can register it multiple times on the same tiny orchestration machine.
+You can solve this by simply registering the runner multiple times with different configurations. Give each configuration a tag `small`, `medium`, `large`, etc., and when you add the same tag to a job, [the corresponding runner will execute it](https://docs.gitlab.com/ee/ci/runners/configure_runners.html#use-tags-to-control-which-jobs-a-runner-can-run). You don't even have to create new instances, since the runner is not actually executing the jobs, you can register it multiple times on the same tiny orchestration machine.
 
 ## What you'll get
 
