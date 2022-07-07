@@ -87,7 +87,7 @@ exclude:
   - 'node_modules'
   - 'vendor/'
 
-include: ['_redirects']
+include: ['_redirects', '_headers']
 
 excerpt_separator: "<!--more-->"
 
