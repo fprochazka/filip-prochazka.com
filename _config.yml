@@ -15,7 +15,7 @@
 # in the templates via {{ site.myvariable }}.
 encoding: UTF-8
 timezone: Europe/Prague
-host: 127.0.0.1
+host: 0.0.0.0
 port: 4000
 
 title: Filip Procházka
@@ -53,7 +53,7 @@ github:
 # Build settings
 markdown: kramdown
 #theme: minima
-plugins:
+#plugins:
 #  - jekyll-feed
 #  - jekyll/tagging
 
@@ -64,10 +64,6 @@ tag_page_data:
     exclude: 'yes'
 tag_permalink_style: pretty
 ignored_tags: []
-
-sass:
-  sass_dir: assets/css/_sass
-  style: compact # possible values: nested expanded compact compressed
 
 favicon:
   source: assets/img/favicon.png
@@ -80,12 +76,19 @@ exclude:
   - '.idea/'
   - '_locale/'
   - 'docker-compose.yml'
+  - 'Dockerfile'
   - 'Gemfile'
   - 'Gemfile.lock'
+  - 'Rakefile.rb'
+  - 'package.json'
+  - 'yarn.lock'
   - 'readme.md'
   - '.sass-cache'
   - 'node_modules'
   - 'vendor/'
+  - 'assets/css/styles.scss'
+  - 'assets/css/_sass/'
+  - 'assets/js/app.js'
 
 include: ['_redirects']
 

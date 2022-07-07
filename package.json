@@ -1,0 +1,15 @@
+{
+  "name": "cogvio-web",
+  "version": "1.0.0",
+  "main": "index.js",
+  "private": true,
+  "scripts": {
+    "build": "yarn run build:sass && yarn run build:uglifyjs",
+    "build:sass": "node-sass assets/css/styles.scss assets/css/styles.css",
+    "build:uglifyjs": "uglifyjs --compress --mangle -o assets/js/app.min.js assets/js/app.js"
+  },
+  "dependencies": {
+    "node-sass": "^7.0",
+    "uglify-js": "^3.16"
+  }
+}

@@ -2,9 +2,13 @@ version: "3.6"
 
 services:
   web:
-    image: jekyll/jekyll:3.8
+    image: fprochazka/filip-prochazka-com:latest
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    working_dir: /srv
     volumes:
-      - ./:/srv/jekyll
+      - ./:/srv
     ports:
       - "127.0.0.1:4000:4000"
-    command: jekyll serve --trace
+    command: sh -c 'bundle install && rake run'

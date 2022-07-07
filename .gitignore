@@ -3,4 +3,9 @@
 /.sass-cache
 /_site
 /_old
+/assets/css/styles.css
+/assets/js/app.min.js
+/node_modules
+/vendor
 .jekyll-metadata
+.jekyll-cache
