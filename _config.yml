@@ -45,6 +45,9 @@ facebook:
   username: FilipProchazka
   profileId: '1634280910'
 
+linkedin:
+  username: fprochazka
+
 github:
   username: fprochazka
   repository: fprochazka/filip-prochazka.com
@@ -105,7 +108,7 @@ defaults:
         path: "" # an empty string here means all files in the project
       values:
         meta:
-          description: "Jmenuji se Filip Procházka a jsem programátor. Programuji především weby a webové aplikace v PHP."
+          description: "Filip Procházka's personal website and blog"
           og:
             type: website
             locale: cs_CZ

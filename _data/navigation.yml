@@ -1,5 +1,5 @@
 items:
-  -   title: O mně
+  -   title: About
       url: /
       active: []
 
@@ -7,11 +7,11 @@ items:
       url: /cv
       active: []
 
-  -   title: Pracovně
+  -   title: Hire me
       url: /job
       active: []
 
-  -   title: Přednášky
+  -   title: Talks
       url: /talks
       active: []
 

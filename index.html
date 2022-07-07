@@ -24,27 +24,30 @@ sitemap:
 				<img src="{% link /assets/img/selfi.jpg %}" alt="Filip Procházka" itemprop="image" width="300">
 			</div>
 
-			<h2 class="first">Ahoj!</h2>
+			<h2 class="first">Hi!</h2>
 
-			<p>Jmenuji se <span itemprop="name">Filip Procházka</span> a jsem <span itemprop="jobTitle">programátor</span>. Programuji především weby a webové aplikace v PHP a Javě.</p>
 			<p>
-				Při své práci používám nejraději <a href="https://symfony.com/">Symfony</a> s <a href="https://www.doctrine-project.org/">Doctrine&nbsp;2</a> když dělám v PHP
-				a <a href="https://spring.io/projects/spring-boot">Spring Boot</a> s <a href="http://hibernate.org/orm/">Hibernate</a> když dělám v Javě.
-				Snažím se programovat tak, abych se za svoje výtvory nemusel stydět.
-				Píšu testy, odsazuju taby, snažím se dodržovat pravidla čistého kódu a i když to tak někdy může vypadat, nejsem žádný fanatik,
-				který by se řídil dogmaty - snažím se při práci používat vlastní hlavu a hledat rozumné kompromisy.
+                My name is <span itemprop="name">Filip Procházka</span>, and I'm a <span itemprop="jobTitle">software engineer</span>,
+                and I specialize in backend web applications in PHP and Java.
+            </p>
+			<p>
+                Recently, I was more focused on Java with <a href="https://spring.io/projects/spring-boot">Spring Boot</a> and <a href="http://hibernate.org/orm/">Hibernate</a>,
+                but PHP is still in my blood, and I'm still capable of developing in it, I just don't prefer it anymore.
+                I've also lost my prejudices about Python, and I don't mind touching it if the codebase has at least a working mypy setup.
 			</p>
 
             <p>
-                Najdete mě třeba na <a href="https://www.facebook.com/{{ site.facebook.profileId }}">Facebooku</a>
-                a vydatně twítuji jako <a href="https://twitter.com/{{ site.twitter.handle }}">@{{ site.twitter.handle }}</a>
+                My favourite social media is Twitter, where you can follow me at <a href="https://twitter.com/{{ site.twitter.handle }}">@{{ site.twitter.handle }}</a>.
+                But I'm also on <a href="https://www.facebook.com/{{ site.facebook.username }}">Facebook</a>,
+                <a href="https://www.linkedin.com/in/{{ site.linkedin.username }}/">LinkedIn</a>
+                and <a href="https://github.com/{{ site.github.username }}/">GitHub</a>.
             </p>
 		</div>
 	</div>
 
 	<div class="row vcard" id="contact">
 		<div class="col-xl-5 col-lg-6 offset-lg-1">
-			<h2>Obchodní a fakturační údaje</h2>
+			<h2>Billing information</h2>
 
 			<div>
 				<p itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
@@ -59,7 +62,7 @@ sitemap:
 				</p>
 			</div>
 
-			<h3>Bankovní spojení</h3>
+			<h3>Banking</h3>
 
 			<div>
 				<p>
@@ -70,7 +73,7 @@ sitemap:
 		</div>
 
 		<div class="col-xl-5 col-lg-4">
-			<h2>Kontaktní Adresa</h2>
+			<h2>Contact address</h2>
 
 			<div>
 				<p itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
