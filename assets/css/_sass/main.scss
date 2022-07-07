@@ -180,24 +180,6 @@ body {
       font-weight: normal;
     }
   }
-
-  .pdf-download {
-    display: block;
-    position: absolute;
-    width: 6%;
-    left: -6.5%;
-    top: 18px;
-
-    img {
-      max-width: 100%;
-    }
-  }
-
-  @media (max-width: 979px) {
-    .pdf-download {
-      display: none;
-    }
-  }
 }
 
 a.rss {
