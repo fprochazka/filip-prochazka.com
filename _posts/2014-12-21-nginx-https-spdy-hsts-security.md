@@ -3,7 +3,7 @@ layout: blogpost
 title: "Kompletní nastavení HTTPS, SPDY, IPv6 a HSTS pro Nginx"
 permalink: blog/nginx-https-spdy-hsts-security
 date: 2014-12-21 20:15
-tag: ["Nginx", "Bezpečnost", "Linux"]
+tag: ["NGINX", "Bezpečnost", "Linux"]
 ---
 
 Následující článek rozhodně není "tohle je jediná správná cesta a takhle to dělejte".

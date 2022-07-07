@@ -3,7 +3,7 @@ layout: blogpost
 title: "Nginx a SSL přesměrování pro všechny subdomény"
 permalink: blog/nginx-a-ssl-presmerovani-pro-vsechny-subdomeny
 date: 2014-07-04 18:00
-tag: ["Nginx"]
+tag: ["NGINX"]
 ---
 
 [Jak nastavit SSL pro nginx](https://nginx.org/en/docs/http/configuring_https_servers.html) je krásně popsané v dokumentaci.
