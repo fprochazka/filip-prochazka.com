@@ -51,4 +51,5 @@
 	<script async defer src='https://www.google-analytics.com/analytics.js'></script>{% endif %}
 	<script src="//platform.twitter.com/widgets.js" charset="utf-8" async defer></script>
 
-	<script defer data-domain="filip-prochazka.com" data-api="/plsbl/events" src="/plsbl/app.js"></script>
+    {% if jekyll.environment == "production" %}<script defer data-domain="filip-prochazka.com" data-api="/plsbl/events" src="/plsbl/app.js"></script>
+    <script>window.plausible = window.plausible || function() { (window.plausible.q = window.plausible.q || []).push(arguments) }</script>{% endif %}
