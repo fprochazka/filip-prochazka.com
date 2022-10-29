@@ -161,7 +161,9 @@ Also, since the smart people in Keboola know the value of AWS CUR, they've [prep
 
 ## The ideal state
 
-What should all of this ideally look like if we put it together? 
+My main point was to show AWS CUR and Redash. You don't need Keboola if you're only going to process CUR. Alternatively, AWS can pipe the CUR into Athena or Redshift, which can also be queried from Redash. But suppose you want to tackle data analytics problems seriously. In that case, you will need some data ops platform sooner or later, and I've only ever seen Keboola in the companies I've worked for, so I don't have better advice for you right now.
+
+So what should all of this ideally look like if we put it together?
 
 * Setup the AWS Cost and Usage Reports
 * Keboola orchestration will regularly load it using their extractor
