@@ -48,6 +48,9 @@ facebook:
 linkedin:
   username: fprochazka
 
+mastodon:
+  username: fprochazka
+
 github:
   username: fprochazka
   repository: fprochazka/filip-prochazka.com
