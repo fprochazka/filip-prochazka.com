@@ -134,7 +134,8 @@ body {
 .open-source,
 .donation,
 .paid-support,
-.talks {
+.talks,
+.trainings {
   font-size: 1.125em;
   line-height: 1.4;
 
@@ -154,6 +155,15 @@ body {
     &.first {
       margin-top: 0;
     }
+  }
+}
+
+.trainings {
+  h1 {
+    margin-bottom: 2rem;
+  }
+  h2 {
+    margin-top: 2rem;
   }
 }
 

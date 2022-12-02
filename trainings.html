@@ -1,0 +1,23 @@
+---
+layout: default
+title: "Trainings - Filip Procházka"
+permalink: /trainings
+sitemap:
+  priority: 0.1
+---
+
+<div class="trainings">
+	<div class="row">
+		<div class="col-lg-10 offset-lg-1">
+
+			<h2>Trainings</h2>
+
+			<br>
+			<ul class="trainings-list">
+                {% assign trainings = site.trainings | sort: 'title' | reverse %}
+                {% for item in trainings %}
+                <li><a href="{{ item.url }}">{{ item.training.title }}</a></li>{% endfor %}
+			</ul>
+		</div>
+	</div>
+</div>

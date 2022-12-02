@@ -105,6 +105,10 @@ collections:
     talk: true
     output: true
     permalink: /talks/:name
+  trainings:
+    training: true
+    output: true
+    permalink: /trainings/:name
 
 defaults:
   -   scope:
