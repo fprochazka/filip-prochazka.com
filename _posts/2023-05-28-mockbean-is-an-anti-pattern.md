@@ -183,4 +183,4 @@ The only situation where I couldn't avoid overriding configs in individual tests
 
 The Spring developers are [trying to tackle this problem systematically](https://github.com/spring-projects/spring-boot/issues/34768), but until they do, `@MockBean` is an anti-pattern in my book.
 
-How do you tackle this problem? Do you have an idea to improve this further? Let me know; thanks!
+How do _you_ solve this problem? Do you have an idea to improve this further? Let me know; thanks!
