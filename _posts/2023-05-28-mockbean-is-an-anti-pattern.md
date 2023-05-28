@@ -8,7 +8,7 @@ tag: ["Java", "Spring Boot", "Spring Framework", "Testing"]
 
 I really like Spring Boot because it's super-powerful, but like with any other power tool, you have to be careful not to lose a finger or even a whole arm.
 
-One such tool is Spring's [@MockBean](https://www.baeldung.com/java-spring-mockito-mock-mockbean), which allows you to easily replace a service (bean) in Spring's application context.
+One such tool is Spring's [@MockBean](https://www.baeldung.com/java-spring-mockito-mock-mockbean#spring-boots-mockbean-annotation), which allows you to easily replace a service (bean) in Spring's application context.
 This is really useful because having to think about all the places where a service is used and how to fully replace it in the context in order to mock it is a huge pain, and sometimes it can even be impossible.
 
 But is it worth the price?
@@ -22,7 +22,7 @@ You can, for example, attach an extra configuration class or property file for a
 Each time a test is executed, Spring has to check its configuration, and then it has to make sure it can provide you with a correctly configured context.
 Thankfully, Spring is smart, so instead of creating a new context for every single test, it can take all the config inputs and create a caching key to reuse the contexts between tests.
 
-The problem with `@MockBean` is that you're affecting the config inputs determining which tests the context can be reused.
+The problem with `@MockBean` is that you're affecting the config inputs determining which tests can reuse the context.
 
 ```java
 @RunWith(SpringRunner.class)
