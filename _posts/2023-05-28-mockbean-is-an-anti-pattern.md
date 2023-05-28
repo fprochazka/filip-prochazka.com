@@ -181,4 +181,6 @@ I'm always trying to completely avoid anything that would cause multiple context
 We've made it a rule to have a single [BaseTestCase](https://github.com/fprochazka/spring-mock-wrapped-bean-demo/blob/master/src/test/java/com/fprochazka/mockwrappedbean/testing/BaseTestCase.java), that contains all the test-related configs and overrides, and none of the tests defines their own.
 The only situation where I couldn't avoid overriding configs in individual tests was when I was writing a library-like functionality with parametrized configuration classes, but that can be easily extracted into a separate Maven module, so it doesn't have to affect your application.
 
+The Spring developers are [trying to tackle this problem systematically](https://github.com/spring-projects/spring-boot/issues/34768), but until they do, `@MockBean` is an anti-pattern in my book.
+
 How do you tackle this problem? Do you have an idea to improve this further? Let me know; thanks!
