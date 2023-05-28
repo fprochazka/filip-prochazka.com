@@ -172,6 +172,8 @@ As of writing this article, we have 25+ services (and growing) mocked this way i
 As a cherry on top, you could write a custom [ErrorProne rule](https://github.com/google/error-prone) that will fail the build
 if somebody uses the forbidden `@MockBean` by accident (which we did, but more on that some other time).
 
+One small disclaimer: the demo cannot handle parallel test suites properly, but the problem is not impossible to solve, we just didn't have a need for it.
+
 ## Conclusion
 
 This article is mostly about avoiding `@MockBean`, but you can just as easily introduce the same problem by using any other per-test config override.
