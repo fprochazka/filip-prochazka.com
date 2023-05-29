@@ -25,16 +25,14 @@ Thankfully, Spring is smart, so instead of creating a new context for every sing
 The problem with `@MockBean` is that you're affecting the config inputs determining which tests can reuse the context.
 
 ```java
-@RunWith(SpringRunner.class)
-public class UserTest1 {
+public class UserTest1 { // simplified
 
     @MockBean
     UserRepository mockUserRepository;
 ```
 
 ```java
-@RunWith(SpringRunner.class)
-public class UserTest2 {
+public class UserTest2 { // simplified
 
     @MockBean
     UserRepository mockUserRepository;
@@ -44,8 +42,7 @@ public class UserTest2 {
 ```
 
 ```java
-@RunWith(SpringRunner.class)
-public class UserTest3 {
+public class UserTest3 { // simplified
 
     @MockBean
     UserService mockUserService;
