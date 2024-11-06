@@ -29,152 +29,176 @@ sitemap:
 
 			{% assign thisYear = site.time | date: "%Y" | plus: 0 %}
 			<ul>
-				<li><strong>Primární jazyky</strong>: Java (Spring, Hibernate), PHP (Nette, Symfony), SQL</li>
-				<li><strong>Zkušenosti s</strong>: Python, Bash, C/C++, Go, Ruby, Haskell a další</li>
-				<li><strong>Praxe</strong>: programování >{{ thisYear | minus: 2006 }} let, profesionálně >{{ thisYear | minus: 2009 }} let</li>
+				<li><strong>Primary languages</strong>: Java/Kotlin (Spring, Hibernate), PHP (Nette, Symfony), SQL</li>
+				<li><strong>Experience with</strong>: Python, TypeScript, Bash, C/C++, Go, Ruby, Haskell and others</li>
+				<li><strong>Programming</strong>: over {{ thisYear | minus: 2006 }} years</li>
 			</ul>
 
-			<h2 id="work-and-projects">Práce a projekty</h2>
+			<h2 id="work-and-projects">Work and projects</h2>
 
-			<h3><a href="https://www.shipmonk.com/">ShipMonk</a> <span class="light">- květen 2022 až současnost</span></h3>
-
-			<p>
-				<abbr title="Principal Engineer">Zavádím Javu</abbr> do technologického stacku ShipMonku. ShipMonk je historicky (hezky napsaný) modulární monolit v PHP,
-                který narostl do rozměrů, kdy je třeba začít rozsekávat ho do více menších right-sized services (neplést s microservices)
-                a při té příležitosti jsme se rozhodli některé části přepsat do Javy.
-			</p>
+			<h3><a href="https://www.shipmonk.com/">ShipMonk</a> <span class="light">- May 2022 to August 2024</span></h3>
 
             <p>
-                Jako první projekt stavíme systém na synchronizaci zákaznických dat s externími systémy (objednávky, skladové zásoby, atd.).
-                Základ aplikace je postaven na Spring Boot, Hibernate a PostgreSQL. Vše je dockerizované a běží v k8s.
+                I was hired as a Principal Engineer to introduce Java into ShipMonk's technology stack.
+                ShipMonk is historically a (nicely written) modular monolith in PHP,
+                which has grown to the size where it is necessary to start chopping it into smaller right-sized services (not to be confused with microservices),
+                and on that occasion we decided to rewrite some of the legacy parts in Java.
             </p>
 
-			<h3><a href="https://www.cogvio.com/">Cogvio s.r.o.</a> <span class="light">- březen 2017 až duben 2022</span></h3>
+            <p>
+                I was tasked with hiring a team of Java Developers and building a system for synchronizing customer data with external systems (orders, stock, etc.).
+                The basis of the application is built on Spring Boot, Hibernate, and PostgreSQL. Everything is dockerized and runs in k8s.
+                The system's architecture was designed to be an event-driven integration engine with bits of event-sourcing principles.
+                The emphasis was on our ability to quickly debug any issue (e.g., wrongly synced data) and introduce new integrations quickly and cheaply.
+            </p>
+
+            <p>
+                Due to my team's success, I was later promoted to Director of Engineering and given four additional teams, totaling about 50 engineers, of which 5 team leads were my direct reports.
+                After the initial struggle to settle into the new role, a later reorg resulted in my having just three teams totaling about 30 engineers, which was much more manageable.
+            </p>
+
+            <p>
+                Throughout the next half a year, I believe I've started to grasp what the role entailed adequately
+                and realized that this level of distance from the actual work in the organization is not for me (i.e., middle management).
+            </p>
+
+            <p>
+                My whole ShipMonk affair was an eye-opening experience like few before.
+                I've made the most significant advancements in my ability to hire, lead a team, and deliver incremental, measurable, valuable product improvements out of all my roles.
+            </p>
+
+			<h3><a href="https://www.cogvio.com/">Cogvio s.r.o.</a> <span class="light">- March 2017 to April 2022</span></h3>
+
+            <p>
+                <abbr title="VP of Engineering">I've led</abbr> the development of applications that help automate processes in the Health & Pharma industry.
+                Our main topics were Market Access, Pharmaceutical Pricing, and we've worked on new ones.
+            </p>
+
+            <p>
+                Most of my time was spent developing the Price Monitor, which we wrote as an API in Java (Spring Boot, Hibernate, PostgreSQL, ElasticSearch, ...) used in the frontend JavaScript app.
+                A big part of the system was a data pipeline, which we've used to process 250+ data sources.
+                The entire system runs on AWS, and the backend sits in Docker.
+            </p>
+
+            <p>
+                I've laid out the infrastructure for the first products, which was then improved and used by all the other projects.
+                Later, we switched to IaaC to manage it. I've also managed most of our servers, including self-hosted Gitlab and Gitlab CI Runners.
+            </p>
+
+            <p>
+                I've designed most of the data pipeline and worked on huge chunks of the system, including data extraction,
+                transformation (cleanup, normalization, etc.), deduplication, and historicization, and then loading the data from the data warehouse to the analytical applications.
+            </p>
+
+            <p>
+                I've also done most of the hiring of other developers, team management, and product specification breakdowns into technical tasks.
+            </p>
+
+			<h3>Lavito.cz <span class="light">- February 2016 to January 2017</span></h3>
 
 			<p>
-				<abbr title="VP of Engineering">Vedu vývoj</abbr> aplikací, které slouží k automatizaci v Health &amp; Pharma industry.
-				Naše hlavní témata jsou Market Access, Pharmaceutical Pricing a rozjíždíme další.
+                I was improving my ability to write well-designed, clean, and perfectly tested applications with Symfony under the advisement of <a href="https://vasekpurchart.cz/">Vašek Purchart</a>.
 			</p>
+
+			<h3>Rohlik.cz <small>Velká Pecka s.r.o.</small> <span class="light">- July 2014 to November 2015</span></h3>
+
+            <p>
+                In Rohlik (a Czech word for roll - yes,  the pastry), I had a role similar to Damejidlo.
+                Still, I was mostly doing damage (and technical debt) control and minimalization because of the development speed, more than any kind of proper design planning.
+            </p>
+
+            <p>
+                I've greatly enjoyed the finalization of HTTPS configuration and deployment of ElasticSearch for the product database, which helped us immensely with performance.
+                I've also rewritten our custom geocoding to an open-source library.
+                And as the last task, me and <a href="https://jiripudil.cz/">Jiří Pudil</a> wrote a custom client for the ČSOB card payment gateway.
+            </p>
+
+			<h3>Damejidlo.cz <small>Pizza Time s.r.o.</small> <span class="light">- January 2013 to July 2014</span></h3>
+
+            <p>
+                My role was similar to that of a technical lead or a <strong>system architect</strong>.
+                The team consulted with me on most technical challenges, but most of my work was programming in PHP.
+            </p>
+
+            <p>
+                From the beginning, I lead the rewrite of the application to <strong>Doctrine 2 ORM</strong>.
+                The rewrite was continuous because we could not afford to stop the development or throw away the existing application.
+                As the first thing, I made sure we started using the Composer and Nette/Tester to start writing tests.
+            </p>
+
+            <p>
+                I've also integrated and deployed Redis for sessions and caching, HTTPS for the whole website,
+                <a href="{% post_url 2014-06-26-kdyby-rabbitmq-aneb-asynchronni-kdyby-events %}">RabbitMQ</a> for background processing,
+                <a href="{% post_url 2014-09-08-monolog-syslog-a-papertrail %}">Monolog and Papertrail</a> for logs handling, and other technologies.
+            </p>
+
+			<h3>Fulltime opensource <span class="light">- September 2011 to January 2013</span></h3>
 
 			<p>
-				Nejvíc času se věnuji vývoji <a href="https://www.cogvio.com/products/">Price Monitoru</a>,
-				který píšeme jako API v Javě (Spring Boot, Hibernate, PostgreSQL, ElasticSearch, ...), nad kterým je UI v JavaScriptu.
-				Součástí systému je i pipeline na zpracování dat o lécích, do které lejeme vyšší desítky zdrojů.
-				Celý systém běží na AWS a aplikace samotná pak v Dockeru.
+                For over a year, I was unemployed by my own decision and lived on savings and small projects so that I could program for fun and improve. And I believe it paid off :)
 			</p>
 
-			<h3>Lavito.cz <span class="light">- únor 2016 až leden 2017</span></h3>
+			<h3>D3 Network <span class="light">- September 2010 to September 2011</span></h3>
 
 			<p>
-				Učil jsem se Symfony pod vedením <a href="https://vasekpurchart.cz/">Vaška Purcharta</a> lépe psát skvěle navrhnuté, čistě napsané a výborně otestované aplikace.
+                My first <i>"real job"</i> as a full-time programmer and my first experience with working in a team.
+                I started here right after high school while still learning the basics of Nette Framework.
+                Our team worked on <strong>insurance contract management</strong> for the Triglav insurance company.
+                Currently, the company no longer exists.
 			</p>
 
-			<h3>Rohlik.cz <small>Velká Pecka s.r.o.</small> <span class="light">- červenec 2014 až listopad 2015</span></h3>
+			<h3>Beginnings</h3>
 
 			<p>
-				V Rohlíku jsem měl velice podobnou pozici jako v Damejidlo, ale kvůli rychlosti vývoje jsem dělal více minimalizaci škod (a technického dluhu), než nějaké systematické navrhování.
+                I discovered "the web" somewhere around 2004, and I immediately knew that it was something I'd be making a living on.
+                At first, I only played with <strong>HTML</strong> and <strong>CSS</strong>, but later, I discovered <strong>JavaScript</strong>.
+                The first web-related book I bought was <a href="https://www.databazeknih.cz/knihy/css-kaskadove-styly-kompletni-pruvodce-120759">about CSS by Petr Staníček</a> to learn HTML coding and styling properly.
+                In high school, I discovered <strong>PHP</strong> and started learning programming.
+                This was around when webhostings were only beginning to deploy PHP 5.2 and the scripts had to be written with the <code>.php5</code> extension - fun times.
 			</p>
 
-			<p>
-				Nejvíce mě bavilo doladit nastavení HTTPS a nasazení <strong>ElasticSearch</strong>e, který nám nesmírně pomohl s výkonem.
-				Přepisoval jsem také custom geocodery na <a href="https://github.com/Kdyby/Geocoder">opensource variantu</a>
-				a jako úplně poslední věc jsme s <a href="https://jiripudil.cz/">Jirkou Pudilem</a>
-				psali <a href="https://github.com/Kdyby/CsobPaymentGateway">vlastního klienta pro ČSOB <strong>platební bránu</strong></a>.
-			</p>
-
-			<h3>Damejidlo.cz <small>Pizza Time s.r.o.</small> <span class="light">- leden 2013 až červenec 2014</span></h3>
-
-			<p>
-				Moje pozice byla něco jako <strong>architekt systému</strong>,
-				protože z velké části jsem <strong>konzultoval</strong> s týmem většinu <strong>technických rozhodnutí</strong>,
-				ale především jsem <strong>programoval</strong>.
-			</p>
-
-			<p>
-				Po nástupu jsem vedl postupný přepis aplikace na <strong>Doctrine 2</strong>,
-				což jsme dělali průběžně, protože jsme si nemohli dovolit zastavit vývoj na několik měsíců.
-				A jako jednu z úplně prvních věcí jsem do projektu vnutil <strong>Composer</strong> a <strong>Nette/Tester</strong> a začaly se psát testy.
-			</p>
-
-			<p>
-				Nasazoval jsem <strong>Redis</strong> na sessions a cache, <strong>HTTPS</strong> na celý web,
-				<a href="{% post_url 2014-06-26-kdyby-rabbitmq-aneb-asynchronni-kdyby-events %}"><strong>RabbitMQ</strong></a>,
-				<a href="{% post_url 2014-09-08-monolog-syslog-a-papertrail %}"><strong>Monolog</strong> a Papertrail</a> a pár dalších technologií.
-			</p>
-
-			<h3>Fulltime opensource <span class="light">- září 2011 až leden 2013</span></h3>
-
-			<p>
-				Víc jak rok jsem byl z vlastního rozhodnutí nezaměstnaný a žil jsem z úspor a drobných projektů,
-				abych si mohl programovat pro radost a pořádně se zlepšit. A věřím, že se to vyplatilo :)
-			</p>
-
-			<h3>D3 Network <span class="light">- září 2010 až září 2011</span></h3>
-
-			<p>
-				Moje úplně první <i>"opravdová práce"</i> na HPP a první zkušenost s prací v kolektivu.
-				Nastoupil jsem do této firmy hned po škole, když jsem si s Nette hrál teprve chvilku.
-				<strong>Programoval jsem</strong> zde systém na <strong>sjednávání smluv pro pojišťovnu</strong> Triglav.
-				V současnosti už firma neexistuje.
-			</p>
-
-			<h3>Začátky</h3>
-
-			<p>
-				Web jsem objevil někdy v roce 2004 a hned jsem věděl, že je to něco, co mě bude v budoucnu živit.
-				Nejprve jsem si hrál s <strong>HTML</strong> a <strong>CSS</strong> a později s <strong>JavaScript</strong>em,
-				ve kterém jsem tehdy ještě neprogramoval, ale jen lepil dohromady kusy kódu z internetu.
-				Koupil jsem si knihu <a href="https://www.databazeknih.cz/knihy/css-kaskadove-styly-kompletni-pruvodce-120759">CSS Kaskádové styly od Petra Staníčka</a> a naučil se kodeřině.
-				Ta mě omrzela na střední škole, když jsem objevil <strong>PHP</strong> a začal se učit <strong>programovat</strong>.
-				Bylo to v době, kdy první hostingy teprve nasazovaly PHP 5.2 a scripty se musely psát s koncovkou <code>.php5</code>.
-			</p>
-
-			<div class="page-break"></div>
 			<h2 id="open-source">Open-source</h2>
 
 			<h3>Kdyby (CMS)</h3>
 
 			<p>
-				Na střední škole jsem se rozhodl, že napíšu to nejlepší CMS a vydělám na něm balík.
-				Na první verzi jsem udělal několik webů, ale brzy jsem začal zjišťovat kolik toho ještě neumím
-				a CMS umřelo na moje odhodlání udělat ho nejlépe jak umím, což znamenalo,
-				že jsem ho během několika let desetkrát přepsal od nuly (a nikdy to nedokončil).
+                In high school, I decided to create the best CMS and get rich off of it, and I've made several websites on the first version.
+                However, I quickly realized how much I didn't yet know, which resulted in the CMS eventually dying
+                because of my inability to finish it without perfecting it while rewriting it about ten times from scratch over a few years.
 			</p>
 
 			<p>
-				Následně jsem objevil <strong>Nette Framework</strong> a s ním začalo další kolo přepisování, které do dnes neskončilo.
-				Dostal jsem ale rozum a <a href="https://github.com/Kdyby">začal projekt sekat na menší užitečné části</a>, které se dají používat v různých aplikacích.
+                Subsequently, I discovered <strong>Nette Framework</strong>, which triggered another round of rewriting that was never finished.
+                Thankfully, by then, I'd gained some common sense and <a href="https://github.com/Kdyby">split the project into several smaller useful parts</a>, which can be used in various applications.
 			</p>
 
 			<h3>Nette Framework</h3>
 
 			<p>
-				Framework jsem aktivně používal cca 10 let.
-				Snažím se radit na fóru, a když mi to čas dovolí tak do něj přispěju nějakým pullrequestem.
+                I've actively used Nette Framework for about ten years - answering questions on the forum, writing a bit of documentation, and contributing pull requests here and there.
 			</p>
 
-			<h3>Ostatní</h3>
+			<h3>Other</h3>
 
 			<p>
-				Můj <a href="https://github.com/fprochazka?tab=repositories">osobní github profil</a> je plný různých projektů, se kterými jsem si hrál nebo jsem je forkl, abych do nich přispěl.
-				Nejzajímavější z nich, byť maličko starší, je <a href="https://github.com/fprochazka/project-archivist">rozpracované fórum</a>, které je postavené na Nette, Doctrine 2 a Kdyby balíčcích.
+                My <a href="https://github.com/fprochazka?tab=repositories">GitHub profile</a> contains various projects I've worked on or contributed to.
 			</p>
 
-			<h2 id="education">Vzdělání</h2>
+			<h2 id="education">Education</h2>
 
-			<p>Nejvyšší dosažené vzdělání: Vysokoškolské bakalářské</p>
+			<p>Highest achieved education: University Bachelor</p>
 
 			<ul>
-				<li><strong>Masarykova univerzita</strong> - <a href="https://www.fi.muni.cz/katalog/obory_html/bc-ap.xhtml.cs">Aplikovaná informatika</a> - 2014 až 2017, zakončeno státní zkoškou</li>
-				<li><strong>SPŠ Jedovnice</strong> - 2006 až 2010, zakončeno maturitou</li>
-				<li><strong>Gymnázium Velké Pavlovice</strong> - 2002 až 2006</li>
+				<li><strong>Masaryk University</strong> - <a href="https://www.fi.muni.cz/catalogue2014//study-fields-html/bc-ap.html">Applied Informatics</a> - 2014 to 2017, finished with a state exam</li>
+				<li><strong>SPŠ Jedovnice</strong> - 2006 to 2010, finished with graduation</li>
+				<li><strong>Gymnasium Velké Pavlovice</strong> - 2002 to 2006</li>
 			</ul>
 
 			<h2 id="other">Ostatní informace</h2>
 
 			<dl class="row other">
-				<dt class="col-sm-3 text-xs-right">Jazyky</dt><dd class="col-sm-8">Čeština (rodilý), Angličtina (B2)</dd>
-				<dt class="col-sm-3 text-xs-right">Řidičský průkaz</dt><dd class="col-sm-8">B</dd>
+				<dt class="col-sm-3 text-xs-right">Languagues</dt><dd class="col-sm-8">Czech (native), English (<a href="https://en.wikipedia.org/wiki/Common_European_Framework_of_Reference_for_Languages#Common_reference_levels">B2</a>)</dd>
+				<dt class="col-sm-3 text-xs-right">Drivers licence</dt><dd class="col-sm-8"><a href="https://en.wikipedia.org/wiki/European_driving_licence#Categories_valid_in_all_EEA_member_states">B</a></dd>
 			</dl>
 		</div>
 	</div>

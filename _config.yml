@@ -51,6 +51,9 @@ linkedin:
 mastodon:
   username: fprochazka
 
+bsky:
+  username: prochazkafilip.bsky.social
+
 github:
   username: fprochazka
   repository: fprochazka/filip-prochazka.com

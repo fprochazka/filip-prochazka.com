@@ -7,16 +7,8 @@ items:
       url: /cv
       active: []
 
-  -   title: Hire me
-      url: /job
-      active: []
-
   -   title: Talks
       url: /talks
-      active: []
-
-  -   title: Trainings
-      url: /trainings
       active: []
 
   -   title: Blog
