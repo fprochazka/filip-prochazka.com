@@ -1,9 +1,11 @@
-FROM ruby:2.7-bullseye
+FROM ruby:3.3-bookworm
 
 WORKDIR /srv
 
 COPY Gemfile /srv/
 COPY Gemfile.lock /srv/
+COPY package.json /srv/
+COPY yarn.lock /srv/
 
 RUN set -ex \
  && apt-get update \
@@ -16,11 +18,15 @@ RUN set -ex \
     ca-certificates \
     python3-dev \
     build-essential \
- && curl -sL https://dl.yarnpkg.com/debian/pubkey.gpg | gpg --dearmor | tee /usr/share/keyrings/yarnkey.gpg >/dev/null \
- && echo "deb [signed-by=/usr/share/keyrings/yarnkey.gpg] https://dl.yarnpkg.com/debian stable main" | tee /etc/apt/sources.list.d/yarn.list \
- && curl -fsSL https://deb.nodesource.com/setup_lts.x | bash - \
+ && curl -fsSL https://deb.nodesource.com/setup_22.x -o nodesource_setup.sh \
+ && bash nodesource_setup.sh \
  && apt-get install -y --no-install-recommends \
     nodejs \
-    yarn \
+ && corepack enable \
+ && corepack install \
  && gem update --system \
- && bundle config set path "./vendor"
+ && bundle config set path "./vendor" \
+ && nodejs --version \
+ && yarn --version \
+ && ruby --version \
+ && gem --version
