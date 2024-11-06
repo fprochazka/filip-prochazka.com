@@ -6,11 +6,11 @@
   "packageManager": "yarn@4.5.1",
   "scripts": {
     "build": "yarn run build:sass && yarn run build:uglifyjs",
-    "build:sass": "node-sass assets/css/styles.scss assets/css/styles.css",
+    "build:sass": "sass -q assets/css/styles.scss assets/css/styles.css",
     "build:uglifyjs": "uglifyjs --compress --mangle -o assets/js/app.min.js assets/js/app.js"
   },
   "dependencies": {
-    "node-sass": "^9.0",
+    "sass": "^1.80.6",
     "uglify-js": "^3.19"
   }
 }

@@ -4,6 +4,7 @@
 /_site
 /_old
 /assets/css/styles.css
+/assets/css/styles.css.map
 /assets/js/app.min.js
 /node_modules
 /vendor
