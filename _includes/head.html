@@ -28,6 +28,8 @@
     {% for item in page.meta.twitter.other %}<meta property="{{ item.property }}" content="{{ item.value }}">
     {% endfor %}<meta name=”twitter:site” content="{{ site.twitter.handle }}">
 
+    <meta name="fediverse:creator" content="@{{ site.mastodon.username }}@mastodon.online">
+
     {% for item in page.meta.og.other %}<meta property="{{ item.property }}" content="{{ item.value }}">
     {% endfor %}
 
