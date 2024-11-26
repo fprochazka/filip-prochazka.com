@@ -18,8 +18,8 @@
 	<meta property="fb:profile_id" content="{{ site.facebook.profileId }}">
     <meta property="og:description" content="{{ page_description }}">
     <meta property="og:image" content="{{ page.meta.og.image }}">
-    {% for item in page.meta.og.other %}<meta property="{{ item.property }}" content="{{ item.value }}">
-    {% endfor %}<meta name="twitter:card" content="{{ page.meta.twitter.type }}">
+
+    <meta name="twitter:card" content="{{ page.meta.twitter.type }}">
 	<meta name="twitter:url" content="{{ site.url }}{{ page.url }}">
 	<meta name="twitter:title" content="{{ page.title }}">
 	<meta name="twitter:image" content="{{ page.meta.twitter.image }}">
@@ -27,6 +27,9 @@
     <meta name="twitter:creator" content="{{ site.twitter.handle }}">
     {% for item in page.meta.twitter.other %}<meta property="{{ item.property }}" content="{{ item.value }}">
     {% endfor %}<meta name=”twitter:site” content="{{ site.twitter.handle }}">
+
+    {% for item in page.meta.og.other %}<meta property="{{ item.property }}" content="{{ item.value }}">
+    {% endfor %}
 
 	<link rel="canonical" href="{{ site.url }}{{ page.url }}"/>
 
