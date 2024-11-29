@@ -96,39 +96,30 @@ That's a lot of things you need to get right which might bite you.
 
 ## A better alternative
 
-I've prepared [a working project](https://github.com/fprochazka/spring-mock-wrapped-bean-demo) where you can see the following demonstrated.
+_Notice: you're reading an updated version of this article, [the previous version was achieving almost identical behaviour but with a custom solution](https://github.com/fprochazka/filip-prochazka.com/blob/4ae0a66bcca749cb88c1843e0a84b1bc0c85b86c/_posts/2023-05-28-mockbean-is-an-anti-pattern.md)._
+_Thank you [random commenter on reddit](https://www.reddit.com/r/java/comments/13ub933/comment/jm1p1ms/) for pointing out that there is a native Spring mechanism for exactly this, and I can drop my custom workaround._
 
-My solution is based on replacing the service with a mock for the entire runtime of tests, but with a slight improvement:
+I've prepared [a working project](https://github.com/fprochazka/spring-mock-wrapped-bean-demo) where you can see demonstrated both the problem and the solution. So how do we solve this?
+
+1. we replace all `@MockBean` with plain old `@Autowired`
+2. we define `@SpyBean` entry for each service on a **central and shared** location, which may look like this:
 
 ```java
-@Primary
-@Bean
-public ExternalService externalServiceMock(final ExternalService real) {
-    return Mockito.mock(ExternalService.class, AdditionalAnswers.delegatesTo(real));
+@TestConfiguration
+public class TestOverridesConfiguration {
+
+    @SpyBean
+    private ExternalService externalService;
+
 }
 ```
 
-This forces Spring to create a real instance of my original service and autowire it here for me to create a [delegating mock](https://site.mockito.org/javadoc/current/org/mockito/AdditionalAnswers.html#delegatesTo(java.lang.Object)).
-This service is then marked as primary, so autowiring uses the mock instead of the real instance.
-This enables me to mock even critical services that the application requires to work correctly without having to configure the mocking behaviour in every test.
+This makes Spring replace the bean definition in its context with a spy mock, and if you don't define any mocking behaviour within the tests,
+it will default to calling the real methods, making your application work as if nothing was mocked.
+It also takes care of cleanup between tests, so that they don't affect each other.
+This enables us to mock even critical services that the application requires to work correctly without having to configure the mocking behaviour in every test.
 
-Sadly, if you try to run this snippet, you might hit a wall because marking a bean as a primary and wanting Spring to autowire the non-primary (real) one doesn't work that well.
-The easiest fix is to use `@Qualifier` to tell Spring the bean name of the real `ExternalService` so it autowires it correctly instead of failing on circular dependency.
-But that's not very fun, so alternatively you can use the [custom BeanProcessor](https://github.com/fprochazka/spring-mock-wrapped-bean-demo/blob/master/example-fix-custom-mockwrappedbean/src/test/java/com/fprochazka/mockbean/testing/mocking/MockWrappedBeanResetBeanProcessor.java), which uses a custom qualifier to modify how the autowiring works for these mocked services.
-Now if I write `@MockWrappedBean` instead of `@Primary`, the problem is gone.
-
-```java
-@MockWrappedBean
-@Bean
-public ExternalService externalServiceMock(final ExternalService real) {
-    return Mockito.mock(ExternalService.class, AdditionalAnswers.delegatesTo(real));
-}
-```
-
-But what about the tests' pollution? If I forget to reset the mocks, other tests might start failing.
-The demo project contains a solution even for this - the [custom TestExecutionListener](https://github.com/fprochazka/spring-mock-wrapped-bean-demo/blob/master/example-fix-custom-mockwrappedbean/src/test/java/com/fprochazka/mockbean/testing/mocking/MockWrappedBeanResetTestExecutionListener.java)
-asks Spring to list all beans that are mocked this way and then resets the beans before/after every test, and now there is no way for you to forget to reset the mocks.
-Resetting the mocks around every test (when you're not configuring any mock behaviour) is a bit wasteful but still a few orders of magnitude faster than creating more contexts.
+I want to stress that simply replacing `@MockBean` with `@SpyBean` fixes nothing, the critical part is putting it into a configuration that is loaded in all tests, so that Spring doesn't create more than one context.
 
 How do you use it in a test? Similarly to how you'd use `@MockBean` - you autowire the service, configure the behaviour in your test and let the magic happen.
 
@@ -158,10 +149,9 @@ class FooServiceTest extends BaseTestCase {
 }
 ```
 
-You don't have to think about resetting it; you don't need to do anything special if you don't need to mock it.
-
 IMHO, the only advantage of `@MockBean` over this approach is that you can clearly see which services are meant to be mocked in the test.
-But in practice, it's not a problem because you don't have to care - just start writing the mocking configuration, and if it turns out that the service doesn't have a `@MockWrappedBean` defined, Mockito will yell at you that the given object is not a mock, so you just add it to the config and your test will pass.
+But in practice, it's not a problem because you don't have to care - just start writing the mocking configuration,
+and if it turns out that the service doesn't have a `@SpyBean` defined, Mockito will yell at you that the given object is not a mock, so you just add it to the config and your test will pass.
 
 This whole approach is battle-tested and works really well for us in [ShipMonk](https://rnd.shipmonk.com/).
 As of writing this article, we have 25+ services (and growing) mocked this way in a not-so-small project, and everything works flawlessly.
@@ -169,14 +159,14 @@ As of writing this article, we have 25+ services (and growing) mocked this way i
 As a cherry on top, you could write a custom [ErrorProne rule](https://github.com/google/error-prone) that will fail the build
 if somebody uses the forbidden `@MockBean` by accident (which we did, but more on that some other time).
 
-One small disclaimer: the demo cannot handle parallel test suites properly, but the problem is not impossible to solve, we just didn't have a need for it.
-
 ## Conclusion
 
 This article is mostly about avoiding `@MockBean`, but you can just as easily introduce the same problem by using any other per-test config override.
 I'm always trying to completely avoid anything that would cause multiple contexts to be created.
-We've made it a rule to have a single [BaseTestCase](https://github.com/fprochazka/spring-mock-wrapped-bean-demo/blob/master/example-fix-custom-mockwrappedbean/src/test/java/com/fprochazka/mockbean/testing/BaseTestCase.java), that contains all the test-related configs and overrides, and none of the tests defines their own.
-The only situation where I couldn't avoid overriding configs in individual tests was when I was writing a library-like functionality with parametrized configuration classes, but that can be easily extracted into a separate Maven module, so it doesn't have to affect your application.
+We've made it a rule to have a single [BaseTestCase](https://github.com/fprochazka/spring-mock-wrapped-bean-demo/blob/master/example-fix-spybean/src/test/java/com/fprochazka/mockbean/testing/BaseTestCase.java),
+that contains all the test-related configs and overrides, and none of the tests defines their own.
+The only situation where I couldn't avoid overriding configs in individual tests was when I was writing a library-like functionality with parametrized configuration classes,
+but that can be easily extracted into a separate Maven module, so it doesn't have to affect your application.
 
 The Spring developers are [trying to tackle this problem systematically](https://github.com/spring-projects/spring-boot/issues/34768), but until they do, `@MockBean` is an anti-pattern in my book.
 
