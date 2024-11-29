@@ -114,7 +114,7 @@ This enables me to mock even critical services that the application requires to 
 
 Sadly, if you try to run this snippet, you might hit a wall because marking a bean as a primary and wanting Spring to autowire the non-primary (real) one doesn't work that well.
 The easiest fix is to use `@Qualifier` to tell Spring the bean name of the real `ExternalService` so it autowires it correctly instead of failing on circular dependency.
-But that's not very fun, so alternatively you can use the [custom BeanProcessor](https://github.com/fprochazka/spring-mock-wrapped-bean-demo/blob/master/src/test/java/com/fprochazka/mockwrappedbean/testing/mocking/MockWrappedBeanResetBeanProcessor.java), which uses a custom qualifier to modify how the autowiring works for these mocked services.
+But that's not very fun, so alternatively you can use the [custom BeanProcessor](https://github.com/fprochazka/spring-mock-wrapped-bean-demo/blob/master/example-fix-custom-mockwrappedbean/src/test/java/com/fprochazka/mockbean/testing/mocking/MockWrappedBeanResetBeanProcessor.java), which uses a custom qualifier to modify how the autowiring works for these mocked services.
 Now if I write `@MockWrappedBean` instead of `@Primary`, the problem is gone.
 
 ```java
@@ -126,7 +126,7 @@ public ExternalService externalServiceMock(final ExternalService real) {
 ```
 
 But what about the tests' pollution? If I forget to reset the mocks, other tests might start failing.
-The demo project contains a solution even for this - the [custom TestExecutionListener](https://github.com/fprochazka/spring-mock-wrapped-bean-demo/blob/master/src/test/java/com/fprochazka/mockwrappedbean/testing/mocking/MockWrappedBeanResetTestExecutionListener.java)
+The demo project contains a solution even for this - the [custom TestExecutionListener](https://github.com/fprochazka/spring-mock-wrapped-bean-demo/blob/master/example-fix-custom-mockwrappedbean/src/test/java/com/fprochazka/mockbean/testing/mocking/MockWrappedBeanResetTestExecutionListener.java)
 asks Spring to list all beans that are mocked this way and then resets the beans before/after every test, and now there is no way for you to forget to reset the mocks.
 Resetting the mocks around every test (when you're not configuring any mock behaviour) is a bit wasteful but still a few orders of magnitude faster than creating more contexts.
 
@@ -175,7 +175,7 @@ One small disclaimer: the demo cannot handle parallel test suites properly, but 
 
 This article is mostly about avoiding `@MockBean`, but you can just as easily introduce the same problem by using any other per-test config override.
 I'm always trying to completely avoid anything that would cause multiple contexts to be created.
-We've made it a rule to have a single [BaseTestCase](https://github.com/fprochazka/spring-mock-wrapped-bean-demo/blob/master/src/test/java/com/fprochazka/mockwrappedbean/testing/BaseTestCase.java), that contains all the test-related configs and overrides, and none of the tests defines their own.
+We've made it a rule to have a single [BaseTestCase](https://github.com/fprochazka/spring-mock-wrapped-bean-demo/blob/master/example-fix-custom-mockwrappedbean/src/test/java/com/fprochazka/mockbean/testing/BaseTestCase.java), that contains all the test-related configs and overrides, and none of the tests defines their own.
 The only situation where I couldn't avoid overriding configs in individual tests was when I was writing a library-like functionality with parametrized configuration classes, but that can be easily extracted into a separate Maven module, so it doesn't have to affect your application.
 
 The Spring developers are [trying to tackle this problem systematically](https://github.com/spring-projects/spring-boot/issues/34768), but until they do, `@MockBean` is an anti-pattern in my book.
