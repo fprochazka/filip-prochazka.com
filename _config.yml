@@ -54,6 +54,12 @@ mastodon:
 bsky:
   username: fprochazka.cz
 
+reddit:
+  username: fprochazka
+
+stackoverflow:
+  userId: 602899
+
 github:
   username: fprochazka
   repository: fprochazka/filip-prochazka.com

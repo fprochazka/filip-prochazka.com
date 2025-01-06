@@ -17,74 +17,80 @@ sitemap:
 ---
 
 <div itemscope itemtype="http://schema.org/Person" class="profile">
-	<div class="row">
-		<div class="col-lg-10 offset-lg-1">
+    <div class="row">
+        <div class="col-lg-10 offset-lg-1">
 
-			<div class="pull-right cv-pic hidden-sm-down">
-				<img src="{% link /assets/img/selfi.jpg %}" alt="Filip Procházka" itemprop="image" width="300">
-			</div>
+            <div class="pull-right cv-pic hidden-sm-down">
+                <img src="{% link /assets/img/selfi.jpg %}" alt="Filip Procházka" itemprop="image" width="300">
+            </div>
 
-			<h2 class="first">Hi!</h2>
+            <h2 class="first">Hi!</h2>
 
-			<p>
+            <p>
                 My name is <span itemprop="name">Filip Procházka</span>, and I'm a <span itemprop="jobTitle">software engineer</span>,
                 and I specialize in backend web applications in Java and PHP, but I don't mind touching Python, TypeScript and other languages.
             </p>
 
             <p>
-                My favourite social media is Twitter, where you can follow me at <a href="https://twitter.com/{{ site.twitter.handle }}">@{{ site.twitter.handle }}</a>.
-                But I'm also on <a rel="me" href="https://www.facebook.com/{{ site.facebook.username }}">Facebook</a>,
-                <a rel="me" href="https://www.linkedin.com/in/{{ site.linkedin.username }}/">LinkedIn</a>,
-                <a rel="me" href="https://mastodon.online/@{{ site.mastodon.username }}">Mastodon</a>,
-                <a rel="me" href="https://bsky.app/profile/{{ site.bsky.username }}">Bluesky</a>,
-                and <a rel="me" href="https://github.com/{{ site.github.username }}/">GitHub</a>.
+                You can also find me on:
             </p>
-		</div>
-	</div>
 
-	<div class="row vcard" id="contact">
-		<div class="col-xl-5 col-lg-6 offset-lg-1">
-			<h2>Billing information</h2>
+            <ul>
+                <li><a rel="me" href="https://www.linkedin.com/in/{{ site.linkedin.username }}/">LinkedIn</a></li>
+                <li><a rel="me" href="https://github.com/{{ site.github.username }}/">GitHub</a></li>
+                <li><a rel="me" href="https://bsky.app/profile/{{ site.bsky.username }}">Bluesky</a></li>
+                <li><a href="https://twitter.com/{{ site.twitter.handle }}">Twitter/X</a></li>
+                <li><a rel="me" href="https://mastodon.online/@{{ site.mastodon.username }}">Mastodon</a></li>
+                <li><a rel="me" href="https://www.reddit.com/user/{{ site.reddit.username }}/">reddit</a></li>
+                <li><a rel="me" href="https://stackoverflow.com/users/{{ site.stackoverflow.userId }}/?tab=profile">Stack Overflow</a></li>
+                <li><a rel="me" href="https://www.facebook.com/{{ site.facebook.username }}">Facebook</a></li>
+            </ul>
+        </div>
+    </div>
 
-			<div>
-				<p itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
-					<span class="fn">Filip Procházka</span><br>
-					<span class="adr"><span class="street-address" itemprop="streetAddress">Starovičky 28</span><br>
+    <div class="row vcard" id="contact">
+        <div class="col-xl-5 col-lg-6 offset-lg-1">
+            <h2>Billing information</h2>
+
+            <div>
+                <p itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
+                    <span class="fn">Filip Procházka</span><br>
+                    <span class="adr"><span class="street-address" itemprop="streetAddress">Starovičky 28</span><br>
 					<span class="postal-code" itemprop="postalCode">69168</span>&nbsp;<span class="locality" itemprop="addressLocality">Starovičky</span></span>
-				</p>
+                </p>
 
-				<p>
-					IČ: <span itemprop="vatID">01310534</span><br>
-					DIČ: <span itemprop="taxID">CZ9104154433</span> (plátce DPH)
-				</p>
-			</div>
+                <p>
+                    IČ: <span itemprop="vatID">01310534</span><br>
+                    DIČ: <span itemprop="taxID">CZ9104154433</span> (plátce DPH)
+                </p>
+            </div>
 
-			<h3>Banking</h3>
+            <h3>Banking</h3>
 
-			<div>
-				<p>
-					<span>1109451029 / 3030</span> (AirBank)<br>
-					<small>CZ08&nbsp;3030&nbsp;0000&nbsp;0011&nbsp;0945&nbsp;1029</small>
-				</p>
-			</div>
-		</div>
+            <div>
+                <p>
+                    <span>1109451029 / 3030</span> (AirBank)<br>
+                    <small>CZ08&nbsp;3030&nbsp;0000&nbsp;0011&nbsp;0945&nbsp;1029</small>
+                </p>
+            </div>
+        </div>
 
-		<div class="col-xl-5 col-lg-4">
-			<h2>Contact address</h2>
+        <div class="col-xl-5 col-lg-4">
+            <h2>Contact address</h2>
 
-			<div>
-				<p itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
-					<span class="fn">Filip Procházka</span><br>
-					<span class="adr"><span class="street-address" itemprop="streetAddress">Bayerova 586/14A</span><br>
+            <div>
+                <p itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
+                    <span class="fn">Filip Procházka</span><br>
+                    <span class="adr"><span class="street-address" itemprop="streetAddress">Bayerova 586/14A</span><br>
 					<span class="postal-code" itemprop="postalCode">60200</span>&nbsp;<span class="locality" itemprop="addressLocality">Brno</span></span>
-				</p>
+                </p>
 
-				<p>E-mail: <a href="mailto:{{ site.email }}" itemprop="email" class="email">{{ site.email }}</a></p>
+                <p>E-mail: <a href="mailto:{{ site.email }}" itemprop="email" class="email">{{ site.email }}</a></p>
 
                 <p>
                     Mobil: <a href="tel:+420774634649" itemprop="telephone">+420.774&nbsp;634&nbsp;649</a>
                 </p>
-			</div>
-		</div>
-	</div>
+            </div>
+        </div>
+    </div>
 </div>
