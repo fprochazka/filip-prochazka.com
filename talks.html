@@ -16,12 +16,17 @@ sitemap:
 
 			<h2>Talks</h2>
 
+            {% assign talks = site.talks | sort: 'date' | reverse %}
+            {% assign grouped_talks = talks | group_by_exp: "item", "item.date | date: '%Y'" %}
+
+            {% for group in grouped_talks %}
 			<br>
+            <h3>{{ group.name }}</h3>
 			<ul class="talks-list">
-                {% assign talks = site.talks | sort: 'date' | reverse %}
-                {% for item in talks %}
+                {% for item in group.items %}
                 <li><a href="{{ item.url }}">{{ item.talk.title }}</a></li>{% endfor %}
 			</ul>
+            {% endfor %}
 		</div>
 	</div>
 </div>
