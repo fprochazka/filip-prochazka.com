@@ -15,4 +15,4 @@ Na závěr to všechno spojíme dohromady: podrobně projdeme životní cyklus j
 
 Z přednášky není záznam, můžete si ale prohlédnout [slajdy][slides].
 
-[slides](https://docs.google.com/presentation/d/1xctWXxW8_xpOdGoinUH6RoOKAZD4i6sk_dr9SNLr3OE/edit?usp=sharing)
+[slides]: https://docs.google.com/presentation/d/1xctWXxW8_xpOdGoinUH6RoOKAZD4i6sk_dr9SNLr3OE/edit?usp=sharing
