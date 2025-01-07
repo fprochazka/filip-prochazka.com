@@ -86,4 +86,4 @@ I love to find safe ways to modernize a project so that it can be a joy to work 
 
 ## Thanks for reading all of this
 
-If you now don't have the time to scroll back up anymore, here is my email again: [work@fprochazka.cz](email:work@fprochazka.cz) :)
+To save you some time, here is my email again: [work@fprochazka.cz](email:work@fprochazka.cz) :)
