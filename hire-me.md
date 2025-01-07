@@ -21,13 +21,19 @@ content-class: hire-me
 
 # Hire me!
 
-I'm Filip Procházka, and I've been a software engineer for over {{ thisYear | minus: 2006 }} years, and over the last {{ thisYear | minus: 2013 }} years I've worked as a team lead,
-tech lead, principal engineer, director of engineering, and even head of engineering in smaller startups and medium-sized companies.
-
-[You can read more in my CV](/cv), or if you want to know what I can do for you, continue reading here.
+I'm Filip Procházka, and I've been a software engineer for over {{ thisYear | minus: 2006 }} years.
 
 Contact me at [work@fprochazka.cz](email:work@fprochazka.cz) if anything you see sounds like what you need.
-I'd love to continue improving the skills for roles I've already done, but I'm also open to trying new things.
+I'd love to continue improving the skills for roles I've had, but I'm also open to trying new things.
+
+## Some highlights from [my CV](/cv):
+
+* I've worked as a team lead, tech lead, **principal engineer**, **director of engineering**, and even head of engineering in smaller startups and medium-sized companies
+* In the past, I've developed and maintained [OSS libraries](https://packagist.org/packages/kdyby/) used on **hundreds of projects** and in almost as many companies
+* In every project I've worked on, we've always had great test coverage, CI&CI automation, static analysis (with additional custom rules), extensive observability & metrics, and we've regularly **deployed many times every day**
+* I semi-regularly give [**technical talks** on local meetups](/talks)
+* I've been working mostly **remotely** for over {{ thisYear | minus: 2013 }} years
+* [and more](/cv)
 
 ## I'm confident in my ability to:
 
@@ -71,19 +77,19 @@ But I'm open to exploring new paths, as I've already worked for ~10 years with P
 
 ### Improve developer experience (DevEx)
 
-I greatly enjoy implementing practices and technologies that serve as a multiplier for effectiveness and efficiency, either by providing a solution for a common sub-problem or by creating an environment where a whole category of problems is prevented entirely.
+I greatly enjoy implementing practices and technologies that serve as a multiplier for effectiveness and efficiency, either by providing a plug-and-play solution for a common problem or by creating an environment where a whole category of problems is prevented entirely.
 These could be shared services, libraries, observability tools, custom static analysis rules, reusable build components, or just tuning the performance of some system component.
 
 ### Put the "Engineering" into "Data Engineering"
 
 I'm neither a data scientist nor a statistics expert, but I know a thing or two about software development best practices.
-I've seen brilliant people produce business-critical reports that I would struggle with, only to start showing nonsense or break completely a few weeks later because somebody touched something without knowing all the consequences.
+I've often seen a business-critical report showing nonsense or completely breaking because somebody touched something without knowing all the consequences.
 If that sounds familiar, I can implement a cure for you through my beloved buzzwords - data mesh, data lineage, and DevEx.
 
 ### Tackle legacy
 
 I'll gladly put on a hazmat suit and jump head-first into the void of despair that has been causing your engineers to run away from your company.
-I love to find safe ways to modernize a project so that it can be a joy to work on it again without having to throw it away and start from scratch.
+I love to find safe ways to modernize a project to be a joy to work on again without throwing it away and starting from scratch.
 
 ## Thanks for reading all of this
 
