@@ -47,13 +47,6 @@
 
     <link rel="stylesheet" href="{{ '/assets/css/styles.css' | relative_url }}?{{site.time | date: '%s%N'}}"/>
 
-    {% if jekyll.environment == "production" %}<script>
-		window.ga = window.ga || function (){(ga.q=ga.q||[]).push(arguments)};
-		ga.l = +new Date;
-		ga('create', '{{ site.googleAnalytics.account }}', 'auto');
-		ga('send', 'pageview');
-	</script>
-	<script async defer src='https://www.google-analytics.com/analytics.js'></script>{% endif %}
 	<script src="//platform.twitter.com/widgets.js" charset="utf-8" async defer></script>
 
     {% if jekyll.environment == "production" %}<script defer data-domain="filip-prochazka.com" data-api="/plsbl/events" src="/plsbl/app.js"></script>
