@@ -33,7 +33,7 @@ Contact me at [work@fprochazka.cz](email:work@fprochazka.cz)
 
 * I've worked as a team lead, tech lead, **principal engineer**, **director of engineering**, and even head of engineering in smaller startups and medium-sized companies
 * In the past, I've developed and maintained [OSS libraries](https://packagist.org/packages/kdyby/) used on **hundreds of projects** and in almost as many companies
-* In every project I've worked on, we've always had great test coverage, CI&CI automation, static analysis (with additional custom rules), extensive observability & metrics, and we've regularly **deployed many times every day**
+* In every project I've worked on, we've always had great test coverage, CI&CD automation, static analysis (with additional custom rules), extensive observability & metrics, and we've regularly **deployed many times every day**
 * I semi-regularly give [**technical talks** on local meetups](/talks)
 * I've been working mostly **remotely** for over {{ thisYear | minus: 2013 }} years
 * [and more](/cv)
