@@ -23,10 +23,11 @@ content-class: hire-me
 
 # Hire me!
 
-I'm Filip Procházka, and I've been a software engineer for over {{ thisYear | minus: 2006 }} years.
+I'm Filip Procházka, and I've been **a software engineer for over {{ thisYear | minus: 2006 }} years**.
 
-Contact me at [work@fprochazka.cz](email:work@fprochazka.cz) if anything you see sounds like what you need.
-I'd love to continue improving the skills for roles I've had, but I'm also open to trying new things.
+I'm seeking an opportunity to build exceptional products with a talented team.
+
+Contact me at [work@fprochazka.cz](email:work@fprochazka.cz)
 
 ## Some highlights from [my CV](/cv):
 
