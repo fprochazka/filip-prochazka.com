@@ -19,7 +19,7 @@ content-class: hire-me
 
 # Hire me!
 
-I'm a software engineer with over 10 years of experience as a team lead, tech lead, principal engineer, director of engineering, and even head of engineering in smaller startups and medium-sized companies.
+I'm a software engineer for over 19 years with over 10 years of experience as a team lead, tech lead, principal engineer, director of engineering, and even head of engineering in smaller startups and medium-sized companies.
 If you want to know about what projects I've worked on, [you can read my CV](/cv), and if you want to know what I can do for you, continue reading here:
 
 ## I'm confident in my ability to:
