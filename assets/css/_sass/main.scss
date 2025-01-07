@@ -160,7 +160,13 @@ body {
 }
 
 .hire-me {
-  h2, h3, h4 { margin-top: 2rem; }
+  h1, h2, h3, h4 {
+    margin-bottom: 1rem;
+  }
+
+  h2, h3, h4 {
+    margin-top: 2.5rem;
+  }
 }
 
 @media screen and (min-width: map-get($grid-breakpoints, lg)) {

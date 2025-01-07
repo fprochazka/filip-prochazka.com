@@ -21,10 +21,22 @@ content-class: hire-me
 
 # Hire me!
 
-I've been a software engineer for over {{ thisYear | minus: 2006 }} years, with over {{ thisYear | minus: 2013 }} years of experience as a team lead, tech lead, principal engineer, director of engineering, and even head of engineering in smaller startups and medium-sized companies.
-If you want to know about what projects I've worked on, [you can read my CV](/cv), and if you want to know what I can do for you, continue reading here:
+I'm Filip Procházka, and I've been a software engineer for over {{ thisYear | minus: 2006 }} years, and over the last {{ thisYear | minus: 2013 }} years I've worked as a team lead,
+tech lead, principal engineer, director of engineering, and even head of engineering in smaller startups and medium-sized companies.
+[You can read more in my CV](/cv) or if you want to know what I can do for you, continue reading here:
+
+Contact me at [work@fprochazka.cz](email:work@fprochazka.cz) if anything you see sounds like what you need.
+I'd love to continue improving the skills for roles I've already done, but I'm also open to trying new things.
 
 ## I'm confident in my ability to:
+
+* [Adapt](#adapt)
+* [Build a product](#build-a-product)
+* [Build and lead a team](#build-and-lead-a-team)
+* [Develop in Java or Kotlin](#develop-in-java-or-kotlin)
+* [Improve developer experience (DevEx)](#improve-developer-experience-devex)
+* [Put the "Engineering" into "Data Engineering"](#put-the-engineering-into-data-engineering)
+* [Tackle legacy](#tackle-legacy)
 
 ### Adapt
 
@@ -72,6 +84,6 @@ If that sounds familiar, I can implement a cure for you through my beloved buzzw
 I'll gladly put on a hazmat suit and jump head-first into the void of despair that has been causing your engineers to run away from your company.
 I love to find safe ways to modernize a project so that it can be a joy to work on it again without having to throw it away and start from scratch.
 
-## Contact me
+## Thanks for reading all of this
 
-If any of that sounds like what you need - [work@fprochazka.cz](email:work@fprochazka.cz) - I'd love to continue applying and improving the skills for roles I've already done, but I'm also open to trying new things.
+If you now don't have the time to scroll back up anymore, here is my email again: [work@fprochazka.cz](email:work@fprochazka.cz) :)
