@@ -23,7 +23,7 @@ content-class: hire-me
 
 # Hire me!
 
-I'm Filip Procházka, and I've been **a software engineer for over {{ thisYear | minus: 2006 }} years**.
+I'm Filip Procházka, and I've been a **software engineer for over {{ thisYear | minus: 2006 }} years**.
 
 I'm seeking an opportunity to build exceptional products with a talented team.
 
