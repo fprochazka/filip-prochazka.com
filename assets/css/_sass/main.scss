@@ -135,6 +135,7 @@ body {
 .donation,
 .paid-support,
 .talks,
+.hire-me,
 .trainings {
   font-size: 1.125em;
   line-height: 1.4;
@@ -155,6 +156,17 @@ body {
     &.first {
       margin-top: 0;
     }
+  }
+}
+
+.hire-me {
+  h2, h3, h4 { margin-top: 2rem; }
+}
+
+@media screen and (min-width: map-get($grid-breakpoints, lg)) {
+  .hire-me {
+    padding-left: 15%;
+    padding-right: 15%;
   }
 }
 

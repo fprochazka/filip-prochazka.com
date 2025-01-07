@@ -3,6 +3,10 @@ items:
       url: /
       active: []
 
+  -   title: Hire me!
+      url: /hire-me
+      active: []
+
   -   title: CV
       url: /cv
       active: []
