@@ -23,7 +23,8 @@ content-class: hire-me
 
 I'm Filip Procházka, and I've been a software engineer for over {{ thisYear | minus: 2006 }} years, and over the last {{ thisYear | minus: 2013 }} years I've worked as a team lead,
 tech lead, principal engineer, director of engineering, and even head of engineering in smaller startups and medium-sized companies.
-[You can read more in my CV](/cv) or if you want to know what I can do for you, continue reading here:
+
+[You can read more in my CV](/cv), or if you want to know what I can do for you, continue reading here.
 
 Contact me at [work@fprochazka.cz](email:work@fprochazka.cz) if anything you see sounds like what you need.
 I'd love to continue improving the skills for roles I've already done, but I'm also open to trying new things.
