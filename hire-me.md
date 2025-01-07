@@ -46,7 +46,6 @@ This way, the team can rapidly course-correct if the metrics show new findings i
 I've proven multiple times that I can interview, hire, onboard, and effectively engage with team members, even when starting from zero.
 I don't believe in manipulating and exploiting people - I build happy and engaged teams with transparency, trust, and zero-bullshit policy.
 
-
 I lead by example when promoting DevSecOps culture, where the team developing the service is responsible for it, not some 3rd-party that won't be able to fix outages if something unexpected happens.
 When problems occur, I engage in blameless root-cause analysis and focus on regression prevention.
 
