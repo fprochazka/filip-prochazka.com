@@ -17,9 +17,11 @@ sitemap:
 content-class: hire-me
 ---
 
+{% assign thisYear = site.time | date: "%Y" | plus: 0 %}
+
 # Hire me!
 
-I've been a software engineer for over 19 years, with over 10 years of experience as a team lead, tech lead, principal engineer, director of engineering, and even head of engineering in smaller startups and medium-sized companies.
+I've been a software engineer for over {{ thisYear | minus: 2006 }} years, with over {{ thisYear | minus: 2013 }} years of experience as a team lead, tech lead, principal engineer, director of engineering, and even head of engineering in smaller startups and medium-sized companies.
 If you want to know about what projects I've worked on, [you can read my CV](/cv), and if you want to know what I can do for you, continue reading here:
 
 ## I'm confident in my ability to:
