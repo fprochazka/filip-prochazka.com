@@ -19,8 +19,8 @@ content-class: hire-me
 
 # Hire me!
 
-I'd love to continue applying and improving the skills for roles I've already done, but I'm also open to trying new things.
-If you want to know who I am, [you can read my CV](/cv), and if you want to know what I can do for you, continue reading here:
+I'm a software engineer with over 10 years of experience as a team lead, tech lead, principal engineer, director of engineering, and even head of engineering in smaller startups and medium-sized companies.
+If you want to know about what projects I've worked on, [you can read my CV](/cv), and if you want to know what I can do for you, continue reading here:
 
 ## I'm confident in my ability to:
 
@@ -29,7 +29,7 @@ If you want to know who I am, [you can read my CV](/cv), and if you want to know
 Over the years, I've collected many proven approaches to work and technology into my toolbox that I can always fall back on.
 Yet, I'm continuously learning new things and staying on top of modern trends to evaluate what to explore next.
 
-When evaluating a technology, I always consider its total cost of ownership, which allowed me to avoid many fads that would otherwise have cost the project time, money, and opportunity.
+When evaluating a technology, I always consider its total cost of ownership, which has allowed me to avoid many fads that would have otherwise cost the project time, money, and opportunity.
 I usually stay with the project long enough to see the fruits of my work, so if I make a mistake in my evaluation, I can learn from it, fix it, and avoid repeating it.
 
 ### Build a product
@@ -46,7 +46,8 @@ This way, the team can rapidly course-correct if the metrics show new findings i
 I've proven multiple times that I can interview, hire, onboard, and effectively engage with team members, even when starting from zero.
 I don't believe in manipulating and exploiting people - I build happy and engaged teams with transparency, trust, and zero-bullshit policy.
 
-I lead by example when promoting DevSecOps culture, where the team developing the service is responsible for its availability, not some 3rd-party that won't be able to fix outages if something unexpected happens.
+
+I lead by example when promoting DevSecOps culture, where the team developing the service is responsible for it, not some 3rd-party that won't be able to fix outages if something unexpected happens.
 When problems occur, I engage in blameless root-cause analysis and focus on regression prevention.
 
 ### Develop in Java or Kotlin
@@ -72,4 +73,4 @@ I love to find safe ways to modernize a project so that it can be a joy to work 
 
 ## Contact me
 
-If any of that sounds like what you need - [work@fprochazka.cz](email:work@fprochazka.cz)
+If any of that sounds like what you need - [work@fprochazka.cz](email:work@fprochazka.cz) - I'd love to continue applying and improving the skills for roles I've already done, but I'm also open to trying new things.
