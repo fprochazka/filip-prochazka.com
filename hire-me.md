@@ -19,6 +19,8 @@ content-class: hire-me
 
 {% assign thisYear = site.time | date: "%Y" | plus: 0 %}
 
+![Filip Procházka](/assets/img/selfi.jpg){:.profile-pic style="width:300px"}
+
 # Hire me!
 
 I'm Filip Procházka, and I've been a software engineer for over {{ thisYear | minus: 2006 }} years.

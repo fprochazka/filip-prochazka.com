@@ -167,12 +167,18 @@ body {
   h2, h3, h4 {
     margin-top: 2.5rem;
   }
+
+  img.profile-pic {
+    display: block;
+    float: right;
+    padding: 0 0 1rem 2rem;
+  }
 }
 
 @media screen and (min-width: map-get($grid-breakpoints, lg)) {
   .hire-me {
-    padding-left: 15%;
-    padding-right: 15%;
+    padding-left: 10%;
+    padding-right: 10%;
   }
 }
 
