@@ -29,12 +29,16 @@ sitemap:
 
             {% assign thisYear = site.time | date: "%Y" | plus: 0 %}
             <ul>
+                <li class="visible-print"><strong>Contact</strong>
+                    <a href="mailto:work@fprochazka.cz" itemprop="email" class="email">work@fprochazka.cz</a>,
+                    <a href="tel:+420774634649" itemprop="telephone">+420774634649</a>
+                </li>
                 <li><strong>Preferred language</strong>: Java/Kotlin (Spring, Hibernate), SQL</li>
                 <li><strong>Experience with</strong>: PHP, Python, TypeScript and many other languages</li>
-                <li><strong>Programming</strong>: over {{ thisYear | minus: 2006 }} years</li>
+                <li class="hidden-print"><strong>Programming</strong>: over {{ thisYear | minus: 2006 }} years</li>
             </ul>
 
-            <h2 id="work-and-projects">Work and projects</h2>
+            <h2 id="work-and-projects">Work and projects <small class="visible-print-inline">(over {{ thisYear | minus: 2006 }} years)</small></h2>
 
             <h3>ShipMonk <small>BedaBox LLC</small> <span class="light">- May 2022 to August 2024</span></h3>
 

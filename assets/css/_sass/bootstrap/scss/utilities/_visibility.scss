@@ -48,6 +48,14 @@
   }
 }
 
+li.visible-print {
+  display: none !important;
+
+  @media print {
+    display: list-item !important;
+  }
+}
+
 .hidden-print {
   @media print {
     display: none !important;
