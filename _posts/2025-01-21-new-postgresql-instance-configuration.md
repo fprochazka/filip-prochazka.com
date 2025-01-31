@@ -219,7 +219,7 @@ BEGIN
 END
 $body$;
 
--- This role is going to create tables, so it must grant its own set of default privileges.
+-- This role is going to create tables, so it must also own the default privileges.
 SET ROLE fp_role_admin;
 
 -- Recreate the public schema, now under the correct owner
