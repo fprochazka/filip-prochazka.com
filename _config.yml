@@ -32,9 +32,6 @@ permalink: /blog/:year/:month/:title:output_ext
 googleAnalytics:
   account: UA-12182518-9
 
-disqus:
-  shortname: filip-prochazka-blog
-
 twitter:
   handle: ProchazkaFilip
 
@@ -64,6 +61,14 @@ github:
   username: fprochazka
   repository: fprochazka/filip-prochazka.com
 
+giscus:
+  repo: "fprochazka/filip-prochazka.com"
+  repo_id: "MDEwOlJlcG9zaXRvcnkyOTk2NTk5MzI="
+  category: "BlogPosts"
+  category_id: "DIC_kwDOEdxynM4CThkc"
+  mapping: "pathname"
+  reactions_enabled: "1"
+  theme: "light"
 
 # Build settings
 markdown: kramdown
