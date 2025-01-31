@@ -63,9 +63,9 @@ github:
 
 giscus:
   repo: "fprochazka/filip-prochazka.com"
-  repo_id: "MDEwOlJlcG9zaXRvcnkyOTk2NTk5MzI="
+  repo_id: "MDEwOlJlcG9zaXRvcnk3NzM1Nzk4Ng=="
   category: "BlogPosts"
-  category_id: "DIC_kwDOEdxynM4CThkc"
+  category_id: "DIC_kwDOBJxjos4CmgS6"
   mapping: "pathname"
   reactions_enabled: "1"
   theme: "light"
