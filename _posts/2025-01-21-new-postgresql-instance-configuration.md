@@ -111,7 +111,7 @@ I don't know about you, but this one surprised me - neither the `CREATEROLE` nor
 The only way a role can grant itself to another role is if the role itself is directly `SUPERUSER`:
 
 ```sql
-CREATE ROLE fp_role_admin WITH SUPERUSER;
+CREATE ROLE fp_role_admin WITH SUPERUSER INHERIT;
 SET ROLE fp_role_admin;
 CREATE ROLE second_user INHERIT IN ROLE fp_role_admin ENCRYPTED PASSWORD 'secret';
 -- works
