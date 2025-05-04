@@ -12,10 +12,19 @@ sitemap:
 
 <div class="row archive">
 	<div class="col-md-9 offset-md-1">
-        {% for item in site.posts %}
-		<h2><a href="{{ item.url }}">
+        {% assign posts = site.posts | sort: 'date' | reverse %}
+        {% assign grouped_posts = posts | group_by_exp: "item", "item.date | date: '%Y'" %}
+
+        {% for group in grouped_posts %}
+        <br>
+        <h3>{{ group.name }}</h3>
+
+        {% for item in group.items %}
+        <h2><a href="{{ item.url }}">
             {{ item.title }} <time datetime="{{ item.date | date_to_xmlschema }}" title="{{ item.date | date_to_xmlschema }}">{{ item.date | date: date_to_xmlschema }}</time>
-		</a></h2>
+        </a></h2>
+        {% endfor %}
+
         {% endfor %}
 	</div>
 </div>
