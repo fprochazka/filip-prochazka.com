@@ -7,7 +7,7 @@ talk:
   video: "https://www.youtube.com/embed/K03SOX5v13s"
 meta:
   image: https://img.youtube.com/vi/K03SOX5v13s/hqdefault.jpg
-  description: "V době, kdy všichni mluví o využití AI pro psaní kódu, se podíváme na to, co se stane, když přijde čas na jeho změnu. V této přednášce se ponoříme do příslibů refaktoringu s pomocí AI a odhalíme, co se skutečně stane, když AI necháte pracovat s reálným kódem. Prozkoumáme různé typy refaktoringu, včetně strukturálního a sémantického, a ukážeme si, kde AI exceluje. Zároveň se podíváme na to, proč AI selhává v komplexních úkolech, jako jsou typově bezpečné změny, a proč je klíčové, aby správnost kódu zajišťovalo vaše IDE. Odhalíte, proč nejmocnější nástroj pro refaktorování už možná máte ve svém IDE, tiše čekající za pravým kliknutím, a projdeme osvědčené techniky pro bezpečný a efektivní refaktoring."
+  description: "V této přednášce se ponoříme do příslibů refaktoringu s pomocí AI a odhalíme, co se skutečně stane, když AI necháte pracovat s reálným kódem. Prozkoumáme různé typy refaktoringu, včetně strukturálního a sémantického, a ukážeme si, kde AI exceluje. Zároveň se podíváme na to, proč AI selhává v komplexních úkolech, jako jsou typově bezpečné změny, a proč je klíčové, aby správnost kódu zajišťovalo vaše IDE. Odhalíte, proč nejmocnější nástroj pro refaktorování už možná máte ve svém IDE, tiše čekající za pravým kliknutím, a projdeme osvědčené techniky pro bezpečný a efektivní refaktoring."
   og:
     type: "video.other"
     other:
@@ -15,7 +15,6 @@ meta:
         value: "https://www.youtube.com/watch?v=K03SOX5v13s"
 ---
 
-V době, kdy všichni mluví o využití AI pro psaní kódu, se podíváme na to, co se stane, když přijde čas na jeho změnu.
 V této přednášce se ponoříme do příslibů refaktoringu s pomocí AI a odhalíme, co se skutečně stane, když AI necháte pracovat s reálným kódem.
 Prozkoumáme různé typy refaktoringu, včetně strukturálního a sémantického, a ukážeme si, kde AI exceluje.
 Zároveň se podíváme na to, proč AI selhává v komplexních úkolech, jako jsou typově bezpečné změny, a proč je klíčové, aby správnost kódu zajišťovalo vaše IDE.
