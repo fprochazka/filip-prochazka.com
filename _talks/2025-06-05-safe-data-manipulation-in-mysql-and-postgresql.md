@@ -3,7 +3,7 @@ layout: talk
 title: "Safe Data Manipulation in MySQL & PostgreSQL #rohlik - Přednášky - Filip Procházka"
 date: 2025-06-05
 talk:
-  title: "Safe Data Manipulation in MySQL & PostgreSQL"
+  title: "Safe Data Manipulation in MySQL & PostgreSQL #rohlik"
   video: "https://www.youtube.com/embed/RsvfwAy2-js"
 meta:
   image: https://img.youtube.com/vi/RsvfwAy2-js/hqdefault.jpg
