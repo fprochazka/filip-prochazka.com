@@ -10,6 +10,7 @@ meta:
 
 If you compare throwing random prompts at AI-assisted coding tools and being deliberate and structured about what you give them, you'll see a big difference in the usefulness of the results.
 In this talk, I try to go through some of the basic principles of how to make the most of these tools and what to avoid.
+
 And as with anything AI-related - your mileage may vary greatly, and what has worked when the talk was presented may not work for you today anymore.
 
 [presentation is here][slides]
